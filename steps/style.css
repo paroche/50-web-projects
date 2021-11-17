@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&sidplay=swap');
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #e0e0e0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f7fb;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  /* text-align: center; */
+  /* I don't know why he had this here */
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+}
+
+
+/* this creates the background line joining the numbered circles 
+
+The ::before pseudo-element is a generated content element that adds any kind of element before the content. It can be used to insert any kind of content, including characters, strings of text, and images. The value is defined by the content property.
+By default, the ::before pseudo-element is inline.
+
+This pseudo-element can be animated, positioned or floated like any other content.
+
+The ::before pseudo-element can also be used with one colon notation :before which is supported by all browsers as well.
+
+The ::after pseudo-class adds content after any other content wheareas the ::before pseudo-element adds content before any other content in HTML.*/
+
+.progress-container::before {
+  content: "";
+  background-color: var(--line-border-empty);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+
+
+/* progress meter. positioned absolute so not part of space-between w/ circles, I guess. Starts on left and grows w/ progress*/
+
+.progress {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  /* When the top of the element is at the halfway mark, we can move the element back up by half of its own height to center it with the whole page. That's exactly what transform:translateY(-50%); does.
+  i.e. This moves the inner element back up a distance of half the height of the inner element.*/
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: .4s ease;
+}
+
+.circle {
+  background-color: #fff;
+  color: #999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--line-border-empty);
+  transition: .4s ease;
+}
+
+.circle.active {
+  border-color: var(--line-border-fill);
+}
+
+.btn {
+  background-color: var(--line-border-fill);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}

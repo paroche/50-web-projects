@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+  --date-color: white;
+}
+
+html.dark {
+  --primary-color: #fff;
+  --secondary-color: #333;
+  --date-color: #000;
+}
+
+html.dark {
+  background-color: #111;
+  color: var(--primary-color);
+}
+
+body {
+  font-family: 'Heebo', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  opacity: 0;
+}
+
+.toggle {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 100px;
+}
+
+.toggle:focus {
+  outline: none;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  /* background-color: #f0f0f0; */
+  border-radius: 50%;
+  /* Issue now is clock moves up when time filled in? */
+}
+
+.needle {
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 3px;
+  height: 0;
+  transform-origin: bottom center;
+  transition: all none;
+  /* Doesn't seem to work -- needles still spin */
+  /* transition: all 0.5s ease-in; */
+  /* I took this out because was making the needles spin to start position */
+  /* From Q&A, could just turn off in setTime() when hours/minutes/seconds == 0, */
+}
+
+.needle.hour {
+  /* transform: translateX(-50%) rotate(0deg); */
+  /* transform: translate(-50%, 0%) rotate(0deg); */
+  height: 65px;
+}
+
+.needle.minute {
+  /* transform: translateX(-50%) rotate(0deg); */
+  /* transform: translate(-50%, 0%) rotate(0deg); */
+  height: 100px;
+}
+
+.needle.second {
+  /* transform: translateX(-50%) rotate(0deg); */
+  /* transform: translate(-50%, -0%) rotate(0deg); */
+  height: 100px;
+  background-color: #e74c3c;
+}
+
+.center-point {
+  background-color: #e74c3c;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  /* top: 50%; */
+  bottom: 50%;
+  left: 50%;
+  /* transform: translate(-50%, -50%); */
+  transform: translate(-50%, 50%);
+  border-radius: 50%;
+}
+
+.center-point::after {
+  content: '';
+  background-color: var(--primary-color);
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  /* top: 50%; */
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  border-radius: 50%;
+}
+
+.time {
+  font-size: 60px;
+}
+
+.date {
+  color: #aaa;
+  font-size: 14px;
+  font-weight: bold;
+  /* mine */
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.date .circle {
+  background-color: var(--primary-color);
+  /* color: var(--secondary-color); */
+  color: var(--date-color);
+  font-weight: bold;
+  /* to make easier to read in dark mode */
+  border-radius: 50%;
+  height: 18px;
+  width: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 18px;
+  /* transition: all 0.5s ease-in; */
+  font-size: 12px;
+}

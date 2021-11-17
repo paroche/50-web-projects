@@ -1,0 +1,26 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+  <title>Notes App</title>
+</head>
+
+<body>
+  <button class="add" id="add"><i class="fas fa-plus"></i> Add note</button>
+
+  <!-- Both scripts below bring in marked as an object, though they weren't identical when I looked at them on 11/15/2021. But we need to use the method ".parse", not "marked() by itself" -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js" referrerpolicy="no-referrer"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> -->
+  <script src="script.js"></script>
+</body>
+
+</html>
