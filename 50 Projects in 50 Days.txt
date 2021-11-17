@@ -7477,3 +7477,11 @@ script.js:
 
 // Lesson -- Project Intro (#116) (0:30)
 
+
+Will show a couple images, will automatically scroll through them, but have buttons to move forward and back.
+
+
+
+// Lesson -- Carousel UI (#117) (7:26)
+
+
