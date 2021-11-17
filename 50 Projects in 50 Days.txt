@@ -7483,5 +7483,165 @@ Will show a couple images, will automatically scroll through them, but have butt
 
 
 // Lesson -- Carousel UI (#117) (7:26)
+// Lesson -- Carousel Functionality (#118) (10:08)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css">
+		<title>Image Carousel</title>
+	</head>
+
+	<body>
+		<div class="carousel">
+			<div class="image-container" id="imgs">
+				<img src="https://images.unsplash.com/photo-1599394022918-6c2776530abb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1458&q=80" alt="first-image" />
+				<img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="second-image" />
+				<img src="https://images.unsplash.com/photo-1599423300746-b62533397364?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="third-image" />
+				<img src="https://images.unsplash.com/photo-1599561046251-bfb9465b4c44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1492&q=80" alt="fourth-image" />
+			</div>
+			<div class="buttons-container">
+				<button id="left" class="btn">Prev</button>
+				<button id="right" class="btn">Next</button>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		margin: 0;
+	}
+
+	img {
+		width: 500px;
+		height: 500px;
+		object-fit: cover;
+	}
+
+	.carousel {
+		box-shadow: 2px 2px 5px rgba(0, 0, 0, 0, 0.3);
+		height: 530px;
+		width: 500px;
+		overflow: hidden;
+	}
+
+	.image-container {
+		display: flex;
+		transform: translateX(0);
+		transition: transform 0.5s ease-in-out;
+	}
+
+	.buttons-container {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.btn {
+		background-color: rebeccapurple;
+		color: #fff;
+		border: none;
+		cursor: pointer;
+		padding: 0.5rem;
+		width: 49.5%
+	}
+
+	.btn:hover {
+		opacity: 0.9;
+	}
+
+	.btn:focus {
+		outline: none;
+	}
+
+
+script.js:
+
+	/** @format */
+
+	const imgs = document.getElementById('imgs');
+	const leftBtn = document.getElementById('left');
+	const rightBtn = document.getElementById('right');
+
+	const img = document.querySelectorAll('#imgs img');
+
+	let idx = 0;
+
+	let interval;
+
+	startSlide();
+
+	function startSlide() {
+		if (interval) clearInterval(interval);
+		interval = setInterval(run, 2000);
+	}
+
+	function run() {
+		idx++;
+		changeImage();
+	}
+
+	function changeImage() {
+		if (idx < 0) idx = img.length - 1;
+		if (idx > img.length - 1) idx = 0;
+		imgs.style.transform = `translateX(${-idx * 500}px)`;
+	}
+
+	rightBtn.addEventListener('click', () => {
+		idx++;
+		changeImage();
+		startSlide();
+	});
+
+	leftBtn.addEventListener('click', () => {
+		idx--;
+		changeImage();
+		startSlide();
+	});
+
+	// His code. My version handles this in startSlide()
+	function resetInterval() {
+		clearInterval(interval);
+		interval = setInterval(run, 2000);
+	}
+
+
+
+
+******** SECTION 37: Day 36 -- Hoverboard ********
+
+
+
+// Lesson -- Project Intro (#119) (0:49)
+
+
+Will paint boxes onto screen, set a number, will paint boxes as we hover over, w/ random colors. Pretty cute.
+
+
+
+// Lesson -- Styling the Board Squares (#120) (5:05)
+// Lesson -- Hoverboard Effect (#121) (8min)
 
 
