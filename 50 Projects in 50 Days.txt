@@ -1,0 +1,7479 @@
+Udemy - 50 Projects in 50 Days -- HTML, CSS & Javascript  (Brad Traversy w/ Florin Pop)
+
+	Description
+
+		This is a purely project-based course. It is geared toward beginners, but intermediate developers can also enjoy creating new things. This course includes 50 mini projects in HTML, CSS & JavaScript that relate to the DOM (Document Object Model). Here is a list of what we will create in this course:
+
+			Expanding Cards
+
+			Progress Steps
+
+			Rotating Navigation Animation
+
+			Hidden Search Widget
+
+			Blurry Loading
+
+			Scroll Animation
+
+			Split Landing Page
+
+			Form Wave
+
+			Sound Board
+
+			Dad Jokes
+
+			Event Keycodes
+
+			Faq Collapse
+
+			Random Choice Picker
+
+			Animated Navigation
+
+			Incrementing Counter
+
+			Drink Water
+
+			Movie App
+
+			Background Slider
+
+			Theme Clock
+
+			Button Ripple Effect
+
+			Drag N Drop
+
+			Drawing App
+
+			Kinetic Loader
+
+			Content Placeholder
+
+			Sticky Navbar
+
+			Double Vertical Slider
+
+			Toast Notification
+
+			Github Profiles
+
+			Double Click Heart
+
+			Auto Text Effect
+
+			Password Generator
+
+			Good Cheap Fast
+
+			Notes App
+
+			Animated Countdown
+
+			Image Carousel
+
+			Hoverboard
+
+			Pokedex
+
+			Mobile Tab Navigation
+
+			Password Strength Background
+
+			3d Background Boxes
+
+			Verify Account UI
+
+			Live User Filter
+
+			Feedback UI Design
+
+			Custom Range Slider
+
+			Netflix Mobile Navigation
+
+			Quiz App
+
+			Testimonial Box Switcher
+
+			Random Image Feed
+
+			Todo List
+
+			Insect Catch Game
+
+	What you’ll learn
+	
+	Project based teaching to sharpen your HTML, CSS & JavaScript skills
+	Perfect for beginners looking for things to build unique projects in a short timeframe
+	Modern styling with flexbox, CSS animations, custom properties, etc
+	DOM manipulation, events, array methods, HTTP requests & more
+	
+	Are there any course requirements or prerequisites?	
+		A very basic understanding of HTML, CSS & JavaScript
+	
+	Who this course is for:
+		Beginner and intermediate web developers that want to build fun, unique projects with HTML, CSS & JavaScript
+	
+	
+******** SECTION 1: Introduction ********
+
+
+// Lesson -- Welcome (#1) (1:07)
+
+
+// Lesson -- My Environment & Setup (#2) (4:18)
+
+
+Text editor he's using: VSCode
+
+emmet preinstalled w/ VS code
+
+only extensions recommended are:
+
+	"Live Server". Already installed on mine.
+
+	"Auto Rename Tag". Installed it. Automatically renames closing tag when you change opening tag.
+	
+	"Bracket Pair Colorizer". Installed v1.0.61, which is same as he has. Is also a version 2. Allows matching bracketsm parentheses, brackets to be identified w/ colors.
+	
+	"Prettier"
+	
+	
+	
+// Lesson -- Project Starter Boilerplate (#3) (7:36)
+
+
+folder _project_starter_
+
+	index.html
+	style.css
+	script.js
+	
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css">
+		<title>My Project</title>
+	</head>
+
+	<body>
+		<h1>Project Starter</h1>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+		
+	(in emmet:
+	
+	link<tab>
+	script:src<tab>
+	)
+	
+	cdnjs.com -- search for font-awesome
+		https://cdnjs.com/
+	
+		Simple. Fast. Reliable.
+		Content delivery at its finest.
+		cdnjs is a free and open-source CDN service trusted by over 12.5% of all websites, serving over 200 billion requests each month, powered by Cloudflare.
+
+		We make it faster and easier to load library files on your websites.
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+	
+	style.css:
+	
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+		
+		
+		(from font-awesome, roboto 400 & 700 (bold))
+		
+			@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Roboto', sans-serif;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				height: 100vh;
+				overflow: hidden;
+				margin: 0;
+			}
+	
+	
+	
+// Lesson -- Course Projects Code & Demos (#4) (text)
+	
+	
+		Course Projects Code & Demos
+		
+	CODE:
+
+		All of the code for this course and the demos can be found in this Github repo:
+
+		https://github.com/bradtraversy/50projects50days
+
+
+	SOCIAL MEDIA LINKS:
+
+		Follow Brad Traversy:
+
+		https://twitter.com/traversymedia
+
+		https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA
+
+
+
+		Follow Florin Pop:
+
+		https://twitter.com/florinpop1705
+
+		https://www.youtube.com/channel/UCeU-1X402kT-JlLdAitxSMA
+
+
+
+
+******** SECTION 2: Day 1 -- Expanding Cards ********
+
+
+// Lesson -- Project Intro (#5) (0:43)
+
+
+Cards w/ background images.
+Clicking switches class to 'active'
+JS event listeners
+flex box
+CSS transitions
+
+
+// Lesson -- Initial Cards (#6) (8:57)
+
+
+He assumes we will do this without being told, I guess, but:
+
+I created new folder "expanding cards (#1)" w/ boilerplate files
+
+Then we proceded to modify the html & css
+
+.container (emmet)
+
+.panel.active*5  (emmet)
+
+I tried this:
+.panel.active[style="background-image: url('$url')"]*5>h3
+
+didn't work
+
+[style="background-image: url('$url')"].panel.active
+
+didn't work.
+
+[style="background-image:"].panel.active*5>h3
+
+produced:
+
+	<div style="background-image:" class="panel active">
+		<h3></h3>
+	</div>
+	<div style="background-image:" class="panel active">
+		<h3></h3>
+	</div>
+	<div style="background-image:" class="panel active">
+		<h3></h3>
+	</div>
+	<div style="background-image:" class="panel active">
+		<h3></h3>
+	</div>
+	<div style="background-image:" class="panel active">
+		<h3></h3>
+	</div>
+
+pasted in urls from his Github resource for this project.
+	https://github.com/bradtraversy/50projects50days/tree/master/expanding-cards
+
+
+End up w/:
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css">
+		<title>Expanding Cards</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<div style="background-image:url('https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')" class="panel active">
+				<h3>Explore the World</h3>
+			</div>
+			<div style="background-image:url('https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')" class="panel active">
+				<h3>Wild Forest</h3>
+			</div>
+			<div style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80')" class="panel active">
+				<h3>Sunny Beach</h3>
+			</div>
+			<div style="background-image:url('https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80')" class="panel active">
+				<h3>City on Winter</h3>
+			</div>
+			<div style="background-image:url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')" class="panel active">
+				<h3>Mountains - Clouds</h3>
+			</div>
+		</div>
+	</body>
+
+	</html>	
+
+	
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Muli&sidplay=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Muli', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.container {
+		display: flex;
+		width: 90vw;
+	}
+
+	.panel {
+		background-size: auto 100%;
+		background-size: cover; /* apparently need this to preserve border curve for larger screens or something */
+		background-position: center;
+		background-repeat: no-repeat;
+		height: 80vh;
+		border-radius: 50px;
+		color: #fff;
+		cursor: pointer;
+		flex: 0.5; /* 1st is flex-grow: How much will grow relative to other items */
+		/* flex: flex-grow flex-shrink flex-basis|auto|initial|inherit; */
+		margin: 10px;
+		position: relative;	/* so can position h3 s inside absolute */
+		transition: flex 0.7s ease-in;
+	}
+
+	.panel h3 {
+		font-size: 24px;
+		position: absolute; /* The element is positioned relative to its first positioned (not static) ancestor element */
+		bottom: 20px;
+		left: 20px;
+		margin: 0;
+		opacity: 0;
+	}
+
+	.panel.active {
+		flex: 5;
+	}
+
+	.panel.active h3 {
+		opacity: 1;
+	}
+
+	@media(max-width: 480px) {
+		.container {
+			width: 100vw;
+		}
+		/* on narrower screens, only show 1st 3 */
+		.panel:nth-of-type(4),
+		.panel:nth-of-type(5) {
+			display: none;
+		}
+	}
+	
+	
+	
+	
+// Lesson -- Expanding Effect (#7) (6:51)
+
+
+Add event listener:
+
+
+in script.js:
+
+	const panels = document.querySelectorAll('.panel'); // Puts panels into a nodelist
+
+	panels.forEach(panel => {
+		panel.addEventListener('click', () => {
+			removeActiveClasses();
+			panel.classList.add('active');
+		})
+	});
+
+
+	function removeActiveClasses() {
+		panels.forEach(panel => {
+			panel.classList.remove('active');
+		})
+	}
+
+or, w/out using function call:
+
+const panels = document.querySelectorAll('.panel'); // Puts panels into a nodelist
+
+panels.forEach(panel => {
+  panel.addEventListener('click', () => {
+    panels.forEach(panel => 
+      panel.classList.remove('active'));
+    panel.classList.add('active');
+    })
+  })
+
+Also made some adjustments to style.css for transitions.
+
+
+
+******** SECTION 3: Day 2 -- Progress Steps ********
+
+
+// Lesson -- Project Intro (#8) (0:59)
+
+
+Progress bar, 1 - 2 - 3 - 4
+
+
+
+// Lesson -- Creating the Steps (#9) (13:01)
+
+
+folder 'steps'
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" -->
+
+		<link rel="stylesheet" href="style.css">
+		<title>Progress Steps</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="progress-container">
+				<div class="progress" id="progress"></div>
+				<div class="circle active">1</div>
+				<div class="circle">2</div>
+				<div class="circle">3</div>
+				<div class="circle">4</div>
+			</div>
+			<button class="btn" id="prev" disabled>Prev</button>
+			<button class="btn" id="next">Next</button>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Muli&sidplay=swap');
+	:root {
+		--line-border-fill: #3498db;
+		--line-border-empty: #e0e0e0;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #f6f7fb;
+		font-family: 'Muli', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.container {
+		text-align: center;
+	}
+
+	.progress-container {
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+		margin-bottom: 30px;
+		max-width: 100%;
+		width: 350px;
+	}
+
+	/* this creates the background line joining the numbered circles 
+
+	The ::before pseudo-element is a generated content element that adds any kind of element before the content. It can be used to insert any kind of content, including characters, strings of text, and images. The value is defined by the content property.
+	By default, the ::before pseudo-element is inline.
+
+	This pseudo-element can be animated, positioned or floated like any other content.
+
+	The ::before pseudo-element can also be used with one colon notation :before which is supported by all browsers as well.
+
+	The ::after pseudo-class adds content after any other content wheareas the ::before pseudo-element adds content before any other content in HTML.*/
+
+	.progress-container::before {
+		content: "";
+		background-color: var(--line-border-empty);
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		height: 4px;
+		width: 100%;
+		z-index: -1;
+	}
+	
+
+	/* progress meter. positioned absolute so not part of space-between w/ circles, I guess. Starts on left and grows w/ progress*/
+
+	.progress {
+		background-color: var(--line-border-fill);
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		height: 4px;
+		width: 0%;
+		z-index: -1;
+		transition: .4s ease;
+	}
+
+	.circle {
+		background-color: #fff;
+		color: #999;
+		border-radius: 50%;
+		height: 30px;
+		width: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 3px solid var(--line-border-empty);
+		transition: .4s ease;
+	}
+
+	.circle.active {
+		border-color: var(--line-border-fill);
+	}
+
+	.btn {
+		background-color: var(--line-border-fill);
+		color: #fff;
+		border: 0;
+		border-radius: 6px;
+		cursor: pointer;
+		font-family: inherit;
+		padding: 8px 30px;
+		margin: 5px;
+		font-size: 14px;
+	}
+
+	.btn:active {
+		transform: scale(0.98);
+	}
+
+	.btn:focus {
+		outline: 0;
+	}
+
+	.btn:disabled {
+		background-color: var(--line-border-empty);
+		cursor: not-allowed;
+	}
+
+
+// Lesson -- Step Functionality (#10) (11:11)
+
+
+in script.js:
+
+	const progress = document.getElementById('progress');
+	const prev = document.getElementById('prev');
+	const next = document.getElementById('next');
+	const circles = document.querySelectorAll('.circle');
+
+	let currentActive = 1;
+	next.disabled = false;
+	prev.disabled = true;
+
+	next.addEventListener('click', () => {
+		currentActive++;
+		// if (currentActive > 1) {
+		//   prev.disabled = false;
+		// }
+		if(currentActive >= circles.length) {
+			currentActive=circles.length;
+			// next.disabled = true;
+		};
+		update();
+	})
+
+	prev.addEventListener('click', () => {
+		currentActive--;
+		if(currentActive < 1) {
+			currentActive=1;
+		};
+		// if (currentActive < 2) {
+		//   prev.disabled = true;
+		// };
+		// if (currentActive < circles.length) {
+		//   next.disabled = false;
+		// }
+		update();
+	})
+
+	function update() {
+		circles.forEach((circle, idx) => {
+			if(idx < currentActive) {
+				circle.classList.add('active')
+			} else {
+				circle.classList.remove('active');
+			}
+		})
+
+		const actives = document.querySelectorAll('.active');
+		progress.style.width = (((actives.length -1) / (circles.length -1))*100) + '%';
+
+		/* His. Replaces my original embedded code remmed out above. But assumes correct values to start, I think */
+		// if(currentActive === 1) {
+		//   prev.disabled = true;
+		// } else if (currentActive === circles.length) {
+		//   next.disabled = true
+		// } else {
+		//   prev.disabled = false;
+		//   next.disabled = false;
+		// }
+	 
+		/* my version, self-correcting */
+		prev.disabled = false;
+		next.disabled = false;
+		if(currentActive === 1) {
+			prev.disabled = true;
+		} else if (currentActive === circles.length) {
+			next.disabled = true
+		} 
+	}
+
+
+
+******** SECTION 4: Day 3 -- Rotating Navigation ********
+
+
+// Lesson -- Project Intro (#11) (1:05)
+
+
+Click on the hamburger icon and screen rotates up from corner to show nav options
+
+
+
+// Lesson -- Content & Circle Styling (#12) (12:18)
+
+
+// Lesson -- Rotate & Slide Effect (#13) (11:02)
+
+
+        <button id="open">
+          <i class="fas fa-bars"></i>
+        </button>
+				
+				was wondering why put item in button:
+				
+        <!-- <button id="test" class="fas fa-bars"></button> -->
+        <!-- a little smaller -->
+				
+	Is this best way? Could just style buttons.
+	
+emmet:
+
+	lorem100 -- 100 words? of lorem text
+
+
+style.css:
+
+removed:
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+	
+the height: 100vh was making the picture take the whole screen so couldn't see text. When removed, text showed at top. Not sure why.
+
+w/out overflow hidden, and w/ height: 100vh, stuff below picture can be scrolled to, but not stuff above. Why?
+
+overflow-x: hidden   -- then stuff above and below picture shows.
+
+In Firefox works like his (so far), w/ text on left. In Chrome, seems to be centering so text is lost on left. Image extends beyond the container to the right. Later, when this code was added:
+
+.content img {
+  max-width: 100%;
+}
+
+it worked the same as his, and the same in Chrome as in Firefox.
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="style.css">
+		<title>Rotating Navigation</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="circle-container">
+				<div class="circle">
+					<button id="close">
+						<i class="fas fa-times"></i>
+					</button>
+					<button id="open">
+						<i class="fas fa-bars"></i>
+					</button>
+				</div>
+			</div>
+			<div class="content">
+				<h1>Amazing Article</h1>
+				<small>Florin Pop</small>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quos fuga et deserunt eos repellat libero rem! Quam, consequatur. Eveniet eum autem voluptate minima excepturi veritatis odit assumenda, tenetur rerum aut non neque distinctio beatae
+					repellat harum dolore! Pariatur hic reiciendis nulla tempora nisi debitis officia laudantium laborum beatae eveniet! Rerum nesciunt eius sit dolores ex. Nulla quam at consectetur mollitia ex libero blanditiis est placeat inventore. Dolores vel
+					deleniti molestias tempora dolorem, est natus voluptatum sed odit cupiditate. Quo quasi vel atque vitae enim deleniti explicabo ratione aliquid sint aut esse voluptates nemo placeat ipsum, perspiciatis dolorum maxime dolores!</p>
+				<h3>My Dog</h3>
+				<img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" alt="doggy">
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, esse saepe nam, ea omnis inventore unde vel nobis ratione aspernatur exercitationem est sapiente itaque quas ducimus iusto, id expedita provident quibusdam. Totam maxime sunt ratione
+					unde ipsum aliquid iure similique est. Tenetur ipsa iste ea amet recusandae cupiditate itaque nemo qui, id, rerum vitae dicta sunt cumque fugiat repudiandae voluptatum saepe sed praesentium expedita repellendus natus laborum dolore! Esse modi
+					praesentium magni cupiditate voluptate repudiandae?</p>
+			</div>
+		</div>
+		<nav>
+			<ul>
+				<li><i class="fas fa-home"></i><a href="#"> Home</a></li>
+				<li><i class="fas fa-user-alt"></i><a href="#"> About</a></li>
+				<li><i class="fas fa-envelope"></i> <a href="#"> Contact</a></li>
+			</ul>
+		</nav>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Lato', sans-serif;
+		background-color: #333;
+		color: #222;
+		overflow-x: hidden;
+		margin: 0;
+	}
+
+	.container {
+		background-color: #fafafa;
+		transform-origin: top left;
+		transition: transform 0.5s linear;
+		width: 100vw;
+		min-height: 100vh;
+		padding: 50px;
+	}
+
+	.container.show-nav {
+		transform: rotate(-20deg);
+	}
+
+	.circle-container {
+		position: fixed;
+		top: -100px;
+		left: -100px;
+	}
+
+	.circle {
+		background-color: #ff7979;
+		height: 200px;
+		width: 200px;
+		border-radius: 50%;
+		position: relative;
+		transition: transform 0.5s linear;
+	}
+
+	.container.show-nav .circle {
+		transform: rotate(-70deg);
+	}
+
+	.circle button {
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		height: 100px;
+		background: transparent;
+		border: 0;
+		font-size: 26px;
+		color: white;
+	}
+
+	.circle button:focus {
+		outline: none;
+	}
+
+	.circle button#open {
+		left: 60%;
+	}
+
+	.circle button#close {
+		top: 60%;
+		transform: rotate(90deg);
+		transform-origin: top left;
+	}
+
+	.container.show-nav+nav li {
+		transform: translateX(0);
+		transition-delay: 0.3s;
+	}
+
+	nav {
+		position: fixed;
+		bottom: 40px;
+		left: 0;
+		z-index: 100;
+	}
+
+	nav ul {
+		list-style-type: none;
+		padding-left: 30px;
+	}
+
+	nav ul li {
+		text-transform: uppercase;
+		color: #fff;
+		margin: 40px 0;
+		transform: translateX(-100%);
+		transition: transform 0.4s ease-in;
+	}
+
+	nav ul li i {
+		font-size: 20px;
+		margin-right: 10px;
+	}
+
+	nav ul li+li {
+		margin-left: 15px;
+		transform: translateX(-150%);
+	}
+
+	nav ul li+li+li {
+		margin-left: 30px;
+		transform: translateX(-200%);
+	}
+
+	nav a {
+		color: #fafafa;
+		text-decoration: none;
+		transition: all 0.5s;
+	}
+
+	nav a:hover {
+		color: #FF7979;
+		font-weight: bold;
+	}
+
+	.content img {
+		max-width: 100%;
+	}
+
+	.content {
+		max-width: 1000px;
+		margin: 50px auto;
+	}
+
+	.content h1 {
+		margin: 0;
+	}
+
+	.content small {
+		color: #555;
+		font-style: italic;
+	}
+
+	.content p {
+		color: #333;
+		line-height: 1.5;
+	}
+
+
+script.js:
+
+	const open = document.getElementById('open');
+	const close = document.getElementById('close');
+	const container = document.querySelector('.container');
+
+	open.addEventListener('click', ()=> container.classList.add('show-nav'));
+	close.addEventListener('click', ()=> container.classList.remove('show-nav'));
+
+
+
+
+// Lesson -- Rotate & Slide Effect (#13) (11:02)
+
+
+final style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Lato', sans-serif;
+		background-color: #333;
+		color: #222;
+		overflow-x: hidden;
+		margin: 0;
+	}
+
+	.container {
+		background-color: #fafafa;
+		transform-origin: top left;
+		transition: transform 0.5s linear;
+		width: 100vw;
+		min-height: 100vh;
+		padding: 50px;
+	}
+
+	.container.show-nav {
+		transform: rotate(-20deg);
+	}
+
+	.circle-container {
+		position: fixed;
+		top: -100px;
+		left: -100px;
+	}
+
+	.circle {
+		background-color: #ff7979;
+		height: 200px;
+		width: 200px;
+		border-radius: 50%;
+		position: relative;
+		transition: transform 0.5s linear;
+	}
+
+	.container.show-nav .circle {
+		transform: rotate(-70deg);
+	}
+
+	.circle button {
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		height: 100px;
+		background: transparent;
+		border: 0;
+		font-size: 26px;
+		color: white;
+	}
+
+	.circle button:focus {
+		outline: none;
+	}
+
+	.circle button#open {
+		left: 60%;
+	}
+
+	.circle button#close {
+		top: 60%;
+		transform: rotate(90deg);
+		transform-origin: top left;
+	}
+
+	.container.show-nav+nav li {
+		transform: translateX(0);
+		transition-delay: 0.3s;
+	}
+
+	nav {
+		position: fixed;
+		bottom: 40px;
+		left: 0;
+		z-index: 100;
+	}
+
+	nav ul {
+		list-style-type: none;
+		padding-left: 30px;
+	}
+
+	nav ul li {
+		text-transform: uppercase;
+		color: #fff;
+		margin: 40px 0;
+		transform: translateX(-100%);
+		transition: transform 0.4s ease-in;
+	}
+
+	nav ul li i {
+		font-size: 20px;
+		margin-right: 10px;
+	}
+
+	nav ul li+li {
+		margin-left: 15px;
+		transform: translateX(-150%);
+	}
+
+	nav ul li+li+li {
+		margin-left: 30px;
+		transform: translateX(-200%);
+	}
+
+	nav a {
+		color: #fafafa;
+		text-decoration: none;
+		transition: all 0.5s;
+	}
+
+	nav a:hover {
+		color: #FF7979;
+		font-weight: bold;
+	}
+
+	.content img {
+		max-width: 100%;
+	}
+
+	.content {
+		max-width: 1000px;
+		margin: 50px auto;
+	}
+
+	.content h1 {
+		margin: 0;
+	}
+
+	.content small {
+		color: #555;
+		font-style: italic;
+	}
+
+	.content p {
+		color: #333;
+		line-height: 1.5;
+	}
+
+
+script.js:
+
+	const open = document.getElementById('open');
+	const close = document.getElementById('close');
+	const container = document.querySelector('.container');
+
+	open.addEventListener('click', ()=> container.classList.add('show-nav'));
+	close.addEventListener('click', ()=> container.classList.remove('show-nav'));
+	
+	
+
+******** SECTION 5: Day 4 -- Hidden Search Widget ********
+
+
+// Lesson -- Project Intro (#14) (0:43)
+
+
+Little search icon from fa, click it and opens search window.
+
+
+
+// Lesson -- Hidden Search Widget (#15) (9:06)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="style.css">
+		<title>Hidden Search</title>
+	</head>
+
+	<body>
+		<div class="search">
+			<input type="text" class="input" placeholder="Search..." />
+			<button class="btn">
+				<i class="fas fa-search"></i>
+			</button>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-image: linear-gradient(90deg, #7d5fff, #7158e2);
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.search {
+		position: relative;
+		height: 50px;
+	}
+
+	.search .input {
+		background-color: #fff;
+		border: 0;
+		font-size: 18px;
+		padding: 15px;
+		height: 50px;
+		width: 50px;
+		transition: width 0.3s ease;
+	}
+
+	.btn {
+		background-color: #fff;
+		border: 0;
+		cursor: pointer;
+		font-size: 24px;
+		/* fa search icon inherits this, and, it would seem, centers itself in its container */
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 50px;
+		width: 50px;
+		transition: transform 0.3s ease;
+	}
+
+	.brn:focus,
+	.input:focus {
+		outline: none;
+	}
+
+	.search.active .input {
+		width: 200px;
+	}
+
+	.search.active .btn {
+		transform: translateX(198px);
+	}
+
+
+script.js:
+
+	const search = document.querySelector('.search');
+	const btn = document.querySelector('.btn');
+	const input = document.querySelector('.input');
+
+	btn.addEventListener('click', ()=> {
+		search.classList.toggle('active');
+		input.focus();
+	});
+
+
+
+
+******** SECTION 6: Day 5 -- Blurry Loading ********
+
+
+// Lesson -- Project Intro (#16) (0:54)
+
+
+Will have image or whatever start blurry and clarify during a certain time period, w/ a % counter running.
+
+
+
+// Lesson -- Background Image & Loading Text (#17) (4:31)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+		<link rel="stylesheet" href="style.css">
+		<title>Blurry Loading</title>
+	</head>
+
+	<body>
+		<section class="bg"></section>
+		<div class="loading-text">0%</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Ubuntu');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Ubuntu', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.bg {
+		background: url('https://images.unsplash.com/photo-1576161787924-01bb08dad4a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2104&q=80') no-repeat center center/cover;
+		position: absolute;
+		top: -30px;
+		left: -30px;
+		width: calc(100vw + 60px);
+		height: calc(100vh + 60px);
+		/* Adjustments above apparently needed because blur shrinks image. However, doesn't this leave us w/ truncated image? w/out adjustments would be: /*
+		/* top: 0px;
+		left: 0px;
+		width: 100vw;
+		height: 100vh; */
+		z-index: -1;
+		filter: blur(0px);
+	}
+
+	.loading-text {
+		font-size: 50px;
+		color: #fff;
+	}
+
+
+// Lesson -- Load Blur Effect (#18) (7:41)
+
+
+
+script.js:
+
+	const loadText = document.querySelector('.loading-text');
+	const bg = document.querySelector('.bg');
+
+	let load = 0;
+
+	let int = setInterval(blurring, 30);
+	function blurring() {
+		load++
+	if(load > 99) {
+		clearInterval(int);
+	}
+	loadText.innerText = `${load}%`;
+	// loadText.style.opacity = 1 - (load/100); // My simple solution
+	loadText.style.opacity = scale(load,0,100,1,0);
+	bg.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`
+	}
+
+
+	///const scale = (num, in_min, in_max, out_min, out_max) => {
+	//  return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;}
+	// https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
+	function scale (number, inMin, inMax, outMin, outMax) {
+		return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+	}
+
+// When he went to Stack Overflow, scale was const w/ snake case, when I went was pure function w/ camelcase.
+
+
+
+
+********* SECTION 7: Day 6 -- Scroll Animation ********
+
+
+// Lesson -- Project Intro (#19) (1:01)
+
+Blocks appear from alternating left and right as scroll down, disappear as you scroll back up.
+
+
+// Lesson -- Scroll Animation (#20) (13:11)
+
+
+Emmet:
+
+ (.box>h2{Content $})*20        (mine)
+ 
+Index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+		<link rel="stylesheet" href="style.css">
+		<title>Scroll Animation</title>
+	</head>
+
+	<body>
+		<h1>Scroll to see the animation</h1>
+
+		<div class="box">
+			<h2>Content 1</h2>
+		</div>
+		<div class="box">
+			<h2>Content 2</h2>
+		</div>
+		<div class="box">
+			<h2>Content 3</h2>
+		</div>
+		<div class="box">
+			<h2>Content 4</h2>
+		</div>
+		<div class="box">
+			<h2>Content 5</h2>
+		</div>
+		<div class="box">
+			<h2>Content 6</h2>
+		</div>
+		<div class="box">
+			<h2>Content 7</h2>
+		</div>
+		<div class="box">
+			<h2>Content 8</h2>
+		</div>
+		<div class="box">
+			<h2>Content 9</h2>
+		</div>
+		<div class="box">
+			<h2>Content 10</h2>
+		</div>
+		<div class="box">
+			<h2>Content 11</h2>
+		</div>
+		<div class="box">
+			<h2>Content 12</h2>
+		</div>
+		<div class="box">
+			<h2>Content 13</h2>
+		</div>
+		<div class="box">
+			<h2>Content 14</h2>
+		</div>
+		<div class="box">
+			<h2>Content 15</h2>
+		</div>
+		<div class="box">
+			<h2>Content 16</h2>
+		</div>
+		<div class="box">
+			<h2>Content 17</h2>
+		</div>
+		<div class="box">
+			<h2>Content 18</h2>
+		</div>
+		<div class="box">
+			<h2>Content 19</h2>
+		</div>
+		<div class="box">
+			<h2>Content 20</h2>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+	
+	
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #efedd6;
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+		overflow-x: hidden;
+	}
+
+	h1 {
+		margin: 10px;
+	}
+
+	.box {
+		background-color: steelblue;
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 400px;
+		height: 200px;
+		margin: 10px;
+		border-radius: 10px;
+		box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+		transform: translateX(400%);
+		transition: transform 0.4s ease;
+	}
+
+	.box:nth-of-type(even) {
+		transform: translateX(-400%);
+	}
+
+	.box.show {
+		transform: translateX(0);
+	}
+
+	.box h2 {
+		font-size: 45px;
+	}
+	
+script.js:
+
+	const boxes = document.querySelectorAll('.box');
+
+	window.addEventListener('scroll', checkBoxes);
+
+	checkBoxes();
+
+	function checkBoxes() {
+		const triggerBottom = (window.innerHeight / 5) * 4;
+
+		boxes.forEach(box => {
+			const boxTop = box.getBoundingClientRect().top;
+			
+			if(boxTop < triggerBottom) {
+				box.classList.add('show');
+			} else {
+				box.classList.remove('show');
+			}
+		})
+	}
+	
+	
+	
+******** SECTION 8: Day 7 -- Split Landing Page ********
+
+
+// Lesson -- Project Intro (#21) (0:55)
+
+
+Store w/ 2 products, hover on 1 side enlarges one, on the other side enlarges the other.
+
+Lots of CSS
+
+
+// Lesson -- Split Landing Page HTML & CSS (#22) (14:29)
+
+// Lesson -- Adding the Hover Effect (#23) (7:11)
+
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+		<link rel="stylesheet" href="style.css">
+		<title>Split Landing Page</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="split left">
+				<h1>Playstation 5</h1>
+				<a href="#" class="btn">Buy Now</a>
+			</div>
+			<div class="split right">
+				<h1>XBox Series X</h1>
+				<a href="#" class="btn">Buy Now</a>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	:root {
+		--left-bg-color: rgba(87, 84, 236, 0.7);
+		--right-bg-color: rgba(43, 43, 43, 0.8);
+		--left-btn-hover-color: rgba(87, 84, 236, 1);
+		--right-btn-hover-color: rgba(28, 122, 28, 1);
+		--hover-width: 75%;
+		--other-width: 25%;
+		--speed: 1000ms;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Roboto', sans-serif;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	h1 {
+		font-size: 4rem;
+		color: #fff;
+		position: absolute;
+		left: 50%;
+		top: 20%;
+		transform: translateX(-50%);
+		white-space: nowrap;
+	}
+
+	.btn {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		left: 50%;
+		top: 40%;
+		transform: translateX(-50%);
+		text-decoration: none;
+		color: #fff;
+		border: #fff solid 0.2rem;
+		font-size: 1rem;
+		font-weight: bold;
+		text-transform: uppercase;
+		width: 15rem;
+		padding: 1.5rem;
+	}
+
+	.split.left .btn:hover {
+		background-color: var(--left-btn-hover-color);
+		border-color: var(--left-btn-hover-color);
+	}
+
+	.split.right .btn:hover {
+		background-color: var(--right-btn-hover-color);
+		border-color: var(--right-btn-hover-color);
+	}
+
+	.container {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		background: #333;
+	}
+
+	.split {
+		position: absolute;
+		width: 50%;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.split.left {
+		left: 0;
+		background: url('ps.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.split.left::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: var(--left-bg-color);
+	}
+
+	.split.right {
+		right: 0;
+		background: url('xbox.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.split.right::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: var(--right-bg-color);
+	}
+
+	.split.right,
+	.split.left,
+	.split.right::before,
+	.split.left::before {
+		transition: all var(--speed) ease-in-out;
+	}
+
+	.hover-left .left {
+		width: var(--hover-width);
+	}
+
+	.hover-left .right {
+		width: var(--other-width);
+	}
+
+	.hover-right .right {
+		width: var(--hover-width);
+	}
+
+	.hover-right .left {
+		width: var(--other-width);
+	}
+
+	@media(max-width: 800px) {
+		h1 {
+			font-size: 2rem;
+			top: 30%;
+		}
+		.btn {
+			padding: 1.2rem;
+			width: 12rem;
+		}
+	}
+	
+	
+script.js:
+	
+	const left = document.querySelector('.left');
+	const right = document.querySelector('.right');
+	const container = document.querySelector('.container');
+
+	left.addEventListener('mouseenter', ()=> container.classList.add('hover-left'));
+	left.addEventListener('mouseleave', ()=> container.classList.remove('hover-left'));
+
+	right.addEventListener('mouseenter', ()=> container.classList.add('hover-right'));
+	right.addEventListener('mouseleave', ()=> container.classList.remove('hover-right'));
+
+
+
+
+********* SECTION 9: Day 8 -- Form Wave Animation ********
+
+
+
+// Lesson -- Project Intro (#24) (0:42)
+
+
+Have a log-in form where name of field is first in field, then waves up when you click on field (or something)
+
+
+// Lesson -- Styling the Form (#25) (8:36)
+// Lesson -- Adding the Wave Effect (#26) (9:37)
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+		<link rel="stylesheet" href="style.css">
+		<title>Form Input Wave</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<h1>Please Login</h1>
+			<form>
+				<div class="form-control">
+					<input type="text" required>
+					<label>Email</label>
+				</div>
+
+				<div class="form-control">
+					<input type="password" required>
+					<label>Password</label>
+				</div>
+
+				<button class="btn">Login</button>
+
+				<p class="text">Don't have an account?<a href="#">Register</a></p>
+			</form>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: steelblue;
+		color: #fff;
+		font-family: 'Muli', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.container {
+		background-color: rgba(0, 0, 0, 0.4);
+		padding: 20px 40px;
+		border-radius: 5px;
+	}
+
+	.container h1 {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	.container a {
+		text-decoration: none;
+		color: lightblue;
+	}
+
+	.btn {
+		cursor: pointer;
+		display: inline-block;
+		width: 100%;
+		background: lightblue;
+		padding: 15px;
+		font-family: inherit;
+		font-size: 16px;
+		border: 0;
+		border-radius: 5px;
+	}
+
+	.btn:focus {
+		outline: 0;
+	}
+
+	.btn:active {
+		transform: scale(0.98);
+	}
+
+	.text {
+		margin-top: 30px;
+	}
+
+	.form-control {
+		position: relative;
+		margin: 20px 0 40px;
+		width: 300px;
+	}
+
+	.form-control input {
+		background-color: transparent;
+		border: 0;
+		border-bottom: 2px #fff solid;
+		display: block;
+		width: 100%;
+		padding: 15px 0;
+		font-size: 18px;
+		color: #fff;
+	}
+
+	.form-control input:focus,
+	.form-control input:valid {
+		outline: 0;
+		border-bottom-color: lightblue;
+	}
+
+	.form-control label {
+		position: absolute;
+		top: 15px;
+		left: 0;
+	}
+
+	.form-control label span {
+		display: inline-block;
+		font-size: 18px;
+		min-width: 5px;
+		transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	}
+
+	.form-control input:focus+label span,
+	.form-control input:valid+label span {
+		color: lightblue;
+		transform: translateY(-30px);
+	}
+
+
+script.js:
+
+	const labels = document.querySelectorAll('.form-control label');
+
+	labels.forEach(label => {
+		// console.log(label.innerText.split(""));
+		label.innerHTML = label.innerText
+			.split("")
+			.map((letter, idx) => `<span style="transition-delay:${idx*50}ms">${letter}</span>`)
+			.join("");
+	})
+	
+	
+	
+Note that w/ above, clicking on input label won't work, have to get outside of label (to right) to click. This seems like a flaw.....
+
+
+
+******** SECTION 10: Day 9 -- Sound Board ********
+
+
+
+// Lesson -- Project Intro (#27) (1:10)
+
+
+Create a soundboard w/ different sound effects on different buttons. Can use HTML audio tags. Will use js
+
+
+
+// Lesson -- Sound Board Project (#28) (9:52)
+
+
+index.html:
+
+	const sounds = ['applause', 'boo', 'gasp', 'tada', 'victory'
+	, 'wrong'];
+
+	sounds.forEach(sound => {
+		const btn = document.createElement('button');
+		btn.classList.add('btn');
+		btn.innerText = sound;
+		btn.addEventListener('click', () => {
+			stopSongs();
+			document.getElementById(sound).play()
+		});
+		document.getElementById('buttons').appendChild(btn);
+	})
+
+	function stopSongs() {
+		sounds.forEach(sound => {
+			const song = document.getElementById(sound);
+			song.pause();
+			song.currentTime = 0;
+		})
+	}
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: rgb(161, 100, 223);
+		font-family: 'Poppins', sans-serif;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.btn {
+		background-color: rebeccapurple;
+		border-radius: 5px;
+		border: none;
+		color: #fff;
+		margin: 1rem;
+		padding: 1.5rem 3rem;
+		font-size: 1.2rem;
+		font-family: inherit;
+		cursor: pointer;
+	}
+
+	.btn:hover {
+		opacity: 0.9;
+	}
+
+	.btn:focus {
+		outline: none;
+	}
+	
+	
+	script.js:
+	
+		const sounds = ['applause', 'boo', 'gasp', 'tada', 'victory'
+	, 'wrong'];
+
+	sounds.forEach(sound => {
+		const btn = document.createElement('button');
+		btn.classList.add('btn');
+		btn.innerText = sound;
+		btn.addEventListener('click', () => {
+			stopSongs();
+			document.getElementById(sound).play()
+		});
+		document.getElementById('buttons').appendChild(btn);
+	})
+
+	function stopSongs() {
+		sounds.forEach(sound => {
+			const song = document.getElementById(sound);
+			song.pause();
+			song.currentTime = 0;
+		})
+	}
+	
+
+I created an alternate version w/ the audio elements also generated in js:
+
+index2.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="style.css">
+		<title>Sound Board</title>
+	</head>
+
+	<body>
+		<div id="sounds"></div>
+
+		<div id="buttons"></div>
+		<script src="script2.js"></script>
+	</body>
+
+	</html>
+
+
+script2.js:
+
+	// Alternate version where all sound file info is in js, so only change in one place. Remmed out parts if files have different names than buttons, otherwise use soundPrefix + sound + .mp3
+	const sounds = ['applause', 'boo', 'gasp', 'tada', 'victory'
+	, 'wrong'];
+	// const soundFiles = ['sounds/sound-board_sounds_applause.mp3', 'sounds/sound-board_sounds_boo.mp3','sounds/sound-board_sounds_gasp.mp3','sounds/sound-board_sounds_tada.mp3','sounds/sound-board_sounds_victory.mp3' ,'sounds/sound-board_sounds_wrong.mp3'];
+	const soundFiles = [];
+	const soundPrefix = 'sounds/sound-board_sounds_';
+
+	sounds.forEach((sound, idx) => {
+		const btn = document.createElement('button');
+		btn.classList.add('btn');
+		btn.innerText = sound;
+		btn.addEventListener('click', () => {
+			stopSongs();
+			document.getElementById(sound).play()
+		});
+		document.getElementById('buttons').appendChild(btn);
+		const audio = document.createElement('audio');
+		audio.id = sound;
+		// audio.src = soundFiles[idx];
+		audio.src = soundPrefix + sound + '.mp3';
+		document.getElementById('sounds').appendChild(audio);
+	})
+
+	function stopSongs() {
+		sounds.forEach(sound => {
+			const song = document.getElementById(sound);
+			song.pause();
+			song.currentTime = 0;
+		})
+	}
+
+
+
+
+******** SECCTION 11: Day 10 - Dad Jokes ********
+
+
+// Lesson -- Project Intro (#29) (1:13)
+
+
+using api at https://icanhazdadjoke.com/api
+
+will go over HTTP requests and use fetch & async/await.
+
+
+
+// Lesson -- Jokes HTML & CSS (#30) (6:40)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+		<link rel="stylesheet" href="style.css">
+		<title>Dad Jokes</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<h3>Don't Laught Challenge</h3>
+			<div id="joke" class="joke">
+				// Joke goes here
+			</div>
+			<button id="jokeBtn" class="btn">Get Another Joke</button>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+	
+	
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #686de0;
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+		padding: 20px;
+	}
+
+	.container {
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: 0 10px 20px rbga(0, 0, 0, 0.1), 0 6px 6px rgb(0, 0, 0, 0.1);
+		padding: 50px 20px;
+		text-align: center;
+		max-width: 100%;
+		width: 800px;
+	}
+
+	h3 {
+		margin: 0;
+		opacity: 0.5;
+		letter-spacing: 2px;
+	}
+
+	.joke {
+		font-size: 30px;
+		letter-spacing: 1px;
+		line-height: 40px;
+		margin: 50px auto;
+		max-width: 600px;
+	}
+
+	.btn {
+		background-color: #9f68e0;
+		color: #fff;
+		border: 0;
+		border-radius: 10px;
+		box-shadow: 0 10px 20px rbga(0, 0, 0, 0.1), 0 6px 6px rgb(0, 0, 0, 0.1);
+		padding: 14px 40px;
+		font-size: 16px;
+		cursor: pointer;
+	}
+
+	.btn:active {
+		transform: scale(0.98);
+	}
+
+	.btn:focus {
+		outline: 0;
+	}
+	
+	
+
+// Lesson -- Working with Fetch & HTTP Requests/Responses (#31) (6:11)
+
+
+from icanhazdadjoke.com:
+
+	GET https://icanhazdadjoke.com/ fetch a random dad joke.
+
+	Fetching a random joke as JSON:
+
+	$ curl -H "Accept: application/json" https://icanhazdadjoke.com/
+	{
+		"id": "R7UfaahVfFd",
+		"joke": "My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.",
+		"status": 200
+	}
+	
+'curl' is a terminal program
+
+He went over doing it in Postman.
+
+Then went over fetch in MDN.
+
+fetch returns a promise. If request json, then 2nd promise for json.
+
+eg:
+
+	fetch('api.com')
+		.then(response => response.json())
+		.then(data => console.log(data));
+		
+(w/out using the .json() method will just get HTML)
+
+
+Then will use async/await.
+
+
+
+// Lesson -- Fetching & Displaying Jokes (#32) (10:29)
+
+
+script.js:
+
+	const jokeEl = document.getElementById('joke');
+	const jokeBtn = document.getElementById('jokeBtn');
+
+	jokeBtn.addEventListener('click', generateJoke);
+	generateJoke();
+
+	// USING async/await
+	async function generateJoke() {
+		const config = {
+			headers: {
+				'Accept': 'application/json'
+			}
+		}
+
+		const res = await fetch('https://icanhazdadjoke.com', config)
+		const data = await res.json();
+
+		jokeEl.innerHTML = data.joke;
+	}
+
+
+	// USING '.then
+	// function generateJoke() {
+	//   const config = {
+	//     headers: {
+	//       'Accept': 'application/json'
+	//     }
+	//   }
+
+	//   fetch('https://icanhazdadjoke.com', config)
+	//     .then(res => res.json())
+	//     .then(data => {
+	//       jokeEl.innerHTML = data.joke;
+	//     });
+	// }
+
+
+
+******** SECTION 12: Day 11 -- Event KeyCodes ********
+
+
+// Lesson -- Project Intro (#33) (1:33)
+
+
+Application to show key code & code for any key on keyboard
+
+
+event.key  event.key.code  event.code
+
+event.key.code is actually deprecated, event.code is its replacement
+
+
+
+// Lesson -- Key Boxes HTML & CSS (#34) (6:21)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="style.css">
+		<title>Event Keycodes</title>
+	</head>
+
+	<body>
+		<div id="insert">
+
+			<div class="key">
+				Press any key to get the key code
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #e1e1e1;
+		font-family: 'Muli', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.key {
+		border: 1px solid #999;
+		background-color: #eee;
+		box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+		display: inline-flex;
+		align-items: center;
+		font-size: 20px;
+		font-weight: bold;
+		padding: 20px;
+		flex-direction: column;
+		margin: 10px;
+		min-width: 150px;
+		position: relative;
+	}
+
+	.key small {
+		position: absolute;
+		top: -24px;
+		left: 0;
+		text-align: center;
+		width: 100%;
+		color: #555;
+		font-size: 14px;
+	}
+	
+	
+script.js:
+
+	const insert = document.getElementById('insert');
+
+	window.addEventListener('keydown', (event)=> {
+		insert.innerHTML = `
+			<div class="key">
+			${event.key === ' ' ? 'Space' : event.key}
+			<small>event.key</small>
+			</div>
+			<div class="key">
+			${event.keyCode}
+			<small>event.keycode</small>
+			</div>
+			<div class="key">
+			${event.code}
+			<small>event.code</small>
+			</div>
+			`
+	})
+	
+	
+	
+
+******** SECTION 13: Day 12 -- FAQ Collapse ********
+
+
+// Lesson -- Project Intro (#36) (0:54)
+
+
+dribble.com is a great place to get inspiration for projects
+
+going to use a lot of css w/ font-awesome
+
+
+
+// Lesson -- FAQ Boxes (#37) (12:52)
+// Lesson -- Toggle Buttons (#38) (7:11)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+		<link rel="stylesheet" href="style.css">
+		<title>FAQ</title>
+	</head>
+
+	<body>
+		<h1>Frequently Asked Questions</h1>
+		<div class="faq-container">
+			<div class="faq active">
+				<h3 class="faq-title">
+					Why shouldn't we trust atoms?
+				</h3>
+				<p class="faq-text">
+					They make up everything
+				</p>
+				<button class="faq-toggle">
+					<i class="fas fa-chevron-down"></i>
+					<i class="fas fa-times"></i>
+				</button>
+			</div>
+			<div class="faq">
+				<h3 class="faq-title">
+					What do you call someone with no body and no nose?
+				</h3>
+				<p class="faq-text">
+					Nobody knows.
+				</p>
+				<button class="faq-toggle">
+					<i class="fas fa-chevron-down"></i>
+					<i class="fas fa-times"></i>
+				</button>
+			</div>
+
+			<div class="faq">
+				<h3 class="faq-title">
+					What's the object-oriented way to become wealthy?
+				</h3>
+				<p class="faq-text">
+					Inheritance.
+				</p>
+				<button class="faq-toggle">
+					<i class="fas fa-chevron-down"></i>
+					<i class="fas fa-times"></i>
+				</button>
+			</div>
+
+			<div class="faq">
+				<h3 class="faq-title">
+					How many tickles does it take to tickle an octopus?
+				</h3>
+				<p class="faq-text">
+					Ten-tickles!
+				</p>
+				<button class="faq-toggle">
+					<i class="fas fa-chevron-down"></i>
+					<i class="fas fa-times"></i>
+				</button>
+			</div>
+
+			<div class="faq">
+				<h3 class="faq-title">
+					What is: 1 + 1?
+				</h3>
+				<p class="faq-text">
+					Depends on who are you asking.
+				</p>
+				<button class="faq-toggle">
+					<i class="fas fa-chevron-down"></i>
+					<i class="fas fa-times"></i>
+				</button>
+			</div>
+
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+	
+	
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Muli', sans-serif;
+		background-color: #f0f0f0;
+	}
+
+	h1 {
+		margin: 50px 0 30px;
+		text-align: center;
+	}
+
+	.faq-container {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.faq {
+		background-color: transparent;
+		border: 1px solid #9fa4a8;
+		border-radius: 10px;
+		margin: 20px 0;
+		padding: 30px;
+		position: relative;
+		overflow: hidden;
+		transition: 0.3s ease;
+	}
+
+	.faq.active {
+		background-color: #fff;
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+	}
+
+	.faq.active::before,
+	.faq.active::after {
+		content: '\f075';
+		font-family: 'Font Awesome 5 Free';
+		color: #2ecc71;
+		font-size: 7rem;
+		position: absolute;
+		opacity: 0.2;
+		top: 20px;
+		left: 20px;
+		z-index: 0;
+	}
+
+	.faq.active::before {
+		color: #3498db;
+		top: -10px;
+		left: -30px;
+		transform: rotateY(180deg);
+	}
+
+	.faq-title {
+		margin: 0 35px 0 0;
+	}
+
+	.faq-text {
+		display: none;
+		margin: 30px 0 0;
+	}
+
+	.faq.active .faq-text {
+		display: block;
+	}
+
+	.faq-toggle {
+		background-color: transparent;
+		border: 0;
+		border-radius: 50%;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 16px;
+		padding: 0;
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		height: 30px;
+		width: 30px;
+	}
+
+	.faq-toggle:focus {
+		outline: 0;
+	}
+
+	.faq-toggle .fa-times {
+		display: none;
+	}
+
+	.faq.active .faq-toggle .fa-times {
+		display: block;
+		color: #fff;
+	}
+
+	.faq.active .faq-toggle .fa-chevron-down {
+		display: none;
+	}
+
+	.faq.active .faq-toggle {
+		background-color: #9fa4a8
+	}
+
+
+script.js:  (did this on our own before he showed solution. Mine same.)
+
+	const toggles = document.querySelectorAll('.faq-toggle');
+
+	toggles.forEach(toggle => 
+		toggle.addEventListener('click', () => {
+			toggle.parentNode.classList.toggle('active')
+		})
+		)
+
+
+
+******** SECTION 14: Day 13 -- Random Choice Picker ********
+
+
+// Lesson -- Project Intro (#39) (0:52)
+
+
+In box, enter "choice"s separated by commas. For each one a button will appear below box. When done entering choices, press "Enter" and choice buttons will cycle through being highlighted until one is randomly picked.
+
+
+
+// Lesson -- Choice Picker UI (#40) (6:23)
+// Lesson -- Create Tags (#41) (5:41)
+// Lesson -- Select Random Tag (#42) (7:24)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="style.css">
+		<title>Random Choice Picker</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<h3>Enter all of the choices divided by commas (',')
+				<br> Press enter when you're done
+			</h3>
+			<textarea id="textarea" placeholder="Enter choices here..."></textarea>
+			<div id="tags">
+
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #2b88f0;
+		font-family: 'Muli', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	h3 {
+		color: white;
+		margin: 10px 0 20px;
+		text-align: center;
+	}
+
+	.container {
+		width: 500px;
+	}
+
+	textarea {
+		border: none;
+		display: block;
+		width: 100%;
+		height: 100px;
+		font-family: inherit;
+		padding: 10px;
+		margin: 0 0 20px;
+		font-size: 16px;
+	}
+
+	.tag {
+		background-color: #f0932b;
+		color: #fff;
+		border-radius: 50px;
+		padding: 10px 20px;
+		margin: 0 5px 10px 0;
+		font-size: 14px;
+		display: inline-block;
+	}
+
+	.tag.highlight {
+		background-color: #273c75;
+	}
+
+
+script.js:
+
+	const tagsEl = document.getElementById('tags');
+	const textarea = document.getElementById('textarea');
+
+	textarea.focus();
+
+	textarea.addEventListener('keyup', (e) => {
+		createTags(e.target.value);
+		if(e.key === 'Enter') {
+			setTimeout(() => {
+				e.target.value = '';
+				randomSelect();
+			}, 10)
+		}
+	})
+
+	function createTags(input) {
+		const tags = input.split(',').filter(tag => tag.trim() !== '').map(tag => tag.trim());
+		tagsEl.innerHTML = '';
+		tags.forEach(tag => {
+			const tagEl = document.createElement('span');
+			tagEl.classList.add('tag');
+			tagEl.innerText = tag;
+			tagsEl.appendChild(tagEl);
+		})
+	}
+
+	function randomSelect() {
+		const times = 30;
+		const interval = setInterval(() => {
+			const randomTag = pickRandomTag();
+			highlightTag(randomTag);
+			setTimeout(() => {
+				unHighlightTag(randomTag)
+			},100)
+		}, 100);
+
+
+		setTimeout(() => {
+		clearInterval(interval);
+		setTimeout(() => {
+			const randomTag = pickRandomTag();
+			highlightTag(randomTag);
+		},100)
+
+		}, times * 100)
+	}
+
+	function pickRandomTag() {
+		const tags = document.querySelectorAll('.tag');
+		return tags[Math.floor(Math.random() * tags.length)];
+	}
+
+	function highlightTag(tag) {
+		tag.classList.add('highlight');
+	}
+
+	function unHighlightTag(tag) {
+		tag.classList.remove('highlight');
+	}
+	
+	
+
+
+******** SECTION 15: Day 14 -- Animated Navigation ********
+
+
+// Lesson -- Project Intro (#43) (0:58)
+
+
+Will toggle lines to open to nav bar w/ lines rotating to an X to close. Use 'active' class in css, very little JS (just event listener to toggle active class)
+
+
+
+// Lesson -- Nav Styling (#44) (10:49)
+// Lesson -- Icon Styling & Active Toggle (7:00)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="style.css">
+		<title>Animated Navigation</title>
+	</head>
+
+	<body>
+		<nav class="active" id="nav">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="">Works</a></li>
+				<li><a href="">About</a></li>
+				<li><a href="">Contact</a></li>
+			</ul>
+			<button class="icon" id="toggle">
+			<div class="line line1"></div>
+			<div class="line line2"></div>
+		</button>
+		</nav>
+		<script src="script.js"></script>
+		<!-- Dribble link: https://dribble.com/shots/2427218-Header-Navigation-Day-053-dailyui -->
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #eafbff;
+		background-image: linear-gradient(to bottom, #eafbff 0%, #eafbff 50%, #5290f9 50%, #5290f9 100%);
+		font-family: 'Muli', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		margin: 0;
+	}
+
+	nav {
+		background-color: #fff;
+		padding: 20px;
+		width: 80px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 3px;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+		transition: width 0.6s linear;
+	}
+
+	nav.active {
+		width: 350px;
+	}
+
+	nav ul {
+		display: flex;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		width: 0;
+		transition: width 0.6s linear;
+	}
+
+	nav.active ul {
+		width: 100%;
+	}
+
+	nav ul li {
+		transform: rotateY(0deg);
+		opacity: 0;
+		transition: transform 0.6s linear, opacity 0.6s linear;
+	}
+
+	nav.active ul li {
+		opacity: 1;
+		transform: rotateY(360deg);
+	}
+
+	nav ul a {
+		position: relative;
+		color: #000;
+		text-decoration: none;
+		margin: 0 10px;
+	}
+
+	.icon {
+		background-color: #fff;
+		border: 0;
+		cursor: pointer;
+		padding: 0;
+		position: relative;
+		height: 30px;
+		width: 30px;
+	}
+
+	.icon:focus {
+		outline: 0;
+	}
+
+	.icon .line {
+		background-color: #5290f9;
+		height: 2px;
+		width: 20px;
+		position: absolute;
+		top: 10px;
+		left: 5px;
+		transition: transform 0.6s linear;
+	}
+
+	.icon .line2 {
+		top: auto;
+		bottom: 10px;
+	}
+
+	nav.active .icon .line1 {
+		transform: rotate(-765deg) translateY(5.5px);
+	}
+
+	nav.active .icon .line2 {
+		transform: rotate(765deg) translateY(-5.5px);
+	}
+
+
+script.js:
+
+	const toggle = document.getElementById('toggle');
+	const nav = document.getElementById('nav');
+
+	toggle.addEventListener('click', () => nav.classList.toggle('active'))
+	
+	
+
+
+******** SECTION 16: Day 15 -- Incrementing Counter ********
+
+
+
+// Lesson -- Project Intro (#46) (0:38)
+
+
+When come to site, counts from 0 up to values. Will make responsive.
+
+
+// Lesson -- Counters HTML & CSS (#47) (5:28)
+// Lesson -- Create & Display Increment (#48) (6:46)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="style.css">
+		<title>Increment Counter</title>
+	</head>
+
+	<body>
+		<div class="counter-container">
+			<i class="fab fa-twitter fa-3x"></i>
+			<div class="counter" data-target="12000"></div>
+			<span>Twitter Followers</span>
+		</div>
+		<div class="counter-container">
+			<i class="fab fa-youtube fa-3x"></i>
+			<div class="counter" data-target="5000"></div>
+			<span>YouTube Subscribers</span>
+		</div>
+		<div class="counter-container">
+			<i class="fab fa-facebook fa-3x"></i>
+			<div class="counter" data-target="7500"></div>
+			<span>Facebook Fans</span>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #8e44ad;
+		color: #fff;
+		font-family: 'Roboto Mono', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.counter-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		margin: 30px 50px;
+	}
+
+	.counter {
+		font-size: 60px;
+		margin-top: 10px;
+	}
+
+	@media(max-width: 660px) {
+		body {
+			flex-direction: column;
+		}
+	}
+	
+	
+script.js:
+
+	const counters = document.querySelectorAll('.counter');
+
+	counters.forEach(counter => {
+		counter.innerText = '0';
+		const updateCounter = () => {
+			const target = +counter.getAttribute('data-target');
+		const c = +counter.innerText;
+		const increment = target / 200;
+
+		// His version
+		// if(c < target) {
+		//   counter.innerText = `${Math.ceil(c + increment)}`;
+		//   setTimeout(updateCounter, 1);
+		// } else {
+		//   counter.innerText = target;
+		// }
+
+		// My version
+		if (c < target ) {
+			counter.innerText = `${Math.min(Math.ceil(c+increment),target)}`;
+			setTimeout(updateCounter, 1);
+		}
+		}
+
+		updateCounter();
+	})
+		
+	
+His version actually overshoots (if target not even multiple of 200), but isn't noticable (1ms). But mine uses Math.min to cap counter.innerText at target and no longer need the else clause. Seems better to me.
+
+
+
+
+******** SECTION 17: Day 16 -- Drink Water ********
+
+
+
+// Lesson -- Project Intro (#49) (0:52)
+
+
+As click on cups of water fill container up to amount of water in selected cups.
+
+
+// Lesson -- Create & Style the Cups (#50) (15:15)
+// Lesson -- Fill Small Cups (#51) (6:32)
+// Lesson -- Update Big Cup (#52) (8:39)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="style.css">
+		<title>Drink Water</title>
+	</head>
+
+	<body>
+		<h1>Drink Water</h1>
+		<h3>Goal: 2 Liters</h3>
+		<div class="cup">
+			<div class="remained" id="remained">
+				<span id="liters"></span>
+				<small>Remained</small>
+			</div>
+			<div class="percentage" id="percentage">
+			</div>
+		</div>
+
+		<p class="text">Select how many glasses of water that you have drank</p>
+		<div class="cups">
+			<div class="cup cup-small">250 ml</div>
+			<div class="cup cup-small">250 ml</div>
+			<div class="cup cup-small">250 ml</div>
+			<div class="cup cup-small">250 ml</div>
+			<div class="cup cup-small">250 ml</div>
+			<div class="cup cup-small">250 ml</div>
+			<div class="cup cup-small">250 ml</div>
+			<div class="cup cup-small">250 ml</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+			@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
+			 :root {
+				--border-color: #144fc6;
+				--fill-color: #6ab3f8;
+			}
+			
+			* {
+				box-sizing: border-box;
+			}
+			
+			body {
+				background-color: #3494e4;
+				color: white;
+				font-family: 'Montserrat', sans-serif;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-bottom: 40px;
+			}
+			
+			h1 {
+				margin: 10px 0;
+			}
+			
+			h3 {
+				font-weight: 400;
+				margin: 10px 0;
+			}
+			
+			.cup {
+				background-color: #fff;
+				border: 4px solid var(--border-color);
+				color: var(--border-color);
+				border-radius: 0 0 40px 40px;
+				height: 330px;
+				width: 150px;
+				margin: 30px 0;
+				display: flex;
+				flex-direction: column;
+				overflow: hidden;
+			}
+			
+			.cup.cup-small {
+				height: 95px;
+				width: 50px;
+				border-radius: 0 0 15px 15px;
+				background-color: rgba(255, 255, 255, 0.9);
+				cursor: pointer;
+				font-size: 14px;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				/* Does this do anything? */
+				margin: 5px;
+				transition: 0.3s ease;
+			}
+			
+			.cup.cup-small.full {
+				background-color: var(--fill-color);
+				color: #fff;
+			}
+			
+			.cups {
+				display: flex;
+				/* width: 500px;
+		justify-content: space-between; */
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: center;
+				width: 280px;
+			}
+			
+			.remained {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				/* text-align: center; */
+				flex: 1;
+				transition: 0.3s ease;
+			}
+			
+			.remained span {
+				font-size: 20px;
+				font-weight: bold;
+			}
+			
+			.remained small {
+				font-size: 12px;
+			}
+			
+			.percentage {
+				background-color: var(--fill-color);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: bold;
+				font-size: 30px;
+				height: 0;
+				transition: 0.3s ease;
+			}
+			
+			.text {
+				text-align: center;
+				margin: 0 0 5px;
+			}
+			
+	
+script.js:
+	
+	const smallCups = document.querySelectorAll('.cup-small');
+	const liters = document.getElementById('liters');
+	const percentage = document.getElementById('percentage');
+	const remained = document.getElementById('remained');
+
+	updateBigCup();
+
+	smallCups.forEach((cup, idx) => {
+		cup.addEventListener('click', () => highlightCups(idx))
+	})
+
+	function highlightCups(idx) {
+		if (smallCups[idx].classList.contains('full')  && 
+				(idx == smallCups.length-1 ||   
+					// I added this to avoid error on toggling last cup. Also could have used:
+				// (smallCups[idx].nextElementSibling == null ||
+					!smallCups[idx].nextElementSibling.classList.contains('full'))) 
+					
+					{
+				idx--;
+				 }
+		smallCups.forEach((cup, idx2) => {
+			if(idx2 <= idx) {
+					cup.classList.add('full');
+			} else {
+					cup.classList.remove('full');
+			}
+		})
+
+		updateBigCup();
+	}
+
+	function updateBigCup() {
+		const fullCups = document.querySelectorAll('.cup-small.full').length;
+		const totalCups = smallCups.length;
+
+		if (fullCups === 0) {
+			percentage.style.visibility = 'hidden';
+			percentage.style.height = 0;
+		} else {
+			percentage.style.visibility = 'visible';
+			percentage.style.height = `${fullCups / totalCups * 330}px`;
+			percentage.innerText = `${fullCups / totalCups * 100}%`
+		}
+
+		if (fullCups == totalCups) {
+			remained.style.visibility = 'hidden';
+			remained.style.height = 0;
+		} else {
+			remained.style.visibility = 'visible';
+			liters.innerText = `${250 * (totalCups - fullCups) / 1000 }L`; // mine
+			// liters.innerText = `${2 - (250 * fullCups) / 1000 }L`; // his
+		}
+	}
+	
+	
+
+
+******** SECTION 18: Day 17 -- Movie App ********
+
+
+
+// Lesson -- Project Intro (#53) (1:27)
+
+
+Going to use TMDB Api to get movie info. First will build the UI, then build JS, fetch api, hover effect, show summary & rating, add search.
+
+
+// Lesson -- Movies UI Layout (#54) (14:02)
+// Lesson -- Fetching Data from the API (#55) (11:16)
+// Lesson -- Adding Movies to the DOM (#56) (8:26)
+
+
+Signed up at themoviedb.org,user paroche  pswd p73TMDB
+
+Registered as developer and accepted agreement.
+
+API Key (v3 auth):   
+
+		e297df68c7228d446d8ad566437c314c
+
+Example API Request:
+
+		https://api.themoviedb.org/3/movie/550?api_key=e297df68c7228d446d8ad566437c314c
+		
+API Read Access Token (v4 auth):
+
+		eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMjk3ZGY2OGM3MjI4ZDQ0NmQ4YWQ1NjY0MzdjMzE0YyIsInN1YiI6IjYxNjUzNTgzMWFkOTNiMDAyYzY5ZWRlNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.isg66cfq5tb0NhKHIiLHH_diUaRartbqHgufwHCsHdU
+
+He had us use the "Most Popular Movies" url endpoint:
+
+	/discover/movie?sort_by=popularity.desc
+
+Other options:
+
+	https://www.themoviedb.org/documentation/api/discover
+	
+in script.js, added:
+
+const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=e297df68c7228d446d8ad566437c314c&page=1';
+
+(my key)
+
+w/ that url, get result like below:
+
+{"page":1,"results":[{"adult":false,"backdrop_path":"/t9nyF3r0WAlJ7Kr6xcRYI4jr9jm.jpg","genre_ids":[878,28],"id":580489,"original_language":"en","original_title":"Venom: Let There Be Carnage","overview":"After finding a host body in investigative reporter Eddie Brock, the alien symbiote must face a new enemy, Carnage, the alter ego of serial killer Cletus Kasady.","popularity":11957.463,"poster_path":"/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg","release_date":"2021-09-30","title":"Venom: Let There Be Carnage","video":false,"vote_average":7.4,"vote_count":429},{"adult":false,"backdrop_path":"/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg","genre_ids":[35,28,12,878],"id":550988,"original_language":"en","original_title":"Free Guy","overview":"A bank teller called Guy realizes he is a background character in an open world video game called Free City that will soon go offline.","popularity":7283.521,"poster_path":"/xmbU4JTUm8rsdtn7Y3Fcm30GpeT.jpg","release_date":"2021-08-11","title":"Free Guy","video":false,"vote_average":7.9,"vote_count":2512},{"adult":false,"backdrop_path":"/VuukZLgaCrho2Ar8Scl9HtV3yD.jpg","genre_ids":[878,28],"id":335983,"original_language":"en","original_title":"Venom","overview":"Investigative journalist Eddie Brock attempts a comeback following a scandal, but accidentally becomes the host of Venom, a violent, super powerful alien symbiote. Soon, he must rely on his newfound powers to protect the world from a shadowy organization looking for a symbiote of their own.","popularity":4334.098,"poster_path":"/2uNW4WbgBXL25BAbXGLnLqX71Sw.jpg","release_date":"2018-09-28","title":"Venom","video":false,"vote_average":6.8,"vote_count":11627},{"adult":false,"backdrop_path":"/owraiceOKtSOa3t8sp3wA9K2Ox6.jpg","genre_ids":[16,28,12,878],"id":703771,"original_language":"en","original_title":"Deathstroke: Knights & Dragons - The Movie","overview":"The assassin Deathstroke tries to save his family from the wrath of H.I.V.E. and the murderous Jackal.","popularity":3188.753,"poster_path":"/vFIHbiy55smzi50RmF8LQjmpGcx.jpg","release_date":"2020-08-04","title":"Deathstroke: Knights & Dragons - The Movie","video":false,"vote_average":7,"vote_count":261},{"adult":false,"backdrop_path
+
+To get images, have to append to:
+
+	https://image.tmdb.org/t/p/w500/
+
+(from: https://developers.themoviedb.org/3/getting-started/images)
+
+
+in script.js:
+
+	const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
+
+(note change in width)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css">
+		<title>Movie App</title>
+	</head>
+
+	<body>
+		<header>
+			<form id="form">
+				<input type="text" id="search" class="search" placeholder="Search">
+			</form>
+		</header>
+		<main id="main"></main>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+	:root {
+		--primary-color: #22254b;
+		--secondary-color: #373b69;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: var(--primary-color);
+		font-family: 'Poppins', sans-serif;
+		margin: 0;
+	}
+
+	header {
+		background-color: var(--secondary-color);
+		padding: 1rem;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.search {
+		background-color: transparent;
+		border: 2px solid var(--primary-color);
+		border-radius: 50px;
+		font-family: inherit;
+		font-size: 1rem;
+		padding: .5rem 1rem;
+		color: #fff;
+	}
+
+	.search::placeholder {
+		color: #7378c5
+	}
+
+	.search:focus {
+		outline: none;
+		background-color: var(--primary-color);
+	}
+
+	main {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.movie {
+		width: 300px;
+		margin: 1rem;
+		background-color: var(--secondary-color);
+		box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+		position: relative;
+		overflow: hidden;
+		border-radius: 3px;
+	}
+
+	.movie img {
+		width: 100%;
+	}
+
+	.movie-info {
+		color: #eee;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.5rem 1rem 1rem;
+		letter-spacing: 0.5px;
+	}
+
+	.movie-info h3 {
+		margin-top: 0;
+	}
+
+	.movie-info span {
+		background-color: var(--primary-color);
+		padding: .25rem .5rem;
+		border-radius: 3px;
+		font-weight: bold;
+	}
+
+	.movie-info span.green {
+		color: lightgreen;
+	}
+
+	.movie-info span.orange {
+		color: orange;
+	}
+
+	.movie-info span.red {
+		color: red;
+	}
+
+	.overview {
+		background-color: #fff;
+		padding: 2rem;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		max-height: 100%;
+		transform: translateY(101%);
+		transition: transform 0.3s ease-in;
+	}
+
+	.movie:hover .overview {
+		transform: translateY(0);
+	}
+
+
+script.js:
+
+	const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=e297df68c7228d446d8ad566437c314c&page=1';
+
+	const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
+	const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?&api_key=e297df68c7228d446d8ad566437c314c&query="';
+
+	const main = document.getElementById('main');
+	const form = document.getElementById('form');
+	const search = document.getElementById('search');
+
+	// Get initial movies
+	getMovies(API_URL);
+
+	async function getMovies(url) {
+		const res = await fetch(url);
+		const data = await res.json();
+		showMovies(data.results);
+	}
+
+	function showMovies(movies) {
+		main.innerHTML = '';
+		movies.forEach((movie) => {
+			const { title, poster_path, vote_average, overview } = movie;
+			const movieEl = document.createElement('div');
+			movieEl.classList.add('movie');
+			movieEl.innerHTML = `<img src="${IMG_PATH + poster_path}" alt="${title}">
+				<div class="movie-info">
+					<h3>${title}</h3>
+					<span class="${getClassByRate(vote_average)}">${vote_average}</span>
+				</div>
+				<div class="overview">
+					<h3>Overview</h3>
+						${overview}
+				</div>`;
+		
+		main.appendChild(movieEl);
+		})
+	}
+
+	function getClassByRate(vote) {
+		if(vote >= 8) {
+			return 'green'
+		} else if(vote >= 5) {
+			return 'orange'
+		} else {
+			return 'red'
+		}
+	}
+	form.addEventListener('submit', (e) => {
+		e.preventDefault();
+		const searchTerm = search.value;
+		if(searchTerm && searchTerm != "") {
+			getMovies(SEARCH_API + searchTerm);
+			search.value = '';
+		} else {
+			window.location.reload();
+		}
+	})
+
+
+
+
+******** SECTION 19: Day 18 -- Background Slider ********
+
+
+
+// Lesson -- Project Intro (#57) (0:42)
+
+
+Image & Background image will change at same time and line up. 
+
+
+// Lesson -- HTML & CSS (#58) (12:36)
+// Lesson -- Changing Slides (#59) (8:21)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="style.css">
+		<title>Background Slider</title>
+	</head>
+
+	<body>
+		<div class="slider-container">
+			<div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80');">
+
+			</div>
+			<div class="slide" style="
+				background-image: url('https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80');
+			"></div>
+
+			<div class="slide" style="
+				background-image: url('https://images.unsplash.com/photo-1495467033336-2effd8753d51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80');
+			"></div>
+
+			<div class="slide" style="
+				background-image: url('https://images.unsplash.com/photo-1522735338363-cc7313be0ae0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80');
+			"></div>
+
+			<div class="slide" style="
+				background-image: url('https://images.unsplash.com/photo-1559087867-ce4c91325525?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80');
+			"></div>
+
+			<button class="arrow left-arrow" id="left"><i class="fas fa-arrow-left"></i></button>
+			<button class="arrow right-arrow" id="right"><i class="fas fa-arrow-right"></i></button>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	  background-position: center;
+    /* I didn't understand why this worked. Doc looked like it said property set START (upper left of image) position */
+    /* But found on background-position-x at MSN (but not on regular background-position):
+			left: Aligns the left edge of the background image with the left edge of the background position layer.
+			center: Aligns the center of the background image with the center of the background position layer.
+			right: Aligns the right edge of the background image with the right edge of the background position layer. 
+		*/
+		transition: 0.4s ease;
+	}
+
+	body::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: -1;
+	}
+
+	.slider-container {
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+		height: 70vh;
+		width: 70vw;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.slide {
+		opacity: 0;
+		height: 100vh;
+		width: 100vw;
+		background-position: center;
+		background-size: cover;
+		position: absolute;
+		top: -15vh;
+		left: -15vw;
+		transition: 0.4s ease;
+		z-index: 1;
+	}
+
+	.slide.active {
+		opacity: 1;
+	}
+
+	.arrow {
+		position: fixed;
+		background-color: transparent;
+		color: #fff;
+		padding: 20px;
+		font-size: 30px;
+		border: 2px solid orange;
+		top: 50%;
+		transform: translateY(-50%);
+		cursor: pointer;
+	}
+
+	.arrow:focus {
+		outline: 0;
+		/* This doesn't seem to do anything? */
+	}
+
+	.left-arrow {
+		left: calc(15vw - 65px);
+	}
+
+	.right-arrow {
+		right: calc(15vw - 65px);
+	}
+
+
+script.js:
+
+	const body = document.body;
+	const slides = document.querySelectorAll('.slide');
+	const leftBtn = document.getElementById('left');
+	const rightBtn = document.getElementById('right');
+
+	let activeSlide = 0;
+
+	rightBtn.addEventListener('click', () => {
+		activeSlide++;
+		if(activeSlide > slides.length -1) {
+			activeSlide = 0;
+		}
+		setBgToBody();
+		setActiveSlide();
+	})
+
+	leftBtn.addEventListener('click', () => {
+		activeSlide--;
+		if(activeSlide < 0) {
+			activeSlide = slides.length -1;
+		}
+		setBgToBody();
+		setActiveSlide();
+	})
+
+	setBgToBody();
+
+	function setBgToBody() {
+		body.style.backgroundImage = slides[activeSlide].style.backgroundImage;
+	}
+
+	function setActiveSlide() {
+		slides.forEach(slide => slide.classList.remove('active') );
+		slides[activeSlide].classList.add('active');
+	}
+	
+
+
+******** SECTION 20: Day 19 -- Theme Clock ********
+
+
+
+// Lesson -- Project Intro (#60) (0:34)
+
+
+Clockface w/ hr, min, sec, sec hand ticks, plus digital time below, and toggle dark mode. (One of his favorite projects)
+
+
+
+// Lesson -- Starting the Clock (#61) (12:51)
+// Lesson -- Finish Clock Styling (#62) (5:47)
+// Lesson -- Mode & Clock Styling (#63) (16:39)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css">
+		<title>Theme Clock</title>
+	</head>
+
+	<body>
+		<button class="toggle">Dark mode</button>
+		<div class="clock-container">
+			<div class="clock">
+				<div class="needle hour"></div>
+				<div class="needle minute"></div>
+				<div class="needle second"></div>
+				<div class="center-point"></div>
+			</div>
+			<div class="time"></div>
+			<div class="date"></div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	:root {
+		--primary-color: #000;
+		--secondary-color: #fff;
+		--date-color: white;
+	}
+
+	html.dark {
+		--primary-color: #fff;
+		--secondary-color: #333;
+		--date-color: #000;
+	}
+
+	html.dark {
+		background-color: #111;
+		color: var(--primary-color);
+	}
+
+	html {
+		transition: all 0.5s ease-in;
+	}
+
+	body {
+		font-family: 'Heebo', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.toggle {
+		cursor: pointer;
+		background-color: var(--primary-color);
+		color: var(--secondary-color);
+		border: 0;
+		border-radius: 4px;
+		padding: 8px 12px;
+		position: absolute;
+		top: 100px;
+	}
+
+	.toggle:focus {
+		outline: none;
+	}
+
+	.clock-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.clock {
+		position: relative;
+		width: 200px;
+		height: 200px;
+		/* background-color: #f0f0f0;
+		border-radius: 50%; */
+		/* ? */
+	}
+
+	.needle {
+		background-color: var(--primary-color);
+		position: absolute;
+		top: 50%;
+		/* bottom: 50%; */
+		left: 50%;
+		height: 65px;
+		width: 3px;
+		transform-origin: bottom center;
+		/* transition: all 0.5s ease-in; */
+		/* I took this out because was making the needle spin backward to zero when it hit 60 */
+		/* From Q&A, could just turn off in setTime() when hours/minutes/seconds == 0, */
+	}
+
+	.needle.hour {
+		transform: translate(-50%, -100%) rotate(0deg);
+		/* transform: translate(-50%, 0%) rotate(30deg); */
+	}
+
+	.needle.minute {
+		transform: translate(-50%, -100%) rotate(0deg);
+		/* transform: translate(-50%, 0%) rotate(60deg); */
+		height: 100px;
+	}
+
+	.needle.second {
+		transform: translate(-50%, -100%) rotate(0deg);
+		/* transform: translate(-50%, -0%) rotate(60deg); */
+		height: 100px;
+		background-color: #e74c3c;
+	}
+
+	.center-point {
+		background-color: #e74c3c;
+		width: 10px;
+		height: 10px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: 50%;
+	}
+
+	.center-point::after {
+		content: '';
+		background-color: var(--primary-color);
+		width: 5px;
+		height: 5px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: 50%;
+	}
+
+	.time {
+		font-size: 60px;
+	}
+
+	.date {
+		color: #aaa;
+		font-size: 14px;
+		font-weight: bold;
+		/* mine */
+		letter-spacing: 0.3px;
+		text-transform: uppercase;
+	}
+
+	.date .circle {
+		background-color: var(--primary-color);
+		/* color: var(--secondary-color); */
+		color: var(--date-color);
+		font-weight: bold;
+		/* to make easier to read in dark mode */
+		border-radius: 50%;
+		height: 18px;
+		width: 18px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		line-height: 18px;
+		transition: all 0.5s ease-in;
+		font-size: 12px;
+	}
+
+
+script.js:
+
+	const hourEl = document.querySelector('.hour');
+	const minuteEl = document.querySelector('.minute');
+	const secondEl = document.querySelector('.second');
+	const timeEl = document.querySelector('.time');
+	const dateEl = document.querySelector('.date');
+	const toggleEl = document.querySelector('.toggle');
+
+	const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+	toggleEl.addEventListener('click', (e) => {
+		const html = document.querySelector('html');
+		html.classList.toggle('dark'); /* He used if/else */
+		if(html.classList.contains('dark')){
+			e.target.innerText = 'Light mode';
+		} else {
+			e.target.innerText = 'Dark mode'
+		}
+	})
+
+	function setTime() {
+		const time = new Date();
+		const month = time.getMonth();
+		const day = time.getDay();
+		const date = time.getDate();
+		const hours = time.getHours();
+		const hoursForClock = hours % 12 == 0 ? 12 : hours % 12; // my fix
+		const minutes = time.getMinutes();
+		const seconds = time.getSeconds();
+		const ampm = hours >= 12 ? 'PM' : 'AM';
+
+		/* my solution
+		let minutesF = minutes;
+		if (minutesF.length = 1) minutesF = '0'+minutesF;
+		timeEl.innerText = hoursForClock + ":" + minutesF;
+
+		hourEl.style.transform = `translate(-50%, -100%) rotate(${(hoursForClock * 30)}deg)`
+		hourEl.style.height = '120px';
+		minuteEl.style.transform = `translate(-50%, -100%) rotate(${minutes * 6}deg)`;
+		secondEl.style.transform = `translate(-50%, -100%) rotate(${seconds * 6}deg)`;
+		dateEl.innerHTML = days[day] + ', ' + months[month] + ' <span class="circle">' + `${day}` + '</span>';
+		*/
+
+		// Dynamic transitions to avoid spin. Adapted from Q&A. Still jumps from 59 to 0 w/out ease-in, but doesn't spin back to do it.
+		hourEl.style.transition = `${hours === 0 ? "none" : "all 0.5s ease-in"}`; 
+		minuteEl.style.transition = `${minutes === 0 ? "none" : "all 0.5s ease-in"}`;   
+		secondEl.style.transition = `${seconds === 0 ? "none" : "all 0.5s ease-in"}`;
+
+		// His solution. Using scale() for this is really overkill, plus he uses it wrong
+		hourEl.style.transform = `translate(-50%, -100%) rotate(${scale(hoursForClock, 0, 12, 0, 360)}deg)`; // he had 0, 11, 0, 360, which is wrong
+		minuteEl.style.transform = `translate(-50%, -100%) rotate(${scale(minutes, 0, 60, 0, 360)}deg)`;
+		secondEl.style.transform = `translate(-50%, -100%) rotate(${scale(seconds, 0, 60, 0, 360)}deg)`;
+
+		timeEl.innerHTML = `${hoursForClock}:${minutes < 10 ? `0${minutes}` : minutes} ${ampm}`; // Did not know you could embed back templates w/int templates
+
+		dateEl.innerHTML = `${days[day]}, ${months[month]} <span class="circle">${date}</span>`
+
+
+		}
+
+		// StackOverflow https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
+		const scale = (num, in_min, in_max, out_min, out_max) => {
+			return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+		}
+
+		setInterval(setTime, 1000);
+
+
+I found his setting the needles at the bottom then transforming them up 100% unintuitive. This worked instead, putting base of needles in center of clock to begin with:
+
+in style.css, 
+
+	.needle {
+		background-color: var(--primary-color);
+		position: absolute;
+		bottom: 50%; // instead of top: 50%
+	
+And for each of the needles:
+
+    transform: translateX(-50%) rotate(0deg);
+	
+then in script.js,
+
+	hourEl.style.transform = `translateX(-50%) rotate(${scale(hoursForClock, 0, 12, 0, 360)}deg)`; // he had 0, 11, 0, 360, which is wrong
+	minuteEl.style.transform = `translateX(-50%) rotate(${scale(minutes, 0, 60, 0, 360)}deg)`;
+	secondEl.style.transform = `translateX(-50%) rotate(${scale(seconds, 0, 60, 0, 360)}deg)`;
+	
+I tested this in style2.css & script2.css. Works fine. Made other changes to style & script in style2.css & script2.css, including making the seconds transition more precise and exactly (almost) on the second using a function I found on StackOverflow.
+
+
+Alternate versions as of 10/14/2021:
+
+index.html (same, but uses style2.css & script2.css)
+
+style2.css:
+
+	@import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	:root {
+		--primary-color: #000;
+		--secondary-color: #fff;
+		--date-color: white;
+	}
+
+	html.dark {
+		--primary-color: #fff;
+		--secondary-color: #333;
+		--date-color: #000;
+	}
+
+	html.dark {
+		background-color: #111;
+		color: var(--primary-color);
+	}
+
+	html {
+		/* transition: all 0.5s ease-in; */
+	}
+
+	body {
+		font-family: 'Heebo', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+		opacity: 0;
+	}
+
+	.toggle {
+		cursor: pointer;
+		background-color: var(--primary-color);
+		color: var(--secondary-color);
+		border: 0;
+		border-radius: 4px;
+		padding: 8px 12px;
+		position: absolute;
+		top: 100px;
+	}
+
+	.toggle:focus {
+		outline: none;
+	}
+
+	.clock-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.clock {
+		position: relative;
+		width: 200px;
+		height: 200px;
+		/* background-color: #f0f0f0; */
+		border-radius: 50%;
+		/* Issue now is clock moves up when time filled in? */
+	}
+
+	.needle {
+		background-color: var(--primary-color);
+		position: absolute;
+		bottom: 50%;
+		left: 50%;
+		width: 3px;
+		height: 0;
+		transform-origin: bottom center;
+		/* transition: all 0.5s ease-in; */
+		/* I took this out because was making the needle spin backward to zero when it hit 60 */
+		/* From Q&A, could just turn off in setTime() when hours/minutes/seconds == 0, */
+	}
+
+	.needle.hour {
+		/* transform: translateX(-50%) rotate(0deg); */
+		/* transform: translate(-50%, 0%) rotate(0deg); */
+		height: 65px;
+	}
+
+	.needle.minute {
+		/* transform: translateX(-50%) rotate(0deg); */
+		/* transform: translate(-50%, 0%) rotate(0deg); */
+		height: 100px;
+	}
+
+	.needle.second {
+		/* transform: translateX(-50%) rotate(0deg); */
+		/* transform: translate(-50%, -0%) rotate(0deg); */
+		height: 100px;
+		background-color: #e74c3c;
+	}
+
+	.center-point {
+		background-color: #e74c3c;
+		width: 10px;
+		height: 10px;
+		position: absolute;
+		/* top: 50%; */
+		bottom: 50%;
+		left: 50%;
+		/* transform: translate(-50%, -50%); */
+		transform: translate(-50%, 50%);
+		border-radius: 50%;
+	}
+
+	.center-point::after {
+		content: '';
+		background-color: var(--primary-color);
+		width: 5px;
+		height: 5px;
+		position: absolute;
+		/* top: 50%; */
+		bottom: 50%;
+		left: 50%;
+		transform: translate(-50%, 50%);
+		border-radius: 50%;
+	}
+
+	.time {
+		font-size: 60px;
+	}
+
+	.date {
+		color: #aaa;
+		font-size: 14px;
+		font-weight: bold;
+		/* mine */
+		letter-spacing: 0.3px;
+		text-transform: uppercase;
+	}
+
+	.date .circle {
+		background-color: var(--primary-color);
+		/* color: var(--secondary-color); */
+		color: var(--date-color);
+		font-weight: bold;
+		/* to make easier to read in dark mode */
+		border-radius: 50%;
+		height: 18px;
+		width: 18px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		line-height: 18px;
+		/* transition: all 0.5s ease-in; */
+		font-size: 12px;
+	}
+
+
+script2.css:
+
+	const hourEl = document.querySelector('.hour');
+	const minuteEl = document.querySelector('.minute');
+	const secondEl = document.querySelector('.second');
+	const timeEl = document.querySelector('.time');
+	const dateEl = document.querySelector('.date');
+	const toggleEl = document.querySelector('.toggle');
+	const html = document.querySelector('html');
+	const body = document.querySelector('body');
+
+	let time, month, day, date, hours, hoursForClock, minutes, seconds, ampm;
+		
+	const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+	// StackOverflow https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
+	const scale = (num, in_min, in_max, out_min, out_max) => {
+		return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min; // uses in time/angle conversions. Overkill
+	}
+
+	toggleEl.addEventListener('click', (e) => {
+		html.classList.toggle('dark'); /* He used if/else */
+		if(html.classList.contains('dark')){
+			e.target.innerText = 'Light mode';
+		} else {
+			e.target.innerText = 'Dark mode'
+		}
+	})
+
+	function getTime() {
+		time = new Date();
+		month = time.getMonth();
+		day = time.getDay();
+		date = time.getDate();
+		hours = time.getHours();
+		hoursForClock = (hours % 12) == 0 ? 12 : hours % 12; // my fix
+		minutes = time.getMinutes();
+		seconds = time.getSeconds();
+		ampm = hours >= 12 ? 'PM' : 'AM';
+	}
+
+	function setTimeDOM() {
+		// His solution. Using scale() for this is really overkill, plus he uses it wrong.
+		hourEl.style.transform = `translateX(-50%) rotate(${scale(hoursForClock, 0, 12, 0, 360)}deg)`; // he had 0, 11, 0, 360, which is wrong
+		minuteEl.style.transform = `translateX(-50%) rotate(${scale(minutes, 0, 60, 0, 360)}deg)`;
+		secondEl.style.transform = `translateX(-50%) rotate(${scale(seconds, 0, 60, 0, 360)}deg)`;
+
+		timeEl.innerHTML = `${hoursForClock}:${minutes < 10 ? `0${minutes}` : minutes} ${ampm}`; // Did not know you could embed back templates w/int templates
+		dateEl.innerHTML = `${days[day]}, ${months[month]} <span class="circle">${date}</span>`
+	}
+
+	function setTransitions() {
+		// Dynamic transitions to avoid spin. Adapted from Q&A. Still jumps from 59 to 0 w/out transition, but doesn't spin back to do it.
+		hourEl.style.transition = `${hours === 12 ? "none" : "transform 0.5s ease-in"}`; 
+		minuteEl.style.transition = `${minutes === 0 ? "none" : "transform 0.5s ease-in"}`;   
+		secondEl.style.transition = `${seconds === 0 ? "none" : "transform 0.5s ease-in"}`;
+	}
+
+	function setTime() {
+		getTime();
+		setTimeDOM();
+	}
+
+	function setTimeWTransitions() {
+		setTime();
+		setTransitions();
+	}
+
+	// First display
+	setTime(); // First time no transitions, so screen just appears
+	console.log(secondEl.style); // when "oncePerSecond" runs, already has '"transform 0.5s ease-in 0s" ??? Do not have this problem w/ setInterval.
+	body.style.transition = "opacity 2s ease-in";  // w/ oncePerSecond have needed delay for dials to move -- is setting transition prematurely ???
+	body.style.opacity = '1';
+
+	// Redisplay once/second
+	// setTimeout(setTime, 1000 - new Date().getMilliseconds()); // Doesn't work all that well. Jumps
+	setInterval(setTimeWTransitions, 1000);
+
+	// More precise than setInterval - From StackOverflow: https://stackoverflow.com/questions/53891790/make-javascript-interval-synchronize-with-actual-time
+	// I guess each iteration completes while leaving behind another iteration in teh queue, so won't cause memory problems. But still jumps sometimes
+	function oncePerSecond(callback) {
+		var timerFunc = function () {
+				// get the current time rounded down to a whole second (with a 10% margin)
+				var now = 1000 * Math.floor(Date.now() / 1000 + 0.1);
+				// (The static Date.now() method returns the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.)
+				// run the callback
+				callback(now);
+				// wait for the next whole second
+				setTimeout(timerFunc, now + 1000 - Date.now());
+		};
+		timerFunc();
+	}
+
+	// setTimeout(oncePerSecond(setTimeWTransitions), 1000); // Even w/ this, still sets transitions right away ????
+
+
+
+******** SECTION 21: Day 20 -- Button Ripple Effect ********
+
+
+
+// Lesson -- Project Intro (#64) (0:34)
+
+
+Buttons that ripple wherever we click on the button. Using JS to find exact spot of click.
+
+
+
+// Lesson -- Button Style & Animation (#65) (6:49)
+// Lesson -- Button Click Effect (#66) (8:09)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css">
+		<title>Button Ripple Effect</title>
+	</head>
+
+	<body>
+		<button class="ripple">Click Me </span></button>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #000;
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	button {
+		background-color: purple;
+		color: white;
+		border: 1px purple solid;
+		font-size: 14px;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		padding: 20px 30px;
+		overflow: hidden;
+		margin: 10px 0;
+		position: relative;
+	}
+
+	button:focus {
+		outline: none;
+	}
+
+	button .circle {
+		position: absolute;
+		background-color: #fff;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		transform: translate(-50%, -50%) scale(0);
+		animation: scale .5s ease-out;
+	}
+
+	@keyframes scale {
+		to {
+			transform: translate(-50%, -50%) scale(3);
+			opacity: 0;
+		}
+	}
+
+
+script.js:
+
+	const buttons = document.querySelectorAll('.ripple');
+
+	buttons.forEach(button => {
+		button.addEventListener('click', e => {
+			const x = e.clientX;
+			const y = e.clientY;
+			const buttonTop = e.target.offsetTop;
+			const buttonLeft = e.target.offsetLeft;
+
+			const xInside = x - buttonLeft + 1;
+			const yInside = y - buttonTop + 1;
+
+			const circle = document.createElement('span');
+			circle.classList.add('circle');
+			circle.style.top = yInside + 'px';
+			circle.style.left = xInside + 'px';
+
+			button.appendChild(circle); // this works too (instead of 'this')
+			// this.appendChild(circle); // His code. Then have to have regular function above rather than arrow function.
+
+			setTimeout(() => circle.remove(), 500);
+		})
+	})
+
+	// The clientX read-only property of the MouseEvent interface provides the horizontal coordinate within the application's viewport at which the event occurred (as opposed to the coordinate within the page).
+
+	// The Element.remove() method removes the element from the tree it belongs to.
+
+
+
+
+******** SECTION 22: Day 21 -- Drag N Drop ********
+
+
+
+// Lesson -- Project Intro (#67) (0:58)
+
+
+We're going to create boxes w/ div w/ background image. Grab it and gets class of hold, gets a grey border. If hover over another box bets class hover, black border, white background.
+
+
+
+// Lesson -- Create Drop Boxes (#68) (5:21)
+// Lesson -- Drag Drop Events (#69) (13:47)
+
+
+https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css">
+		<title>Drag N Drop</title>
+	</head>
+
+	<body>
+		<div class="empty">
+			<div class="fill" draggable="true"></div>
+		</div>
+		<div class="empty"></div>
+		<div class="empty"></div>
+		<div class="empty"></div>
+		<div class="empty"></div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: steelblue;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.empty {
+		height: 150px;
+		width: 150px;
+		margin: 10px;
+		border: solid 3px black;
+		background: white;
+	}
+
+	.fill {
+		background-image: url('https://source.unsplash.com/random/150x150');
+		height: 145px;
+		width: 145px;
+		cursor: pointer;
+	}
+
+	.hold {
+		border: solid 5px #ccc;
+	}
+
+	.hovered {
+		background-color: #333;
+		border-color: white;
+		border-style: dashed;
+	}
+
+	@media(max-width: 800px) {
+		body {
+			flex-direction: column;
+		}
+	}
+
+
+script.js:
+
+	const fill = document.querySelector('.fill');
+	const empties= document.querySelectorAll('.empty');
+
+	fill.addEventListener('dragstart', dragStart);
+	fill.addEventListener('dragend', dragEnd);
+
+	for(const empty of empties) {
+		empty.addEventListener('dragover', dragOver);
+		empty.addEventListener('dragenter', dragEnter);
+		empty.addEventListener('dragleave', dragLeave);
+		empty.addEventListener('drop', dragDrop);
+	}
+	function dragStart() {
+		this.className += ' hold';
+		setTimeout(() => this.className = 'invisible', 0); /* not a real class, SetTuneiyt allows us to take image before it's blanked out, even w/ 0 ms*/
+	}
+
+	function dragEnd() {
+		this.className = 'fill';
+
+	}
+	function dragOver(e) {
+		e.preventDefault(); /* Default action:	Reset the current drag operation to "none".*/
+
+	}
+	function dragEnter(e) {
+		e.preventDefault(); /* Default action:	Reject immediate user selection as potential target element. */
+	this.className += ' hovered';
+	}
+	function dragLeave() {
+		this.className = 'empty';
+
+	}
+	function dragDrop() {
+		this.className = 'empty';
+		this.append(fill);
+
+	}
+
+
+
+
+******** SECTION 23: Day 22 -- Drawing App ********
+
+
+
+// Lesson -- Project Intro (#70) (1:17)
+
+
+Drawing app using HTML5 "Canvas" & JS API to draw shapes. Implement w/ mouse events so can click & draw. Change color, width
+
+
+
+// Lesson -- Drawing Pad UI (#71) (6:32)
+// Lesson -- Canvas Shapes (#72) (7:06)
+// Lesson -- Mouse Events & Drawing (#73) (6:43)
+// Lesson -- Toolbox Controls (#74) (7:19)
+
+
+
+Using the Canvas API:
+https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+
+
+I added a background color picker. And I added an "erase" button which in the first version set the color to whatever the background color was to erase, added font-awesome icon, set to dim out when active. Was pretty easy. Then added a background color selector. But previously erased sections will show if you change the background color after erasing. A bug or a feature. Then I changed it to use clearRect(x,y,w,h) so it really clears -- goes back to being background. Also added feature to doubleclick on an area to switch the color to that area's color.
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="style.css">
+		<title>Drawing App</title>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<div class="toolbox">
+			<button id="decrease">-</button>
+			<span id="size">10</span>
+			<button id="increase">+</button>
+			<input type="color" id="color">
+			<input type="color" id="background" value="#FFFFFF">
+			<button id="erase"><i class="fa fa-eraser"></i></button>
+			<button id="clear">X</button>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #f5f5f5;
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		margin: 0;
+	}
+
+	canvas {
+		border: 2px solid steelblue;
+		background-color: white;
+	}
+
+	.toolbox {
+		background-color: steelblue;
+		border: 1px solid slateblue;
+		display: flex;
+		width: 804px;
+		padding: 1rem;
+	}
+
+	.toolbox>* {
+		background-color: #fff;
+		border: none;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 2rem;
+		height: 50px;
+		width: 50px;
+		margin: 0.25rem;
+		padding: 0.25rem;
+		cursor: pointer;
+	}
+
+	.toolbox>*:last-child {
+		margin-left: auto;
+	}
+
+	#erase.active {
+		opacity: 0.5;
+	}
+
+	#color {
+		/* background-color: black; */
+		/* fill: white; */
+	}
+
+	#background {
+		background-color: white;
+		border: 1px solid black;
+		padding: 0.2rem;
+	}
+
+
+script.js:
+
+	/** @format */
+
+	const canvas = document.getElementById('canvas');
+	const increaseBtn = document.getElementById('increase');
+	const decreaseBtn = document.getElementById('decrease');
+	const sizeEl = document.getElementById('size');
+	const colorEl = document.getElementById('color');
+	const backgroundEl = document.getElementById('background');
+	const eraseEl = document.getElementById('erase');
+	const clearEl = document.getElementById('clear');
+
+	const ctx = canvas.getContext('2d');
+
+	let size = 10;
+	let isPressed = false;
+	let color = 'black';
+	let backgroundColor = 'white';
+	let saveColor = color;
+	let erasing = false;
+	let x;
+	let y;
+
+	canvas.addEventListener('mousedown', (e) => {
+		isPressed = true;
+		x = e.offsetX;
+		y = e.offsetY;
+	});
+
+	canvas.addEventListener('mousemove', (e) => {
+		if (isPressed) {
+			const x2 = e.offsetX;
+			const y2 = e.offsetY;
+			if (!erasing) {
+				drawCircle(x2, y2);
+				drawLine(x, y, x2, y2);
+				x = x2;
+				y = y2;
+			} else {
+				ctx.clearRect(x2, y2, 15, 15);
+			}
+		}
+	});
+
+	canvas.addEventListener('mouseup', (e) => {
+		isPressed = false;
+		x = undefined;
+		y = undefined;
+	});
+
+	canvas.addEventListener('dblclick', (e) => {
+		const c = ctx.getImageData(e.offsetX, e.offsetY, 1, 1).data;
+		color = '#' + rgbToHex(c[0], c[1], c[2]);
+		notErasing();
+	});
+
+	function rgbToHex(r, g, b) {
+		return ('000000' + ((r << 16) | (g << 8) | b).toString(16)).slice(-6);
+	}
+
+	function areErasing() {
+		eraseEl.classList.add('active');
+		erasing = true;
+	}
+
+	function notErasing() {
+		eraseEl.classList.remove('active');
+		erasing = false;
+	}
+
+	function drawCircle(x, y) {
+		ctx.beginPath();
+		ctx.arc(x, y, size, 0, Math.PI * 2); // Outer circle
+		ctx.fillStyle = color;
+		ctx.fill();
+	}
+
+	function drawLine(x1, y1, x2, y2) {
+		ctx.beginPath();
+		ctx.moveTo(x1, y1);
+		ctx.lineTo(x2, y2);
+		ctx.strokeStyle = color;
+		ctx.lineWidth = size * 2;
+		ctx.stroke();
+	}
+
+	function updateSizeOnScreen() {
+		sizeEl.innerText = size;
+	}
+
+	colorEl.addEventListener('change', (e) => {
+		color = e.target.value;
+		notErasing();
+	});
+
+	backgroundEl.addEventListener('change', (e) => {
+		backgroundColor = e.target.value;
+		canvas.style.backgroundColor = backgroundColor;
+	});
+
+	increaseBtn.addEventListener('click', (e) => {
+		// size += 5;
+		// if (size > 50) {
+		//   size = 50;
+		// }
+		size = Math.min(size + 5, 50);
+		updateSizeOnScreen();
+	});
+
+	decreaseBtn.addEventListener('click', (e) => {
+		// size -= 5;
+		// if (size < 5) {
+		//   size = 5;
+		// }
+		size = Math.max(size - 5, 5);
+		updateSizeOnScreen();
+	});
+
+	eraseEl.addEventListener('click', (e) => {
+		// Old method drawing over w/ current background color. If change background color will show old erasures
+		// if (!erasing) {
+		//   erasing = true;
+		//   // saveColor = color;
+		//   // color = backgroundColor;
+		// } else {
+		//   erasing = false;
+		//   // color = saveColor;
+		// }
+		// eraseEl.classList.toggle('active');
+
+		// clearRect method. Jagged on diagonals, but really erases:
+		if (!erasing) {areErasing()} else {notErasing()};
+	});
+
+	clearEl.addEventListener('click', (e) => {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+	});
+
+
+Then I made more changes, added labels to color & background color, added a size slider to the eraser, added doubleclick on canvas to switch color, etc.:
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="style.css">
+		<title>Drawing App</title>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<div class="toolbox">
+			<button id="decrease">-</button>
+			<span id="size">10</span>
+			<button id="increase">+</button>
+			<div class="tool-container">
+				<input type="color" class="tool" id="color" value="#000000">
+				<div class="tool-label">Color</div>
+			</div>
+			<div class="tool-container">
+				<input class="tool" type="color" id="backgroundColor" value="#FFFFFF">
+				<div class="tool-label">Bkgrnd</div>
+			</div>
+			<div class="tool-container tool-with-slider-container">
+				<button id="eraser" class="tool"><i class="fa fa-eraser"></i></button>
+				<div class="slider-container">
+					<input type="range" min="1" max="50" value="5" class="slider" , id="eraser-size-slider">
+				</div>
+				<div class="tool-label" id="eraser-label">Eraser: 5</div>
+			</div>
+			<button id="clear">X</button>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #f5f5f5;
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		margin: 0;
+	}
+
+	canvas {
+		border: 2px solid steelblue;
+		background-color: white;
+	}
+
+	.toolbox {
+		background-color: steelblue;
+		border: 1px solid slateblue;
+		display: flex;
+		width: 804px;
+		padding: 1rem;
+	}
+
+	.toolbox>* {
+		background-color: #fff;
+		border: none;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 2rem;
+		height: 50px;
+		height: 75px;
+		width: 50px;
+		margin: 0.25rem;
+		padding: 0.25rem;
+		cursor: pointer;
+	}
+
+	.toolbox>*:last-child {
+		margin-left: auto;
+	}
+
+	.tool-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.tool-with-slider-container {
+		position: relative;
+		height: 75px;
+	}
+
+	.tool {
+		width: 100%;
+	}
+
+	.tool-label {
+		font-size: 8px;
+	}
+
+
+	/* Using absolute positioning for eraser slider contents. Don't know why setting height alone doesn't do it - was displacing out of container. */
+
+	#eraser {
+		height: 40%;
+		width: 90%;
+		position: absolute;
+		top: 5%;
+	}
+
+	#eraser.active {
+		opacity: 0.5;
+	}
+
+	.slider-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 55%;
+	}
+
+	#eraser-label {
+		position: absolute;
+		top: 78%;
+	}
+
+	.slider {
+		width: 100%;
+		height: 3px;
+		margin: 2px;
+		background: #d3d3d3;
+		outline: none;
+	}
+
+	.tool-label {
+		font-size: 10px;
+	}
+
+
+script.js:
+
+	/** @format */
+	/*
+	 Issues: decrease button sometimes has visible background after you change the background color. At least in Chrome
+	 */
+	const canvas = document.getElementById('canvas');
+	const increaseBtn = document.getElementById('increase');
+	const decreaseBtn = document.getElementById('decrease');
+	const sizeEl = document.getElementById('size');
+	const colorEl = document.getElementById('color');
+	const backgroundColorEl = document.getElementById('backgroundColor');
+	const eraserEl = document.getElementById('eraser');
+	const eraserSliderEl = document.getElementById('eraser-size-slider');
+	const eraserLabelEl = document.getElementById("eraser-label");
+
+	const clearEl = document.getElementById('clear');
+
+	const ctx = canvas.getContext('2d');
+
+	let size = 10;
+	let isPressed = false;
+	let color = '#000000';
+	let backgroundColor = '#FFFFFF';
+	let saveColor = color;
+	let erasing = false;
+	let eraserSize = 5;
+	let x;
+	let y;
+
+	// Seems to be necessary to update the color box in the color picker icons w/ current colors
+	updateColorPickers();
+	// In Firefox, slider knob won't automatically reset, so:
+	updateEraserSlider();
+
+	canvas.addEventListener('mousedown', (e) => {
+		isPressed = true;
+		x = e.offsetX;
+		y = e.offsetY;
+	});
+
+	canvas.addEventListener('mousemove', (e) => {
+		if (isPressed) {
+			const x2 = e.offsetX;
+			const y2 = e.offsetY;
+			if (!erasing) {
+				drawCircle(x2, y2);
+				drawLine(x, y, x2, y2);
+				x = x2;
+				y = y2;
+			} else {
+				ctx.clearRect(x2, y2, eraserSize, eraserSize);
+			}
+		}
+	});
+
+	canvas.addEventListener('mouseup', (e) => {
+		isPressed = false;
+		x = undefined;
+		y = undefined;
+	});
+
+	canvas.addEventListener('dblclick', (e) => {
+		const c = ctx.getImageData(e.offsetX, e.offsetY, 1, 1).data;
+		color = '#' + rgbToHex(c[0], c[1], c[2]);
+		if (c[0]==0 && c[1]==0 && c[2]==0 && c[3]==0) {
+			color = backgroundColor; // if rgba is all zeros, is background?
+		}
+		updateColorPickers();
+		notErasing();
+	});
+
+	function rgbToHex(r, g, b) {
+		return ('000000' + ((r << 16) | (g << 8) | b).toString(16)).slice(-6);
+	}
+
+	function areErasing() {
+		eraserEl.classList.add('active');
+		erasing = true;
+	}
+
+	function notErasing() {
+		eraserEl.classList.remove('active');
+		erasing = false;
+	}
+
+	function drawCircle(x, y) {
+		ctx.beginPath();
+		ctx.arc(x, y, size, 0, Math.PI * 2); // Outer circle
+		ctx.fillStyle = color;
+		ctx.fill();
+	}
+
+	function drawLine(x1, y1, x2, y2) {
+		ctx.beginPath();
+		ctx.moveTo(x1, y1);
+		ctx.lineTo(x2, y2);
+		ctx.strokeStyle = color;
+		ctx.lineWidth = size * 2;
+		ctx.stroke();
+	}
+
+	function updateSizeOnScreen() {
+		sizeEl.innerText = size;
+	}
+
+	function updateColorPickers() {
+		colorEl.value = color
+		backgroundColorEl.value = backgroundColor;
+	}
+
+	function updateEraserSlider() {
+		eraserSliderEl.value = eraserSize;
+	}
+
+	colorEl.addEventListener('change', (e) => {
+		color = e.target.value;
+		updateColorPickers();
+		notErasing();
+	});
+
+	backgroundColorEl.addEventListener('change', (e) => {
+		backgroundColor = e.target.value;
+		updateColorPickers();
+		canvas.style.backgroundColor = backgroundColor;
+	});
+
+	increaseBtn.addEventListener('click', (e) => {
+		// size += 5;
+		// if (size > 50) {
+		//   size = 50;
+		// }
+		size = Math.min(size + 5, 50);
+		updateSizeOnScreen();
+	});
+
+	decreaseBtn.addEventListener('click', (e) => {
+		// size -= 5;
+		// if (size < 5) {
+		//   size = 5;
+		// }
+		size = Math.max(size - 5, 5);
+		updateSizeOnScreen();
+	});
+
+	eraserEl.addEventListener('click', (e) => {
+		// Old method drawing over w/ current background color. If change background color will show old erasures
+		// if (!erasing) {
+		//   erasing = true;
+		//   // saveColor = color;
+		//   // color = backgroundColor;
+		// } else {
+		//   erasing = false;
+		//   // color = saveColor;
+		// }
+		// eraserEl.classList.toggle('active');
+
+		// clearRect method. Jagged on diagonals, but really erases:
+		if (!erasing) {areErasing()} else {notErasing()};
+	});
+
+	eraserSliderEl.oninput = function() {
+	 eraserSize = this.value;
+	 eraserLabelEl.innerText = "Eraser: " + eraserSize;
+	}
+
+	clearEl.addEventListener('click', (e) => {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+	});
+
+
+
+
+******** SECTION 24: Day 23 -- Kinetic CSS Loader ********
+
+
+
+// Lesson -- Project Intro (#75) (0:24)
+
+
+Create a loader w/ two triangles rotating. Using keyframes & borders
+
+
+// Lesson -- Kinetic CSS Loader (#76) (7:25)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css">
+		<title>Kinetic Loader</title>
+	</head>
+
+	<body>
+		<div class="kinetic"></div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+	
+	
+style.css:
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #2c3e50;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.kinetic {
+		position: relative;
+		height: 80px;
+		width: 80px;
+	}
+
+	.kinetic::before,
+	.kinetic::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		  /* This creates a triangle by having border w/ no content making a square, only showing bottom, making a triangle (as 1/4 of a square) */
+		width: 0;
+		height: 0;
+		border: 50px solid transparent;
+		border-bottom-color: #fff;
+		animation: rotateA 2s linear infinite 0.5s;
+	}
+
+	.kinetic::before {
+		transform: rotate(90deg);
+		animation: rotateB 2s linear infinite;
+	}
+
+	@keyframes rotateA {
+		0%,
+		25% {
+			transform: rotate(0deg);
+		}
+		50%,
+		75% {
+			transform: rotate(180deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	@keyframes rotateB {
+		0%,
+		25% {
+			transform: rotate(90deg);
+		}
+		50%,
+		75% {
+			transform: rotate(270deg);
+		}
+		100% {
+			transform: rotate(450deg);
+		}
+	}
+	
+	
+	
+******** SECTION 25: Day 24 -- Content Placeholder ********
+
+
+// Lesson -- Project Intro (#77) (0:53)
+
+
+Will have a card and a moving wave gradient background that appears for a couple seconds before the card loads.
+
+
+// Lesson -- Card HTML (#78) (5:33)
+// Lesson -- Card CSS (#79) (5:05)
+// Lesson -- Animation Timeout Effect (#80) (10:35)
+
+
+index.html:
+
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css">
+		<title>Content Placeholder</title>
+	</head>
+
+	<body>
+		<div class="card">
+			<div class="card-header animated-bg" id="header">
+				&nbsp;
+			</div>
+			<div class="card-content">
+				<h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;</h3>
+				<p class="card-excerpt" id="excerpt">
+					&nbsp;
+					<span class="animated-bg animated-bg-text">&nbsp;</span>
+					<span class="animated-bg animated-bg-text">&nbsp;</span>
+					<span class="animated-bg animated-bg-text">&nbsp;</span>
+				</p>
+				<div class="author">
+					<div class="profile-img animated-bg" id="profile_img">
+						&nbsp;
+					</div>
+					<div class="author-info">
+						<strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+						<small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+	
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #ecf0f1;
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	img {
+		max-width: 100%;
+	}
+
+	.card {
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+		border-radius: 10px;
+		overflow: hidden;
+		width: 350px;
+	}
+
+	.card-header {
+		height: 200px;
+	}
+
+	.card-header img {
+		object-fit: cover;
+		height: 100%;
+		width: 100%;
+	}
+
+	.card-content {
+		background-color: #fff;
+		padding: 30px;
+	}
+
+	.card-title {
+		height: 20px;
+		margin: 0;
+	}
+
+	.card-excerpt {
+		color: #777;
+		margin: 10px 0 20px;
+	}
+
+	.author {
+		display: flex;
+	}
+
+	.profile-img {
+		border-radius: 50%;
+		overflow: hidden;
+		height: 40px;
+		width: 40px;
+	}
+
+	.author-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		margin-left: 10px;
+		width: 100px;
+	}
+
+	.author-info small {
+		color: #aaa;
+		margin-top: 5px;
+	}
+
+	.animated-bg {
+		background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 10%, #f6f7f8 20%, #f6f7f8 100%);
+		background-size: 200% 100%;
+		animation: bgPos 1s linear infinite;
+	}
+
+	.animated-bg-text {
+		border-radius: 50px;
+		display: inline-block;
+		margin: 0;
+		height: 10px;
+		width: 100%;
+	}
+
+	@keyframes bgPos {
+		0% {
+			background-position: 50% 0;
+		}
+		100% {
+			background-position: -150% 0;
+		}
+	}
+
+
+script.js:
+
+	const header = document.getElementById('header');
+	const title = document.getElementById('title');
+	const excerpt = document.getElementById('excerpt');
+	const profile_img = document.getElementById('profile_img');
+	const author_name = document.getElementById('name');
+	const date = document.getElementById('date');
+
+	const animated_bgs = document.querySelectorAll('.animated-bg');
+	const animated_bg_texts = document.querySelectorAll('animated-gb-text');
+
+
+	setTimeout(getData, 2500);
+
+	function getData() {
+		header.innerHTML = '<img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80" alt="" />';
+		title.innerHTML = 'Lorem ipsum dolor sit amet';
+		excerpt.innerHTML = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nesciunt?';
+		profile_img.innerHTML = '<img src="https://randomuser.me/api/portraits/men/45.jpg" alt="">';
+		author_name.innerHTML = 'John Doe';
+		date.innerHTML = 'Oct 08, 2020';
+		animated_bgs.forEach(bg => bg.classList.remove('animated-bg'));
+		animated_bg_texts.forEach(bgText => bgText.classList.remove('animated-bg-text'));
+	}
+
+
+(had to change from 'name' to 'author_name' because "name" was deprecated.)
+
+
+
+******** SECTION 26: Day 25 -- Sticky Navbar ********
+
+
+// Lesson -- Project Intro (#81) (0:48)
+
+
+A navbar will stick to the top of the screen, and when scroll down adjusts its styling.
+
+
+
+// Lesson -- Website Content & Style (#82) (12:31)
+// Lesson -- Navbar CSS & JS (#83) (10:21)
+
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css">
+		<title>Sticky Navigation</title>
+	</head>
+
+	<body>
+		<nav class="nav">
+
+			<div class="container">
+				<h1 class="logo">
+					<a href="/index.html">My Website</a>
+				</h1>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="">About</a></li>
+					<li><a href="">Services</a></li>
+					<li><a href="">Contact</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="hero">
+			<div class="container">
+				<h1>Welcome To My Website</h1>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, iste!</p>
+			</div>
+		</div>
+
+		<section class="container content">
+			<h2>Content One</h2>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolore laborum, voluptates praesentium reiciendis pariatur sint modi ducimus, impedit iusto incidunt itaque animi repellendus voluptatum doloremque facilis labore et vitae repudiandae!
+				Molestias deleniti non, molestiae labore ipsam ut, itaque voluptatem corrupti placeat eius rerum velit delectus minus numquam nemo natus sint necessitatibus porro alias inventore, dolorum dolorem. Doloremque maxime necessitatibus fugiat deleniti,
+				nisi dolorem iusto veritatis possimus sapiente, quos quibusdam cum aliquid aperiam sunt rem ex cumque nesciunt natus nulla optio molestias saepe mollitia voluptatum! Quo numquam necessitatibus magnam totam minus fuga, neque, dolor ipsum mollitia
+				cum ab eaque magni?</p>
+			<h3>Content Two</h3>
+			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo eaque debitis veniam! Ducimus expedita velit odio alias? Nam commodi earum quam hic explicabo soluta quaerat distinctio voluptatum nobis, fuga itaque saepe eaque! Rerum excepturi
+				et tempora deleniti asperiores cupiditate fugiat nisi ut enim? Nesciunt dignissimos debitis dolorem veniam assumenda, nihil ex quo odio ipsam error. Nesciunt delectus alias, est illum dolorum labore voluptates? Laborum corporis voluptas perferendis
+				qui, fugit eius expedita commodi amet molestiae quo quod iure aut, asperiores quo.
+			</p>
+		</section>
+
+
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+ 
+style.css:
+ 
+	 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		font-family: 'Open Sans', sans-serif;
+		color: #222;
+		padding-bottom: 50px
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.nav {
+		position: fixed;
+		background-color: #222;
+		top: 0;
+		left: 0;
+		right: 0;
+		transition: all .3s ease-in-out;
+	}
+
+	.nav .container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 20px 0;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.nav ul {
+		display: flex;
+		list-style-type: none;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.nav a {
+		color: #fff;
+		text-decoration: none;
+		padding: 7px 15px;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.nav.active {
+		background-color: #fff;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+	}
+
+	.nav.active a {
+		color: #000;
+	}
+
+	.nav.active .container {
+		padding: 10px 0;
+	}
+
+	.nav a.current,
+	.nav a:hover {
+		color: #c0392b;
+		font-weight: bold;
+	}
+
+	.hero {
+		background-image: url('https://images.pexels.com/photos/450035/pexels-photo-450035.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: bottom center;
+		height: 100vh;
+		color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		/* w/in the H1 & P child elements */
+		position: relative;
+		margin-bottom: 20px;
+		z-index: -2;
+	}
+
+	.hero::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		/* background-color: rgba(22, 22, 22, .5); */
+		/* I tried a little lighter. Wasn't particularly better */
+		z-index: -1;
+	}
+
+	.hero h1 {
+		font-size: 46px;
+		margin: -20px 0 20px;
+	}
+
+	.hero p {
+		font-size: 20px;
+		letter-spaceing: 1px;
+	}
+
+	.content h2,
+	.content h3 {
+		font-size: 150%;
+		margin: 20px 0;
+	}
+
+	.content p {
+		color: #555;
+		line-height: 30px;
+		letter-spacing: 1.2px;
+	}
+	
+	
+script.js:
+
+	const nav = document.querySelector('.nav');
+	window.addEventListener('scroll', fixNav);
+
+	function fixNav() {
+		// console.log(window.scrollY, nav.offsetHeight);
+		if(window.scrollY > nav.offsetHeight + 150) {
+			nav.classList.add('active');
+		} else {
+			nav.classList.remove('active');
+		}
+	}
+	
+	
+
+******** SECTION 27: Day 26 -- Double Vertical Slider ********
+
+
+// Lesson -- Project Intro (#84) (1:01)
+
+
+A slide show w/ text on left, picture on right, arrows to go up and down, but text moves in opposite direction to pictures.
+
+Won't be responsive.
+
+
+
+// Lesson -- Vertical Slider UI (#85) (14:02)
+// Lesson -- Vertical Slider Function (#86) (10:47)
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="style.css">
+		<title>Vertical Slider</title>
+	</head>
+
+	<body>
+		<div class="slider-container">
+			<div class="left-slide">
+				<div style="background-color: #FD3555">
+					<h1>Nature Flower</h1>
+					<p>all in pink</p>
+				</div>
+				<div style="background-color: #2a86ba">
+					<h1>Bluue Sky</h1>
+					<p>with its mouintains</p>
+				</div>
+				<div style="background-color: #252e33">
+					<h1>Lonely castle</h1>
+					<p>in the wilderness</p>
+				</div>
+				<div style="background-color: #ffb866">
+					<h1>Flying eagle</h1>
+					<p>in the sunset</p>
+				</div>
+			</div>
+			<div class="right-slide">
+				<div style="background-image: url('https://images.unsplash.com/photo-1508768787810-6adc1f613514?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e27f6661df21ed17ab5355b28af8df4e&auto=format&fit=crop&w=1350&q=80')"></div>
+				<div style="background-image: url('https://images.unsplash.com/photo-1519981593452-666cf05569a9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=90ed8055f06493290dad8da9584a13f7&auto=format&fit=crop&w=715&q=80')"></div>
+				<div style="background-image: url('https://images.unsplash.com/photo-1486899430790-61dbf6f6d98b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8ecdee5d1b3ed78ff16053b0227874a2&auto=format&fit=crop&w=1002&q=80')"></div>
+				<div style="background-image: url('https://images.unsplash.com/photo-1510942201312-84e7962f6dbb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=da4ca7a78004349f1b63f257e50e4360&auto=format&fit=crop&w=1050&q=80')"></div>
+			</div>
+			<div class="action-buttons">
+				<button class="down-button">
+					<i class="fas fa-arrow-down"></i>
+				</button>
+				<button class="up-button">
+					<i class="fas fa-arrow-up"></i>
+				</button>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		font-family: 'Open Sans', sans-serif;
+		height: 100vh;
+	}
+
+	.slider-container {
+		position: relative;
+		overflow: hidden;
+		width: 100vw;
+		height: 100vh;
+	}
+
+	.left-slide {
+		height: 100%;
+		width: 35%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: transform .5s ease-in-out;
+	}
+
+	.left-slide>div {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		color: #fff;
+	}
+
+	.left-slide h1 {
+		font-size: 40px;
+		margin-bottom: 10px;
+		margin-top: -30px;
+	}
+
+	.right-slide {
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 35%;
+		width: 65%;
+		transition: transform .5s ease-in-out;
+	}
+
+	.right-slide>div {
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+		height: 100%;
+		width: 100%;
+	}
+
+	button {
+		background-color: white;
+		border: none;
+		color: #aaa;
+		cursor: pointer;
+		font-size: 16px;
+		padding: 15px;
+	}
+
+	button:hover {
+		color: #222;
+	}
+
+	button:focus {
+		outline: none;
+	}
+
+	.slider-container .action-buttons button {
+		position: absolute;
+		left: 35%;
+		top: 50%;
+		z-index: 100;
+	}
+
+	.slider-container .action-buttons .down-button {
+		transform: translateX(-100%);
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
+
+	.slider-container .action-buttons .up-button {
+		transform: translateY(-100%);
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
+
+
+script.js:
+
+	/** @format */
+
+	const sliderContainer = document.querySelector('.slider-container');
+	const slideRight = document.querySelector('.right-slide');
+	const slideLeft = document.querySelector('.left-slide');
+	const upButton = document.querySelector('.up-button');
+	const downButton = document.querySelector('.down-button');
+	const slidesLength = slideRight.querySelectorAll('div').length;
+
+	let activeSlideIndex = 0;
+
+	slideLeft.style.top = `-${(slidesLength - 1) * 100}vh`; // Put last left div at top to start
+
+	upButton.addEventListener('click', () => changeSlide('up'));
+	downButton.addEventListener('click', () => changeSlide('down'));
+
+	const changeSlide = (direction) => {
+		const sliderHeight = sliderContainer.clientHeight; // Actual height in window
+		if (direction === 'up') {
+			activeSlideIndex++;
+			if (activeSlideIndex > slidesLength - 1) {
+				activeSlideIndex = 0;
+			}
+		} else if (direction === 'down') {
+			activeSlideIndex--;
+			if (activeSlideIndex < 0) {
+				activeSlideIndex = slidesLength - 1;
+			}
+		}
+
+		slideRight.style.transform = `translateY(-${
+			activeSlideIndex * sliderHeight
+		}px)`;
+
+		slideLeft.style.transform = `translateY(${
+			activeSlideIndex * sliderHeight
+		}px)`;
+	};
+
+
+
+
+******** SECTION 28: Day 27 -- Toast Notification ********
+
+
+// Lesson -- Project Intro (#87) (1:02)
+
+
+To notify a user of something "toast notifications". Disappears after a few seconds. 
+
+Will use random messages & types w/ different colors.
+
+Also w/ specific messages & types e.g. for form validation
+
+
+// Lesson -- Create Toast Notifications (#88) (14:59)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css">
+		<title>Toast Notification</title>
+	</head>
+
+	<body>
+		<div id="toasts">
+
+		</div>
+		<button class="btn" id="button">Show Notification</button>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+	
+	
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: rebeccapurple;
+		font-family: 'Poppins', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.btn {
+		background-color: #fff;
+		color: rebeccapurple;
+		font-family: inherit;
+		font-weight: bold;
+		padding: 1rem;
+		border-radius: 5px;
+		border: none;
+		cursor: pointer;
+	}
+
+	.btn:focus {
+		outline: none;
+	}
+
+	.btn:active {
+		transform: scale(0.98);
+	}
+
+	#toasts {
+		position: fixed;
+		bottom: 10px;
+		right: 10px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+
+	.toast {
+		background-color: #fff;
+		color: rebeccapurple;
+		border-radius: 5px;
+		padding: 1rem 2rem;
+		margin: 0.5rem;
+	}
+
+	.toast.info {
+		color: blue;
+	}
+
+	.toast.success {
+		color: green;
+	}
+
+	.toast.error {
+		color: red;
+	}
+	
+	
+script.js:
+
+	const button = document.getElementById('button');
+	const toasts = document.getElementById('toasts');
+
+	const messages = ['Message One','Message Two','Message Three','Message Four'];
+	const types = ['info', 'success', 'error'];
+
+	button.addEventListener('click', () => createNotification());
+
+	// Not currently passing message or type so using random ones
+	function createNotification(message, type) {
+		// My first try. Works, but only for one message, and doesn't give us a handy element to remove afte timeout:
+		// const toast = `<div class="toast">${messages[Math.floor(Math.random()*4)]}</div>`;
+		// toasts.innerHTML = toast;
+		const notif = document.createElement('dir');
+		notif.classList.add('toast');
+		notif.classList.add(type ? type : getRandomType());
+		notif.innerText = message ? message : getRandomMessage();
+		toasts.appendChild(notif);
+		// setTimeout(()=>toasts.removeChild(notif), 3000); // my first. Works
+		setTimeout(()=> notif.remove(), 3000);
+		}
+
+
+	function getRandomMessage() {
+		return messages[Math.floor(Math.random()*messages.length)];
+	}
+	function getRandomType() {
+		return types[Math.floor(Math.random()*types.length)];
+	}
+
+
+
+******** SECTION 29: Day 28 -- Github Profiles ******** (44 min!)
+
+
+// Lesson -- Project Intro (#89) (1:49)
+
+
+Use Github API to search for Github users to get some of their profile data and put it in a card, then a separate query for their latest 5 repos
+
+Github REST API: https://docs.github.com/en/rest
+
+Will use axios instead of fetch api. He prefers it to fetch for medium to larger projects.
+https://github.com/axios/axios
+
+
+
+// Lesson -- Github Profile Card (#90) (14:48)
+// Lesson -- Fetching Profile Data with Axios (#91) (11:09)
+
+
+		GET users/userName;
+		GET /users/userName/repos
+
+		Github has limit on # requests per hour w/out authentication
+
+
+https://cdnjs.com/libraries/axios
+
+gives us:
+
+https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js
+
+
+
+// Lesson -- Dynamic Profile Cards (#92) (8:02)
+
+tested w/ florinpop17 and bradtraversy
+
+
+// Lesson -- Adding Repos to Card (#93) (8min)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css">
+		<title>GitHub Profiles</title>
+	</head>
+
+	<body>
+		<form class="user-form" id="form">
+			<input type="text" id="search" placeholder="Search a Github User">
+		</form>
+		<main id="main">
+
+		</main>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	/** @format */
+
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #2a2a72;
+		color: #fff;
+		font-family: 'Poppins', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.user-form {
+		width: 100%;
+		max-width: 700px;
+	}
+
+	.user-form input {
+		width: 100%;
+		display: block;
+		background-color: #4c2885;
+		border: none;
+		border-radius: 10px;
+		color: #fff;
+		padding: 1rem;
+		margin-bottom: 2rem;
+		font-family: inherit;
+		font-size: 1rem;
+		box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(0, 0, 0, 0.1);
+	}
+
+	.user-form input::placeholder {
+		color: #bbb;
+	}
+
+	.user-form input:focus {
+		outline: none;
+	}
+
+	.card {
+		max-width: 800px;
+		background-color: #4c2885;
+		border-radius: 20px;
+		box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(0, 0, 0, 0.1);
+		display: flex;
+		padding: 3rem;
+		margin: 0 1.5rem;
+	}
+
+	.avatar {
+		border-radius: 50%;
+		border: 10px solid #2a2a72;
+		height: 150px;
+		width: 150px;
+	}
+
+	.user-info {
+		color: #eee;
+		margin-left: 2rem;
+	}
+
+	.user-info h2 {
+		margin-top: 0;
+	}
+
+	.user-info ul {
+		list-style-type: none;
+		display: flex;
+		justify-content: space-between;
+		padding: 0;
+		max-width: 400px;
+	}
+
+	.user-info ul li {
+		display: flex;
+		align-items: center;
+		padding-right: 10px;
+		/* I added */
+	}
+
+	.user-info ul li strong {
+		font-size: 0.9rem;
+		margin-left: 0.5rem;
+	}
+
+	.repo {
+		text-decoration: none;
+		color: #fff;
+		background-color: #2a2a72;
+		font-size: 0.7rem;
+		padding: 0.25rem 0.5rem;
+		margin-right: 0.5rem;
+		margin-bottom: 0.5rem;
+		display: inline-block;
+	}
+
+	@media (max-width: 500px) {
+		.card {
+			flex-direction: column;
+			align-items: center;
+		}
+		.user-form {
+			max-width: 400px;
+		}
+		/* mine */
+		.user-info ul {
+			flex-direction: column;
+			align-items: center;
+		}
+		/* mine */
+	}
+	
+	
+script.js:
+
+	/** @format */
+
+	const APIURL = 'https://api.github.com/users/';
+
+	const main = document.getElementById('main');
+	const form = document.getElementById('form');
+	const search = document.getElementById('search');
+
+	async function getUser(username) {
+		try {
+			const { data } = await axios(APIURL + username); // destructuring assignment, axios() same as axios.get(...)
+			createUserCard(data);
+			getRepos(username);
+		} catch (err) {
+			if (err.response.status == 404 || true) {
+				createErrorCard(`No profile with this user name`);
+			}
+		}
+	}
+
+	async function getRepos(username) {
+		try {
+			const { data } = await axios(APIURL + username + '/repos?sort=created');
+			// const reposData = await axios(APIURL + username + '/repos');
+			// console.log(reposData === data); // false
+			// console.log(reposData.data == data); // false
+			// console.log(".headers: ",reposData.headers);
+			// console.log(reposData.length); // undefined
+			// console.log(reposData.data.length); // 30
+			// console.log(data.length); // 30
+			// console.log(reposData);
+			// console.log(reposData.data); // has a 'data" property, an array of 30. This is not what you see when you go to the website, where just the 'data' array is displayed, even if you look at the page 'source'. Full data returned by axios has {data: Array(30), status: 200. I guess '.data' contains the actual website content
+			addReposToCard(data);
+		} catch (err) {
+			createErrorCard(`Problem fetching repos`);
+		}
+	}
+
+	function createUserCard(user) {
+		const cardHTML = `
+			<div class="card">
+				<div>
+					<img src="${user.avatar_url}" alt="${user.name}" class="avatar">
+				</div>
+				<div class="user-info">
+					<h2>${user.name}</h2>
+					<p>${user.bio}</p>
+					<ul>
+						<li>${user.followers
+							.toString()
+							.trim()} <strong>Followers</strong></li>
+						<li>${user.following} <strong>Following</strong></li>
+						<li>${user.public_repos} <strong>Repos</strong></li>
+					</ul>
+					<div id="repos">
+					</div>
+				</div>
+			</div>`;
+		main.innerHTML = cardHTML;
+		search.value = ''; // my change, to only clear if have a hit
+	}
+
+	function createErrorCard(msg) {
+		const cardHTML = `
+		<div class="card">
+		<h1>${msg}</h1>
+		</div>`;
+		main.innerHTML = cardHTML;
+	}
+
+	function addReposToCard(repos) {
+		const reposEl = document.getElementById('repos');
+		repos.slice(0, 20).forEach((repo) => {
+			const repoEl = document.createElement('a');
+			repoEl.classList.add('repo');
+			repoEl.href = repo.html_url;
+			repoEl.target = '_blank';
+			repoEl.innerText = repo.name;
+			reposEl.appendChild(repoEl);
+		});
+	}
+
+	form.addEventListener('submit', (e) => {
+		e.preventDefault();
+		const user = search.value;
+		if (user) {
+			getUser(user);
+			// search.value = '';
+		}
+	});
+
+
+
+
+******** SECTION 30: Day 29 -- Double Heart Click (Double Click Heart?) ********
+
+
+
+// Lesson -- Project Intro (#94) (1:27)
+
+
+Doublclick on image to "like" image. Shows heart where we click and increments likes. Will use singlclick and create our own doubleclick based on time between clicks.
+
+
+
+// Lesson -- HTML & CSS (#95) (7:01)
+// Lesson -- Show Heart BaSed on Click Position (#96) (13:25)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="style.css">
+		<title>Double Click Heart</title>
+	</head>
+
+	<body>
+		<h1>Double Click on the image to <i class="fas fa-heart"></i> it</h1>
+		<small>You liked it <span id="times">0</span> times</small>
+		<div class="loveMe"></div>
+
+
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	/** @format */
+
+	@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Oswald', sans-serif;
+		text-align: center;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	h3 {
+		margin-bottom: 0;
+		text-align: center;
+	}
+
+	small {
+		display: block;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+	.fa-heart {
+		color: red;
+	}
+
+	.loveMe {
+		height: 440px;
+		width: 300px;
+		background: url('https://images.unsplash.com/photo-1504215680853-026ed2a45def?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80') no-repeat center center/cover;
+		margin: auto;
+		cursor: pointer;
+		max-width: 100%;
+		position: relative;
+		box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+	}
+
+	.loveMe .fa-heart {
+		position: absolute;
+		animation: grow 0.6s linear;
+		transform: translate(-50%, -50%) scale(0);
+		/* ??? I don't know why translate is needed above, but w/out it doesn't expand properly */
+		/* transform: scale(0); */
+		/* If just have scale(0) above, and have transform: translate in keyframes, or vice-versa, just pops in and out. But if leave out transform: translate alltogether, works but is slightly off center w/ click.
+		I guess it's because keyframes overrides previous transform, but still, seems like a bug */
+	}
+	
+	@keyframes grow {
+		to {
+			transform: translate(-50%, -50%) scale(10);
+			/* transform: scale(10); */
+			opacity: 0;
+		}
+	}
+	
+	
+script.js:
+
+	/** @format */
+
+	const loveMe = document.querySelector('.loveMe');
+	const times = document.querySelector('#times');
+
+	let timesClicked = 0;
+
+	// My double click solution
+	// let lastClickTime = 0;
+
+	// loveMe.addEventListener('click', (e) => {
+	//   let thisClickTime = Date.now();
+	//   if (thisClickTime - lastClickTime <= 800) {
+	//     console.log('Was a double click');
+	//   }
+	//   lastClickTime = thisClickTime;
+	// });
+
+	// His double click solution
+	let clickTime = 0;
+
+	loveMe.addEventListener('click', (e) => {
+		if (clickTime === 0) {
+			clickTime = new Date().getTime();
+		} else {
+			if (new Date().getTime() - clickTime < 800) {
+				createHeart(e);
+				clickTime = 0;
+			} else {
+				clickTime = new Date().getTime();
+			}
+		}
+	});
+
+	const createHeart = (e) => {
+		const heart = document.createElement('i');
+		heart.classList.add('fas', 'fa-heart'); // He used 2 lines
+		const x = e.clientX;
+		const y = e.clientY;
+		const leftOffset = e.target.offsetLeft;
+		const topOffset = e.target.offsetTop;
+
+		const xInside = x - leftOffset;
+		const yInside = y - topOffset;
+
+		heart.style.top = `${yInside}px`;
+		heart.style.left = `${xInside}px`;
+		loveMe.appendChild(heart);
+		// setTimeout(()=> {loveMe.removeChild(heart)}, 1000); // my solo attempt, which worked
+		setTimeout(() => heart.remove(), 1000);
+
+		times.innerHTML = ++timesClicked;
+	};
+
+
+
+
+******** SECTION 31: Day 30 -- Auto Text Effect ********
+
+
+// Lesson -- Project Intro (#97) (0:54)
+
+
+Types out text by itself, letter by letter, w/ speed control.
+
+
+// Lesson -- Auto Text Effect (#98) (9:13)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css">
+		<title>Auto Text Effect</title>
+	</head>
+
+	<body>
+		<h1 id="text">Starting...</h1>
+
+		<div>
+			<label for="speed">Speed:</label>
+			<input type="number" name="speed" id="speed" value="1" min="1" max="5" step="1">
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+	
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: darksalmon;
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	div {
+		position: absolute;
+		bottom: 20px;
+		background: rgba(0, 0, 0, 0.1);
+		padding: 10px 20px;
+		font-size: 18px;
+	}
+
+	input {
+		width: 50px;
+		padding: 5px;
+		font-size: 18px;
+		background-color: darksalmon;
+		border: none;
+		text-align: center;
+	}
+
+	input:focus {
+		outline: none;
+	}
+	
+	
+script.js:
+
+	/** @format */
+
+	const textEl = document.getElementById('text');
+	const speedEl = document.getElementById('speed');
+	const text = 'We Love Programming';
+	let idx = 1;
+	let speed = 300 / speedEl.value;
+
+	writeText();
+
+	function writeText() {
+		textEl.innerText = text.slice(0, idx);
+		idx++;
+
+		if (idx > text.length) {
+			idx = 1;
+		}
+
+		setTimeout(writeText, speed);
+	}
+
+	speedEl.addEventListener('input', (e) => speed = 300 / e.target.value );
+
+
+or, my alternate where speed to ms was in one place:
+
+	/** @format */
+
+	const textEl = document.getElementById('text');
+	const speedEl = document.getElementById('speed');
+	const text = 'We Love Programming';
+	let idx = 1;
+
+	const speedCalc = (s)=> 300/s; // Turn speed # into ms
+	let speed = speedCalc(speedEl.value);
+
+
+	writeText();
+
+	function writeText() {
+		textEl.innerText = text.slice(0, idx);
+		idx++;
+		if (idx > text.length) {
+			idx = 1;
+		}
+		setTimeout(writeText, speed);
+	}
+
+	speedEl.addEventListener('input', (e) => {
+		speed = speedCalc(e.target.value)
+	});
+
+
+
+******** SECTION 32: Day 31 -- Password Generator ********
+
+
+
+
+// Lesson -- Project Intro (#99) (1:02)
+
+
+Chose a length, 20 by default, chose whether to include upper case, lowercase, #s, and/or symbols.
+
+Also have place to click to copy password to clipboard.
+
+js will be more complicated than other projects.
+
+
+
+// Lesson -- Password Generator UI (#100) (13:45)
+// Lesson -- Random Functions (#101) (8:20)
+// Lesson -- Generate Password (#102) (16:00)
+// Lesson -- Copy Password to Clipboard (#103) (2:48)
+
+
+index.html:
+
+	<!-- @format -->
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<title>Password Generator</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<h2>Password Generator</h2>
+			<div class="result-container">
+				<span id="result"></span>
+				<button class="btn" id="clipboard">
+						<i class="far fa-clipboard"></i>
+					</button>
+			</div>
+			<div class="settings">
+				<div class="setting">
+					<label>Password Length</label>
+					<input type="number" id="length" min="4" max="20" value="20">
+				</div>
+				<div class="setting">
+					<label>Include uppercase letters</label>
+					<input type="checkbox" id="uppercase" checked>
+				</div>
+				<div class="setting">
+					<label>Include lowercase letters</label>
+					<input type="checkbox" id="lowercase" checked>
+				</div>
+				<div class="setting">
+					<label>Include numbers</label>
+					<input type="checkbox" id="numbers" checked>
+				</div>
+				<div class="setting">
+					<label>Include symbols</label>
+					<input type="checkbox" id="symbols" checked>
+				</div>
+			</div>
+			<button class="btn btn-large" id="generate">
+				Generate Password
+			</button>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #3b3b98;
+		color: white;
+		font-family: 'Muli', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		padding: 10px;
+		margin: 0;
+	}
+
+	h2 {
+		margin: 10px 0 20px;
+		text-align: center;
+	}
+
+	.container {
+		background-color: #23235b;
+		box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
+		padding: 20px;
+		width: 350px;
+		max-width: 100%;
+	}
+
+	.result-container {
+		background-color: rgba(0, 0, 0, 0.4);
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		position: relative;
+		font-size: 18px;
+		letter-spacing: 1px;
+		padding: 12px 10px;
+		height: 50px;
+		width: 100%;
+	}
+
+
+	/* why does he use the class below? */
+
+	.result-container #result {
+		word-wrap: break-word;
+		max-width: calc(100% - 40px);
+	}
+
+	.result-container .btn {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		width: 40px;
+		height: 40px;
+		font-size: 20px;
+	}
+
+	.btn {
+		border: none;
+		background-color: #3b3b98;
+		color: #fff;
+		font-size: 16px;
+		padding: 8px 12px;
+		cursor: pointer;
+	}
+
+	.btn-large {
+		display: block;
+		width: 100%;
+	}
+
+	.setting {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 15px 0;
+	}
+	
+	
+script.js:
+
+	/** @format */
+
+	const resultEl = document.getElementById('result');
+	const lengthEl = document.getElementById('length');
+	const uppercaseEl = document.getElementById('uppercase');
+	const lowercaseEl = document.getElementById('lowercase');
+	const numbersEl = document.getElementById('numbers');
+	const symbolsEl = document.getElementById('symbols');
+	const generateEl = document.getElementById('generate');
+	const clipboardEl = document.getElementById('clipboard');
+
+	const randomFunc = {
+		lower: getRandomLower,
+		upper: getRandomUpper,
+		number: getRandomNumber,
+		symbol: getRandomSymbol,
+	};
+
+	clipboardEl.addEventListener('click', () => {
+		const textarea = document.createElement('textarea');
+		const password = resultEl.innerText;
+		if (!password) {
+			return;
+		}
+		textarea.value = password;
+		document.body.appendChild(textarea);
+		textarea.select(); // "The select() method selects the entire contents of a text area." (or an <input> element that includes a text field, per MSN)
+		document.execCommand('copy');
+		textarea.remove();
+		alert('Password copied to clipboard');
+	});
+
+	generateEl.addEventListener('click', () => {
+		const length = +lengthEl.value;
+		const hasLower = lowercaseEl.checked;
+		const hasUpper = uppercaseEl.checked;
+		const hasNumber = numbersEl.checked;
+		const hasSymbol = symbolsEl.checked;
+		resultEl.innerText = generatePassword(
+			hasLower,
+			hasUpper,
+			hasNumber,
+			hasSymbol,
+			length
+		);
+	});
+
+	function generatePassword(lower, upper, number, symbol, length) {
+		let generatedPassword = '';
+		const typesCount = lower + upper + number + symbol; // true becomes 1, false 0
+		if (typesCount == 0) return ''; // he has it below the below
+		const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(
+			(item) => Object.values(item)[0]
+		);
+		// "The Object.values() method returns an array of a given object's own enumerable property values" So, for each array element, uses content (boolean) as filter value
+
+		/* My code */
+		for (let i = 0; i < length; i++) {
+			const funcName = Object.keys(
+				typesArr[Math.floor(Math.random() * typesCount)]
+			)[0];
+			generatedPassword += randomFunc[funcName]();
+		}
+		return generatedPassword;
+		/* End my code */
+
+		/* His code. Rather than randomizing, goes thru types in order until done 
+		for (let i = 0; i < length; i += typesCount) {
+			typesArr.forEach((type) => {
+				const funcName = Object.keys(type)[0];
+				generatedPassword += randomFunc[funcName]();
+			});
+		}
+		const finalPassword = generatedPassword.slice(0, length); // He has to do this because method goes in steps of # types
+		return finalPassword;
+		/* End his code */
+	}
+
+	function getRandomLower() {
+		return String.fromCharCode(Math.floor(Math.random() * 26 + 97));
+	}
+	function getRandomUpper() {
+		return String.fromCharCode(Math.floor(Math.random() * 26 + 65));
+	}
+	function getRandomNumber() {
+		return String.fromCharCode(Math.floor(Math.random() * 10 + 48));
+	}
+	function getRandomSymbol() {
+		const symbols = '!@#$%^&*(){}[]=<>/,.';
+		return symbols[Math.floor(Math.random() * symbols.length)];
+	}
+
+
+
+
+******** SECTION 33: Day 32 -- Good, Cheap, Fast Checkboxes ********
+
+
+// Lesson -- Project Intro (#104) (0:59)
+
+
+Take check boxes & style them to be little sliders. If check good & cheap, uncheck fast, only allow 2 out of three.
+
+
+
+// Lesson -- Style Checkboxes (#105) (7:59)
+// Lesson -- Check Ball Animation (#106) (4:07)
+// Lesson -- Javascript Logic (#107) (4:52)
+
+
+index.html:
+
+	<!-- @format -->
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css" />
+		<title>Good, Cheap, Fast</title>
+	</head>
+
+	<body>
+		<h2>How do you want your project to be?</h2>
+
+		<div class="toggle-container">
+			<input type="checkbox" id="good" class="toggle" checked />
+			<label for="good" class="label">
+					<div class="ball"></div>
+				</label>
+			<span>Good</span>
+		</div>
+		<div class="toggle-container">
+			<input type="checkbox" id="cheap" class="toggle" />
+			<label for="cheap" class="label">
+					<div class="ball"></div>
+				</label>
+			<span>Cheap</span>
+		</div>
+		<div class="toggle-container">
+			<input type="checkbox" id="fast" class="toggle" />
+			<label for="fast" class="label">
+					<div class="ball"></div>
+				</label>
+			<span>Fast</span>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+	
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.toggle-container {
+		display: flex;
+		align-items: center;
+		/* Why? */
+		margin: 10px 0;
+		width: 200px;
+	}
+
+	.toggle {
+		visibility: hidden;
+	}
+
+	.label {
+		background-color: #d0d0d0;
+		border-radius: 50px;
+		cursor: pointer;
+		display: inline-block;
+		margin: 0 15px 0;
+		width: 80px;
+		height: 40px;
+		position: relative;
+	}
+
+	.toggle:checked+.label {
+		/* "+" = adjascent sibling */
+		background-color: #8e44ad;
+	}
+
+	.ball {
+		background: #fff;
+		height: 34px;
+		width: 34px;
+		border-radius: 50%;
+		position: absolute;
+		top: 3px;
+		left: 3px;
+		align-items: center;
+		justify-content: center;
+		animation: slideOff 0.3s linear forwards;
+	}
+
+	.toggle:checked+.label .ball {
+		animation: slideOn 0.3s linear forwards;
+	}
+
+	@keyframes slideOn {
+		0% {
+			transform: translateX(0) scale(1);
+		}
+		50% {
+			transform: translateX(20px) scale(1.2);
+		}
+		100% {
+			transform: translateX(40px) scale(1);
+		}
+	}
+
+	@keyframes slideOff {
+		0% {
+			transform: translateX(40px) scale(1);
+		}
+		50% {
+			transform: translateX(20px) scale(1.2);
+		}
+		100% {
+			transform: translateX(0) scale(1);
+		}
+	}
+	
+	
+script.js:
+
+	const toggles = document.querySelectorAll('.toggle');
+	const good = document.querySelector('#good');
+	const cheap = document.querySelector('#cheap');
+	const fast = document.querySelector('#fast');
+
+	toggles.forEach(toggle => toggle.addEventListener('change', (e)=> doTheTrick(e.target)));
+
+	function doTheTrick(theClickedOne) {
+		if(good.checked && cheap.checked && fast.checked) {
+			if(good === theClickedOne) {
+				fast.checked = false;
+			}
+			if(cheap == theClickedOne) {
+				good.checked = false;
+			}
+			if(fast == theClickedOne) {
+				cheap.checked = false;
+			}
+		}
+	}
+	
+	
+	
+******** SECTION 34: Day 33 -- Notes App ********
+
+
+
+// Lesson -- Project Intro (#108) (1:36)
+
+
+Build a notes app, save notes to local storage (local storage api built in to the browser)
+
+Can use markdown
+
+
+
+// Lesson -- Notes HTML & CSS (#109) (9:28)
+
+
+
+Import 'marked' script in HTML:
+
+Went to cdnjs.com and searched for "marked" ("A markdown parser built for speed") and copied script tag.
+
+But, it turned out it didn't work, "marked" was an object, not a function. Had to use a different url from marked site (and GitHub):
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+where it was still an object, but then had a method "marked" and then could use "marked.marked(text)" instead of "marked(text)" in script.js
+
+** Later I realized I could use "marked.parse()" using either url. **
+
+
+
+// Lesson -- Adding Notes to the DOM (#110) (10:04)
+// Lesson -- Save Notes to Local Storage (#111) (9:41)
+
+
+index.html:
+
+	<!-- @format -->
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+		/>
+
+		<link rel="stylesheet" href="style.css" />
+		<title>Notes App</title>
+	</head>
+
+	<body>
+		<button class="add" id="add">
+		<i class="fas fa-plus"></i> Add note
+	</button>
+
+
+		<!-- Both scripts below bring in marked as an object. And only 2nd one has a 'marked' method directly within it (as of 11/15/2021) -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js" referrerpolicy="no-referrer"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #7bdaf3;
+		font-family: 'Poppins', sans-serif;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0;
+		padding-top: 3rem;
+	}
+
+	.add {
+		position: fixed;
+		top: 1rem;
+		right: 1rem;
+		background-color: #9ec862;
+		color: #fff;
+		border: none;
+		border-radius: 3px;
+		padding: 0.5rem 1rem;
+		cursor: pointer;
+	}
+
+	.note {
+		background-color: #fff;
+		box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+		margin: 30px 20px;
+		height: 400px;
+		width: 400px;
+	}
+
+	.note .tools {
+		background-color: #9ec862;
+		display: flex;
+		justify-content: flex-end;
+		padding: 0.5rem;
+	}
+
+	.note .tools button {
+		background-color: transparent;
+		border: none;
+		color: #fff;
+		cursor: pointer;
+		font-size: 1rem;
+		margin-left: 0.5rem;
+	}
+
+	.note textarea {
+		outline: none;
+		font-family: inherit;
+		font-size: 1.2rem;
+		border: none;
+		height: 400px;
+		width: 100%;
+		padding: 20px;
+	}
+
+	.main {
+		padding: 20px;
+	}
+
+	.hidden {
+		display: none;
+	}
+
+
+script.js:
+
+	/** @format */
+
+	// console.log(marked);
+	// console.log(typeof marked); // object
+	// console.log(typeof marked.marked); // function
+
+	const addBtn = document.getElementById('add');
+
+	const notes = JSON.parse(localStorage.getItem('notes'));
+	 if(notes) {
+		 notes.forEach(note => addNewNote(note));
+	 }
+	addBtn.addEventListener('click', () => addNewNote(''));
+
+
+	function addNewNote(text = '') {
+		const note = document.createElement('div');
+		note.classList.add('note');
+
+		note.innerHTML = `
+			<div class="tools">
+				<button class="edit"><i class="fas fa-edit"></i></button>
+				<button class="delete"><i class="fas fa-trash-alt"></i></button>
+			</div>
+			<div class="main ${text ? '' : 'hidden'}"></div>
+			<textarea class="${text ? 'hidden' : ''}"></textarea>
+			`;
+
+		// I did not know you could do this before the element has been added to DOM
+		const editBtn = note.querySelector('.edit');
+		const deleteBtn = note.querySelector('.delete');
+		const main = note.querySelector('.main');
+		const textArea = note.querySelector('textarea');
+
+		textArea.value = text;
+		main.innerHTML = marked.parse(text);
+
+		deleteBtn.addEventListener('click', () => {
+			note.remove();
+			updateLS();
+		});
+
+		editBtn.addEventListener('click', () => {
+			main.classList.toggle('hidden');
+			textArea.classList.toggle('hidden');
+		});
+
+		textArea.addEventListener('input', (e) => {
+			const { value } = e.target;
+			main.innerHTML = marked.parse(value);
+			updateLS();
+		});
+
+		document.body.appendChild(note);
+	}
+
+	function updateLS() {
+		const notesText = document.querySelectorAll('textarea');
+		const notes = [];
+
+		notesText.forEach((note) => notes.push(note.value));
+
+		localStorage.setItem('notes', JSON.stringify(notes));
+		sessionStorage.setItem('notes', JSON.stringify(notes));
+		sessionStorage.setItem('test', 'WTF');
+
+	}
+	// localStorage. Can only store strings
+	// localStorage.setItem('name', 'Pete');
+	// localStorage.getItem('name');
+	// localStorage.removeItem('name');
+	// let testObj = {"key1":"value 1", "key2":"value 2"};
+	// localStorage.setItem("myObject", JSON.stringify(testObj)); // DevTools will actually show object when you click on string in local storage
+	// localStorage.setItem("key1alone", ""+testObj.key1);
+	// localStorage.clear();
+
+	// is also 'sessionStorage', which only lasts thru this session. Also, only this tab -- open the same site in another tab and will have localStorage but not sessionStorage.	
+	
+	
+
+******** SECTION 35: Day 34 -- Animated Countdown ********
+
+
+
+// Lesson -- Project Intro (#112) (1:14)
+
+
+Has #s rotate in from right 1 - 2 - 3 - GO
+
+transform translate & scale, js
+
+
+
+// Lesson -- Counter & Final Sections (#113) (8:52)
+// Lesson -- In & Out Animations (#114) (7:39)
+// Lesson -- Dynamic Animation with JS (#115) (10:36)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css">
+		<title>Animated Countdown</title>
+	</head>
+
+	<body>
+		<div class="counter">
+			<div class="nums">
+				<span class="in">3</span>
+				<span>2</span>
+				<span>1</span>
+				<span>0</span>
+			</div>
+			<h4>Get Ready</h4>
+		</div>
+		<div class="final">
+			<h1>GO</h1>
+			<button id="replay">Replay</button>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Roboto', sans-serif;
+		margin: 0;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	h4 {
+		font-size: 20px;
+		margin: 5px;
+		text-transform: uppercase;
+	}
+
+	.counter {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+	}
+
+	.counter.hide {
+		transform: translate(-50%, -50%) scale(0);
+		animation: hide .2s ease-out;
+	}
+
+	@keyframes hide {
+		0% {
+			transform: translate(-50%, -50%) scale(1);
+		}
+		100% {
+			transform: translate(-50%, -50%) scale(1);
+		}
+	}
+
+	.final {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(0);
+		text-align: center;
+	}
+
+	.final.show {
+		transform: translate(-50%, -50%) scale(1);
+		animation: show .2s ease-out;
+	}
+
+	@keyframes show {
+		0% {
+			transform: translate(-50%, -50%) scale(0);
+		}
+		30% {
+			transform: translate(-50%, -50%) scale(1.4);
+		}
+		100% {
+			transform: translate(-50%, -50%) scale(1);
+		}
+	}
+
+	.nums {
+		color: #3498db;
+		font-size: 50px;
+		position: relative;
+		overflow: hidden;
+		width: 250px;
+		height: 50px;
+	}
+
+	.nums span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(120deg);
+		transform-origin: bottom center;
+	}
+
+	.nums span.in {
+		transform: translate(-50%, -50%) rotate(0deg);
+		animation: goIn 0.5s ease-in-out;
+	}
+
+	.nums span.out {
+		animation: goOut 0.5s ease-in-out;
+	}
+
+	@keyframes goIn {
+		0% {
+			transform: translate(-50%, -50%) rotate(120deg)
+		}
+		30% {
+			transform: translate(-50%, -50%) rotate(-20deg)
+		}
+		60% {
+			transform: translate(-50%, -50%) rotate(10deg)
+		}
+		100% {
+			transform: translate(-50%, -50%) rotate(0deg)
+		}
+	}
+
+	@keyframes goOut {
+		0% {
+			transform: translate(-50%, -50%) rotate(0deg)
+		}
+		60% {
+			transform: translate(-50%, -50%) rotate(20deg)
+		}
+		100% {
+			transform: translate(-50%, -50%) rotate(-120deg)
+		}
+	}
+	
+	
+script.js:
+
+	/** @format */
+
+	const nums = document.querySelectorAll('.nums span');
+	const counter = document.querySelector('.counter');
+	const finalMessage = document.querySelector('.final');
+	const replay = document.getElementById('replay');
+
+	runAnimation();
+
+	function resetDOM() {
+		counter.classList.remove('hide');
+		finalMessage.classList.remove('show');
+		nums.forEach((num) => {
+			num.classList.value = '';
+		});
+		nums[0].classList.add('in');
+	}
+
+	function runAnimation() {
+		const nextToLast = nums.length - 1; // He had this in the forEach loop. Seems sub-optimal. Also, this is really the LAST index. What is does is makes the last # (0) not rotate out, but just disappear
+		nums.forEach((num, idx) => {
+			num.addEventListener('animationend', (e) => {
+				if (e.animationName === 'goIn' && idx !== nextToLast) {
+					num.classList.remove('in');
+					num.classList.add('out');
+				} else if (e.animationName == 'goOut' && num.nextElementSibling) {
+					num.nextElementSibling.classList.add('in');
+				} else {
+					counter.classList.add('hide');
+					finalMessage.classList.add('show');
+				}
+			});
+		});
+	}
+
+	replay.addEventListener('click', () => {
+		resetDOM();
+		runAnimation();
+	});
+
+
+
+
+******** SECTION 36: Day 35 -- Image Carousel ********
+
+
+
+// Lesson -- Project Intro (#116) (0:30)
+
