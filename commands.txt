@@ -1,0 +1,20 @@
+
+PowerShell:
+
+ dir | Export-Csv MyFileList.csv
+ (exports w/ quotes and commas, but lots of fields. And in powerShell, don't have dir /b)
+
+ Get-ChildItem -Name | Out-File MyFileList.csv
+ (exports list of files, but w/out quotes or commas)
+
+ Get-ChildItem -Name | Export-Csv MyFileList.csv -NoTypeInformation
+(exports w/ quotes and commas, but includes extra fields, even though 'Get-ChildItem -Name' just shows the directory name)
+
+All of these put each directory's information on a separate row, so is still a pain. Would I have to do something in Node.js to be able to read in from file (if paste into script, have to manually remove line breaks and add commas for each directory);
+
+Get-ChildItem | Select-Object -ExpandProperty FullName gci -r | select -exp FullName | Export-Csv MyFileList.csv  (doesn't work. '-r' not recognized, etc.)
+
+Despite only having names coming from get-childitem, when you pipe it to Export-Csv, get a bunch of data again
+   -Name 
+       Retrieve only the names of the items.
+       This is useful when piping the names of the child items to another command.
