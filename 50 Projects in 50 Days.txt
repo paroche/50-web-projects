@@ -8015,6 +8015,212 @@ script.js:
 
 // Lesson -- Project Intro (#126) (0:44)
 
+A phone-shaped screen w/ nav buttons below image. Image switches when you hit buttons.
+
+
+
+// Lesson -- Create & Style UI (#127) (10:25)
+// Lesson -- Navigation Effect (#128) (4:25)
+
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="style.css">
+		<title>Mobile Tab Navigation</title>
+	</head>
+
+	<body>
+		<div class="phone">
+			<img src="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="home" class="content show">
+			<img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="work" class="content">
+			<img src="https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1266&q=80" alt="blog" class="content">
+			<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" alt="about" class="content">
+			<nav>
+				<ul>
+					<li class="active">
+						<i class="fas fa-home">
+							<p>Home</p>
+						</i>
+					</li>
+					<li>
+						<i class="fas fa-box">
+							<p>Work</p>
+						</i>
+					</li>
+					<li>
+						<i class="fas fa-book-open">
+							<p>Blog</p>
+						</i>
+					</li>
+					<li>
+						<i class="fas fa-users">
+							<p>About Us</p>
+						</i>
+					</li>
+				</ul>
+			</nav>
+
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+	
+	@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: rgba(155, 89, 182, 0.7);
+		font-family: 'Open Sans', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		margin: 0;
+	}
+
+	.phone {
+		position: relative;
+		overflow: hidden;
+		border: 3px solid #eee;
+		border-radius: 15px;
+		height: 600px;
+		width: 340px;
+	}
+
+	.phone .content {
+		opacity: 0;
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: calc(100% - 60px);
+		width: 100%;
+		transition: opacity 0.4s ease;
+	}
+
+	.phone .content.show {
+		opacity: 1;
+	}
+
+	nav {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		margin-top: -5px;
+		width: 100%;
+	}
+
+	nav ul {
+		background-color: #fff;
+		display: flex;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		height: 60px;
+	}
+
+	nav li {
+		color: #777;
+		cursor: pointer;
+		flex: 1;
+		padding: 10px;
+		text-align: center;
+	}
+
+	nav ul li p {
+		font-size: 12px;
+		margin: 2px 0;
+	}
+
+
+	/* I separated out hover & .active so could make hover have lower opacity so they look different */
+
+	nav ul li:hover {
+		color: #8e44ad;
+		opacity: 0.5;
+	}
+
+	nav ul li.active {
+		color: #8e44ad;
+	}
+
+
+script.js:
+
+	// His solution
+
+	const contents = document.querySelectorAll('.content');
+	const listItems = document.querySelectorAll('nav ul li');
+
+	listItems.forEach((item, idx) => {
+		item.addEventListener('click', () => {
+			hideAllContents();
+			hideAllItems();
+			item.classList.add('active');
+			contents[idx].classList.add('show');
+		});
+
+	});
+
+	function hideAllContents() {
+		contents.forEach(content => content.classList.remove('show'));
+	}
+
+	function hideAllItems() {
+		listItems.forEach(item => item.classList.remove('active'));
+	}
+
+	/* My solution. Works same
+	const images = document.querySelectorAll(".phone img");
+	const navButtons = document.querySelectorAll('nav li');
+
+	const update = (button, idx)=> {
+		button.addEventListener('click', () => {
+			images.forEach((image) => {
+				image.classList.remove('show');    
+			})
+			images[idx].classList.add('show');
+			navButtons.forEach((button) => {
+				button.classList.remove('active');
+			});
+			button.classList.add('active');
+		});
+	}
+	navButtons.forEach((button, idx) => update(button, idx));
+	*/
+
+
+
+******** SECTION 40: Day 39 -- Password Strength Background ********
+
+
+
+// Lesson -- Project Intro (#129) (1:13)
+
+
+
+// Lesson -- Creating the Form & Background (#130) (9min)
+// Lesson -- Change Blur On Input (#131) (5min)
+
+
+
+
 
 
 
