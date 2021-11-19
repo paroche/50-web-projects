@@ -1,5 +1,5 @@
 const poke_container = document.getElementById('poke-container');
-const pokemon_count = 153;
+const pokemon_count = 150; // of 901 at last count
 const colors = {
   fire: '#fddfdf',
   grass: '#DEFDE0',
@@ -8,14 +8,15 @@ const colors = {
 	ground: '#f4e7da',
 	rock: '#d5d5d4',
 	fairy: '#fceaff',
-	poison: '#98d7a5',
+	poison: '#43f510',
 	bug: '#f8d5a3',
 	dragon: '#97b3e6',
 	psychic: '#eaeda1',
-	flying: '#F5F5F5',
+	flying: '#b0c4de',
 	fighting: '#E6E0D4',
 	normal: '#F5F5F5'
 }
+// I changed 'flying' above to be a light blue and 'poison' to poison green
 
 const main_types = Object.keys(colors);
 
@@ -29,6 +30,7 @@ const getPokemon = async (id) => {
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`; // from pokeapi.co
   const res = await fetch(url)
   const data = await res.json();
+  // if(id==1) console.log(data);
   createPokemonCard(data)
 }
 
@@ -36,23 +38,33 @@ const getPokemon = async (id) => {
 const createPokemonCard = (pokemon) => {
   const pokemonEl = document.createElement('div');
   pokemonEl.classList.add('pokemon');
-  const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
-  const id = pokemon.id.toString().padStart(3, "0");
-  // Study below
-  const poke_types = pokemon.types.map(type => type.type.name);
-  const type = main_types.find(type => poke_types.indexOf(type)>-1);
-  //
-  const color = colors[type];
-  pokemonEl.style.backgroundColor = color;
+  const poke_name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+  const poke_id = pokemon.id.toString().padStart(3, "0");
+  // const poke_types = pokemon.types.map(type => type.type.name); // 'types' is an array of objects, so 'type' here at first is the element of the array, then are replacing it w/ the name value from the type object for within the object in that array position. 
+  const poke_types = pokemon.types.map(val => val.type.name); // seems easier to understand
+  //const type = main_types.find(type => poke_types.indexOf(type) > -1) // Brad's code. Finds 1st entry in main_types where the type is an element in poke_types. But it doesn't matter which type in poke_types it is, just 1st one that matches items in main_types. So could be poke's 2nd type.
+  const poke_type = main_types.find(type => poke_types[0]); // I just look for the 1st type here. (main_types is an array of the types. gets the 1st match, though the poke may have more than one type. I'm just using it for setting the color)
+  const poke_typeList = poke_types.join(","); // mine
+  const type1Color = colors[poke_type];
+  let background = type1Color;
+  if (poke_types.length >= 2) {
+    const poke_type2 = poke_types[1];
+    const type2Color = colors[poke_type2];
+    if (type2Color) {
+      background = `linear-gradient(to right bottom, ${type1Color}, ${type1Color}, ${type2Color})`;
+    }
+  }
+  pokemonEl.style.background = background;
+  // if (poke_id == 1) console.log(pokemonEl.style.background);
 
   const pokemonInnerHTML = `
       <div class="img-container">
         <img src="https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png" alt="">
       </div>
       <div class="info">
-        <span class="number">#${id}</span>
-        <h3 class="name">${name}</h3>
-        <small class="type">Type: <span>${type}</span></small>
+        <span class="number">#${poke_id}</span>
+        <h3 class="name">${poke_name}</h3>
+        <small class="type">Type: <span>${poke_typeList}</span></small>
       </div>
   `
   pokemonEl.innerHTML = pokemonInnerHTML;
