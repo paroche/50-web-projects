@@ -8214,12 +8214,122 @@ script.js:
 // Lesson -- Project Intro (#129) (1:13)
 
 
+A log-in form and as length of password changes image becomes more clear.
+
+Will use tailwind as CDN script (not installing it).
+
+
 
 // Lesson -- Creating the Form & Background (#130) (9min)
 // Lesson -- Change Blur On Input (#131) (5min)
 
 
 
+got tailwind link tag from: https://cdnjs.com/libraries/tailwindcss
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="style.css">
+		<title>Password Strength Background</title>
+	</head>
+
+	<body>
+		<div class="background" id="background"></div>
+		<div class="bg-white rounded p-10 text-center shadow-md">
+			<h1 class="text-3xl">Image Password Strength</h1>
+			<p class="text-sm text-gray-700">Change the password to see the effect</p>
+			<div class="my-4 text-left">
+				<label for="email" class="text-gray-900">Email:</label>
+				<input type="text" class="border block w-full p-2 mt-2 rounded" id="email" placeholder="Enter Email">
+			</div>
+			<div class="my-4 text-left">
+				<label for="email" class="text-gray-900">Password:</label>
+				<input type="password" class="border block w-full p-2 mt-2 rounded" id="password" placeholder="Enter Password">
+			</div>
+			<button type="submit" class="bg-black text-white py-2 mt-4 inline-block w-full rounded">Submit</button>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+</html>
+
+
+style.css:
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.background {
+		background: url('https://images.unsplash.com/photo-1556745757-8d76bdb6984b') no-repeat center/cover;
+		position: absolute;
+		top: -20px;
+		bottom: -20px;
+		left: -20px;
+		right: -20px;
+		z-index: -1;
+		filter: blur(20px);
+	}
+
+
+script.js:
+
+	const password = document.getElementById('password');
+	const background = document.getElementById('background');
+
+	password.addEventListener('input', (e) => {
+		const input = e.target.value;
+		const length = input.length;
+		const blurValue = 20 - length * 2;
+		background.style.filter = `blur(${blurValue}px)`;
+	})
+
+	// My version. Works
+	// const backgroundEl = document.getElementById('background');
+	// const passwordEl = document.getElementById('password');
+
+	// password.addEventListener('keydown', () => {
+	//   const password = passwordEl.value;
+	//   const blur = 20 - password.length * 2;
+	//   backgroundEl.style.filter = `blur(${blur}px`;
+	// })
+
+
+
+
+******** SECTION 41: Day 40 -- 3D Background Boxes ********
+
+
+
+// Lesson -- Project Intro (#132) (1:27)
+
+Using modern CSS to create 3D effect. Background GIF broken into 4x4 images, actually same image w/ different parts shown to make it look like 1 image, click button to make shrink & rotate, etc.
+
+
+
+// Lesson -- Creating the Button & Boxes (#133) (15:56)
+// Lesson -- Background Position & Rotate Event (#134) (10min)
 
 
 
