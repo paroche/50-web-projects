@@ -8329,9 +8329,188 @@ Using modern CSS to create 3D effect. Background GIF broken into 4x4 images, act
 
 
 // Lesson -- Creating the Button & Boxes (#133) (15:56)
-// Lesson -- Background Position & Rotate Event (#134) (10min)
+// Lesson -- Background Position & Rotate Event (#134) (10:10)
 
 
 
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="style.css">
+		<title>3D Boxes Background</title>
+	</head>
+
+	<body>
+		<button id="btn" class="magic">Magic </button>
+		<div id="boxes" class="boxes big">
+			<!-- (boxes to be inserted by js) -->
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #fafafa;
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.magic {
+		background-color: #f9ca24;
+		color: #fff;
+		font-family: 'Poppins', sans-serif;
+		border: 0;
+		border-radius: 3px;
+		font-size: 16px;
+		padding: 12px 20px;
+		cursor: pointer;
+		position: fixed;
+		top: 20px;
+		letter-spacing: 1px;
+		box-shadow: 0 3px rgba(249, 202, 36, 0.5);
+		z-index: 100;
+	}
+
+	.magic:focus {
+		outline: none;
+	}
+
+	.magic:active {
+		box-shadow: none;
+		transform: translateY(2px);
+	}
+
+	.boxes {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		height: 500px;
+		width: 500px;
+		position: relative;
+		transition: .4s ease;
+	}
+
+	.boxes.big {
+		width: 600px;
+		height: 600px;
+	}
+
+	.boxes.big .box {
+		transform: rotateZ(360deg);
+	}
+
+	.box {
+		background-image: url('https://media.giphy.com/media/EZqwsBSPlvSda/giphy.gif');
+		background-repeat: no-repeat;
+		background-size: 500px 500px;
+		position: relative;
+		height: 125px;
+		width: 125px;
+		transition: .4s ease;
+	}
+
+	.box::after {
+		content: '';
+		background-color: #f6e58d;
+		position: absolute;
+		top: 8px;
+		right: -15px;
+		height: 100%;
+		width: 15px;
+		transform: skewY(45deg);
+	}
+
+	.box::before {
+		content: '';
+		background-color: #f9ca24;
+		position: absolute;
+		bottom: -15px;
+		left: 8px;
+		width: 100%;
+		height: 15px;
+		transform: skewX(45deg);
+	}
+
+
+script.js:
+
+	// My code before watching video
+	const button = document.getElementById('btn');
+	const boxes = document.getElementById('boxes');
+
+	button.addEventListener('click', ()=> {
+		boxes.classList.toggle('big');
+	})
+
+	// my guess is he will make this a function
+	for (let row = 0; row<4; row++) {
+		for (let column=0; column<4; column++) {
+			const box = document.createElement('div');
+			box.classList.add('box');
+			box.style.backgroundPosition = `${-125*column}px ${-125*row}px`;
+			boxes.appendChild(box);
+		}
+	}
+
+
+	// Brad's code
+
+	// const boxesContainer = document.getElementById('boxes');
+	// const btn = document.getElementById('btn');
+
+	// btn.addEventListener('click', ()=> boxesContainer.classList.toggle('big')
+	// )
+
+	// function createBoxes() {
+	// for(let i = 0; i<4; i++) {
+	//   for(let j = 0; j<4; j++) {
+	//     const box = document.createElement('div');
+	//     box.classList.add('box');
+	//     box.style.backgroundPosition = `${-j*125}px ${-i*125}px`;
+	//     boxesContainer.appendChild(box);
+	//   }
+	// }
+	// }
+
+	// createBoxes();
+
+
+
+
+******** SECTION 42: Day 41 -- Verify Account UI ********
+
+
+
+// Lesson -- Project Into (#135) (0:58)
+
+
+Will create a 'verify account' UI. After they send you code, enter numbers. Each digit separate then takes you to next. Can go fwd and back. Just the UI part.
+
+
+
+// Lesson -- Verify Account UI Project (#136) (13:50)
 
 
