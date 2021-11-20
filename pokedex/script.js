@@ -46,25 +46,16 @@ const createPokemonCard = (pokemon) => {
   // const poke_type = main_types.find(type => type==poke_types[0]); // I just look for the 1st type here. (main_types is an array of the types. gets the 1st match, though the poke may have more than one type. I'm just using it for setting the color). This works, but seems unnecessary to use main_types array
   const poke_type = poke_types[0]; // This is simpler. I think Brad's code was trying to find any match in types. I'm assuming all types are valid w/ color list
   const poke_typeList = poke_types.join(","); // mine
-  const type1Color = colors[poke_type];
+  const type1Color = colors[poke_type] ? colors[poke_type] : '#fff'; // just in case poke type isn't on color list
   let background = type1Color;
-  // If 2nd type, set up linear gradient for 2 type colors
+  // If have 2nd type, set up linear gradient for 2 type colors
   if (poke_types.length >= 2) {
     const poke_type2 = poke_types[1];
-    const type2Color = colors[poke_type2];
+    const type2Color = colors[poke_type2] ? colors[poke_type2] : '#fff';
     if (type2Color) {
       background = `linear-gradient(to right bottom, ${type1Color}, ${type1Color}, ${type2Color})`;
     }
-    if (poke_id == 1) {
-      console.log("poke_types[0]: ",poke_types[0]);
-      console.log("poke_type: ",poke_type);
-      console.log("colors[poke_type]: ",colors[poke_type]);
-      console.log("colors['grass']: ", colors["grass"]);
-      console.log("type1Color: ",type1Color);
-      console.log("poke_type2: ",poke_type2);
-      console.log("type2Color: ",type2Color); 
-      // console.log(pokemonEl.style.background);
-    }
+    
   }
 
   pokemonEl.style.background = background;
