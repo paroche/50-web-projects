@@ -45,7 +45,7 @@ const createPokemonCard = (pokemon) => {
   //const type = main_types.find(type => poke_types.indexOf(type) > -1) // Brad's code. Finds 1st entry in main_types where the type is an element in poke_types. But it doesn't matter which type in poke_types it is, just 1st one that matches items in main_types. So could be poke's 2nd type.
   // const poke_type = main_types.find(type => type==poke_types[0]); // I just look for the 1st type here. (main_types is an array of the types. gets the 1st match, though the poke may have more than one type. I'm just using it for setting the color). This works, but seems unnecessary to use main_types array
   const poke_type = poke_types[0]; // This is simpler. I think Brad's code was trying to find any match in types. I'm assuming all types are valid w/ color list
-  const poke_typeList = poke_types.join(","); // mine
+  const poke_typeList = poke_types.join(", "); // mine
   const type1Color = colors[poke_type] ? colors[poke_type] : '#fff'; // just in case poke type isn't on color list
   let background = type1Color;
   // If have 2nd type, set up linear gradient for 2 type colors
@@ -55,7 +55,6 @@ const createPokemonCard = (pokemon) => {
     if (type2Color) {
       background = `linear-gradient(to right bottom, ${type1Color}, ${type1Color}, ${type2Color})`;
     }
-    
   }
 
   pokemonEl.style.background = background;
