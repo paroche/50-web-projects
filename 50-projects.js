@@ -4,8 +4,6 @@ const directories = "3d-boxes-background,animated-countdown,animated-navigation,
 
 const dirs = directories.split(',');
 
-console.log(dirs);
-
 dirs.forEach(dir => {
   const link = document.createElement('A');
   link.href = "./"+dir+"/index.html";
