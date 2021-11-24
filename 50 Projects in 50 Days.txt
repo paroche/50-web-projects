@@ -8658,3 +8658,205 @@ script.js:
 // Lesson -- Project Intro (#137) (1:00)
 
 
+Going to fetch a bunch of users from randomuser.me, then add search function to find users.
+
+
+
+// Lesson -- User List UI (#138) (12:28)
+// Lesson -- Fetch & Filter Users (#139) (13:37)
+
+
+https://randomuser.me/
+
+
+url: 'https://randomuser.me/api/',  - gives one user
+url: 'https://randomuser.me/api/?results=20', -- 20 users
+
+{"results":[{"gender":"male","name":{"title":"Mr","first":"Fredrik","last":"Vaksdal"},"location":{"street":{"number":8872,"name":"Doktor Rustads vei"},"city":"Frommereid","state":"Sogn og Fjordane","country":"Norway","postcode":"7745","coordinates":{"latitude":"49.2009","longitude":"-142.3244"},"timezone":{"offset":"-12:00","description":"Eniwetok, Kwajalein"}},"email":"fredrik.vaksdal@example.com","login":{"uuid":"4e0e23bf-bb3b-4712-bcb1-e0af440f9421","username":"sadcat928","password":"sean","salt":"RRnTEfkE","md5":"e5f8ef3cb0cda39cbf97310923411a89","sha1":"6ee4b4a605c813166f48d8103c4a6f94cd791de0","sha256":"a845053ce5dc84f38d96346b0a141125862b123d81d07b139e527753895380c0"},"dob":{"date":"1947-08-17T13:09:28.207Z","age":74},"registered":{"date":"2013-05-12T06:54:46.582Z","age":8},"phone":"32096210","cell":"92346179","id":{"name":"FN","value":"17084724394"},"picture":{"large":"https://randomuser.me/api/portraits/men/95.jpg","medium":"https://randomuser.me/api/portraits/med/men/95.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/95.jpg"},"nat":"NO"},{"gender":"female","name":{"title":"Ms","first":"Julia","last":"Lundgård"},"location":{"street":{"number":1520,"name":"Arnulf Øverlands vei"},"city":"Våk","state":"Hordaland","country":"Norway","postcode":"6921","coordinates":{"latitude":"9.5115","longitude":"-95.2690"},"timezone":{"offset":"-7:00","description":"Mountain Time (US & Canada)"}},"email":"julia.lundgard@example.com","login":{"uuid":"5791ce8d-c878-4b32-8f57-fc0be811f85a","username":"orangefrog698","password":"versace","salt":"0VdT5Gge","md5":"19941b41c52713ede8d8fcde9640d892","sha1":"66961fa198bd98e4b90c4beda8fc99dbd17c5102","sha256":"496cc085fd54bfab50a27939c25a4bffdae30be179cc8ede70b19d553face824"},"dob":{"date":"1954-09-15T13:15:02.901Z","age":67},"registered":{"date":"2012-01-19T16:58:19.459Z","age":9},
+etc.
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css">
+		<title>Live User Filter</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<header class="header">
+				<h4 class="title">Live User Filter</h4>
+				<small class="subtitle">Search by name and/or location</small>
+				<input type="text" id="filter" placeholder="search">
+			</header>
+			<ul id="result" class="user-list">
+
+
+				<li>
+					<h3>Loading...</h3>
+				</li>
+			</ul>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #f8f9fd;
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.container {
+		border-radius: 5px;
+		box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+		overflow: hidden;
+		width: 300px;
+	}
+
+	.title {
+		margin: 0;
+	}
+
+	.subtitle {
+		display: inline-block;
+		margin: 5px 0 20px;
+		opacity: 0.8;
+	}
+
+	.header {
+		background-color: #3e57db;
+		color: #fff;
+		padding: 30px 20px;
+	}
+
+	.header input {
+		background-color: rgba(0, 0, 0, 0.3);
+		border: 0;
+		border-radius: 50px;
+		color: #fff;
+		font-size: 14px;
+		padding: 10px 15px;
+		width: 100%;
+	}
+
+	.header input:focus {
+		outline: none;
+	}
+
+	.user-list {
+		background-color: #fff;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		max-height: 400px;
+		overflow-y: auto;
+	}
+
+	.user-list li {
+		display: flex;
+		padding: 20px;
+	}
+
+	.user-list img {
+		border-radius: 50%;
+		object-fit: cover;
+		height: 50px;
+		width: 50px;
+	}
+
+	.user-list .user-info {
+		margin-left: 10px;
+	}
+
+	.user-list .user-info h4 {
+		margin: 0 0 10px;
+	}
+
+	.user-liest .user-info p {
+		font-size: 12px;
+	}
+
+	.user-list li:not(:last-of-type) {
+		border-bottom: 1px solid #eee;
+	}
+
+	.user-list .hide {
+		display: none;
+	}
+
+
+script.js:
+
+	const result = document.getElementById('result');
+	const filter = document.getElementById('filter');
+	const listItems = []
+
+	getData();
+
+	filter.addEventListener('input', (e) => filterData(e.target.value));
+
+	async function getData() {
+		const res = await fetch('https://randomuser.me/api?results=50');
+		const {results} = await res.json(); // we want the 'results' array from the returned data
+
+		// Clear results
+		result.innerHTML = '';
+		results.forEach(user => {
+			const li = document.createElement('li');
+			// li.classList.add('hide');
+			listItems.push(li);
+			li.innerHTML = `
+			<img src="${user.picture.large}" alt="${user.name.first}">
+			<div class="user-info">
+				<h4>${user.name.first} ${user.name.last}</h4>
+				<p>${user.location.city}, ${user.location.country}</p>
+			</div>
+			`
+		result.appendChild(li);
+		})
+
+	}
+
+	function filterData(searchTerm) {
+		listItems.forEach(item => {
+			if(item.innerText.toLowerCase().includes(searchTerm.toLowerCase())) {
+					item.classList.remove('hide');
+			} else {
+					item.classList.add('hide')
+			}
+		})
+	}
+
+
+
+
+******** SECTION 45: Day 44 -- Custom Range Slider ********
+
+
+
+// Lesson -- Project Intro (#143) (1:26)
+
+
