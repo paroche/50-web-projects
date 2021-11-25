@@ -8853,6 +8853,198 @@ script.js:
 
 
 
+******** SECTION 44: Day 43 -- Feedback UI Design ********
+
+
+
+// Lesson -- Project Intro (#140) (1:26)
+
+
+From "Dribble" (dribble.com)
+
+
+Will have a little survey box w/ face emojis, then give feedback ("thank you for taking our survey" kind of thing)
+
+Going to put event listener on box and use event bubbling and target properties to determine answers.
+
+
+
+// Lesson -- Feedback Boxes (#141) (11:08)
+// Lesson -- Select & Submit Feedback (#142) (13min)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="style.css">
+		<title>Let Us Know Your Feedback</title>
+	</head>
+
+	<body>
+		<div id="panel" class="panel-container">
+			<strong>How satisfied are you with our <br /> customer support performance?</strong>
+			<div class="ratings-container">
+				<div class="rating">
+					<!-- <img src="https://image.flaticon.com/icons/svg/187/187150.svg" alt=""> -->
+					<img src="https://i2.wp.com/files.123freevectors.com/wp-content/original/33898-sad-face-emoji-vector.jpg?w=600" alt="Tsk Frown Unhappy Sad Upset Emoji Emoticon Face Express@seekpng.com">
+					<small>Unhappy</small>
+				</div>
+
+				<div class="rating">
+					<img src="https://i2.wp.com/files.123freevectors.com/wp-content/original/33922-neutral-face-emoji-vector-free.jpg?w=600" alt="" />
+
+					<small>Neutral</small>
+				</div>
+
+				<div class="rating active">
+					<img src="https://i2.wp.com/files.123freevectors.com/wp-content/original/33480-smiley-face-emoji.jpg?w=600" alt="" />
+					<small>Satisfied</small>
+				</div>
+			</div>
+			<button class="btn" id="send">Send Review</button>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #fef9f2;
+		font-family: 'Montserrat', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.panel-container {
+		background-color: #fff;
+		/* border: 1px solid red; */
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+		border-radius: 4px;
+		font-size: 90%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 30px;
+		max-width: 400px;
+		text-align: center;
+	}
+
+	.panel-container strong {
+		line-height: 20px;
+	}
+
+	.ratings-container {
+		display: flex;
+		margin: 20px;
+	}
+
+	.rating {
+		flex: 1;
+		cursor: pointer;
+		padding: 20px;
+		margin: 10px 5px;
+	}
+
+	.rating:hover,
+	.rating.active {
+		border-radius: 4px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	}
+
+	img {
+		width: 40px;
+	}
+
+	.rating small {
+		color: #555;
+		display: inline-block;
+		margin: 10px 0 0;
+	}
+
+	.rating:hover small,
+	.rating:active small {
+		color: #111;
+	}
+
+	.btn {
+		background-color: #302d2b;
+		color: #fff;
+		border: 0;
+		border-radius: 4px;
+		padding: 12px 30px;
+		cursor: pointer;
+	}
+
+	.btn:focus {
+		outline: 0;
+	}
+
+	.btn:active {
+		transform: scale(0.98);
+	}
+
+	.fa-heart {
+		color: red;
+		font-size: 30px;
+		margin-bottom: 10px;
+	}
+
+
+script.js:
+
+	const ratings = document.querySelectorAll('.rating');
+	const ratingsContainer = document.querySelector('.ratings-container');
+	const sendBtn = document.getElementById('send');
+	let seelctedRating = 'Satisfied';
+
+	ratingsContainer.addEventListener('click',(e)=> {
+		if(e.target.parentNode.classList.contains('rating')) {
+			removeActive();
+			e.target.parentNode.classList.add('active');
+			selectedRating = e.target.nextElementSibling.innerText;
+			console.log(selectedRating);
+		}
+	})
+
+	sendBtn.addEventListener('click', (e) => {
+		panel.innerHTML = `
+			<i class="fas fa-heart"></i>
+			<strong>Thank You!</strong>
+			<br>
+			<strong>Feedback: ${selectedRating}</strong>
+			<p>We'll use your feedback to improve our custmoer support</p>
+		`
+	})
+
+	function removeActive() {
+		for(let i = 0; i < ratings.length; i++) {
+			ratings[i].classList.remove('active');
+		}
+	}
+
+
+
 ******** SECTION 45: Day 44 -- Custom Range Slider ********
 
 

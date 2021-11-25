@@ -1,6 +1,6 @@
 const projectsEl = document.getElementById("projects");
 
-const directories = "3d-boxes-background,animated-countdown,animated-navigation,auto-text-effect,background-slider,blury-loading,button-ripple-effect,content-placeholder,dad-jokes,double-click-heart,double-vertical-slider,drag-n-drop,drawing-app,drink-water,event-keycodes,expanding-cards,faq-collapse,form-wave-animation,github-profiles,good-cheap-fast,hidden-search,hoverboard,image-carousel,incrementing-counter,kinetic-loader,live-user-filter,mobile-tab-navigation,movie-app,notes-app,password-generator,password-strength-background,pokedex,random-choice-picker,rotating-nav-animation,scroll-animation,sound-board,split-landing-page,steps,sticky-navbar,test-scripts,theme-clock,toast-notification,verify-account-ui";
+const directories = "3d-boxes-background,animated-countdown,animated-navigation,auto-text-effect,background-slider,blury-loading,button-ripple-effect,content-placeholder,custom-range-slider,dad-jokes,double-click-heart,double-vertical-slider,drag-n-drop,drawing-app,drink-water,event-keycodes,expanding-cards,faq-collapse,feedback-ui-design,form-wave-animation,github-profiles,good-cheap-fast,hidden-search,hoverboard,image-carousel,incrementing-counter,kinetic-loader,live-user-filter,mobile-tab-navigation,movie-app,notes-app,password-generator,password-strength-background,pokedex,random-choice-picker,rotating-nav-animation,scroll-animation,sound-board,split-landing-page,steps,sticky-navbar,test-scripts,theme-clock,toast-notification,verify-account-ui";
 
 const dirs = directories.split(',');
 
