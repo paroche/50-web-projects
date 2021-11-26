@@ -20,7 +20,7 @@ apps.push(new app('button-ripple-effect','','',true));
 apps.push(new app('content-placeholder','','',true));
 apps.push(new app('custom-range-slider','','',false));
 apps.push(new app('dad-jokes','','',true));
-apps.push(new app('double-click-heart','','red',true));
+apps.push(new app('double-click-heart','','rgb(255,0,0,.8)',true));
 apps.push(new app('double-vertical-slider','','',true));
 apps.push(new app('drag-n-drop','','',true));
 apps.push(new app('drawing-app','','',true));
