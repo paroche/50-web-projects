@@ -37,6 +37,7 @@ body {
   text-align: center;
   /* the above actually does it?? (when using columns)*/
   /* padding: 20px; */
+  padding-bottom: 40px;
 }
 
 #projects {
