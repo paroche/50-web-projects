@@ -22,6 +22,7 @@ sendBtn.addEventListener('click', (e) => {
   `
 })
 
+// using regular for loop just for variety
 function removeActive() {
   for(let i = 0; i < ratings.length; i++) {
     ratings[i].classList.remove('active');
