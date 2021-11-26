@@ -28,7 +28,7 @@ apps.push(new app('drink-water','','',true));
 apps.push(new app('event-keycodes','','',true));
 apps.push(new app('expanding-cards','','',true));
 apps.push(new app('faq-collapse','FAQ Collapse','',true));
-apps.push(new app('feedback-ui-design','','',true));
+apps.push(new app('feedback-ui-design','Feedback UI Design','',true));
 apps.push(new app('form-wave-animation','','',true));
 apps.push(new app('github-profiles','','',true));
 apps.push(new app('good-cheap-fast','','',true));
@@ -53,7 +53,7 @@ apps.push(new app('steps','','',true));
 apps.push(new app('sticky-navbar','','',true));
 apps.push(new app('theme-clock','','',true));
 apps.push(new app('toast-notification','','',true));
-apps.push(new app('verify-account-ui','','',true));
+apps.push(new app('verify-account-ui','Verify Account UI','',true));
 
 
 console.log(apps);
