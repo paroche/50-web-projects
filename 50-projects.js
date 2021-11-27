@@ -1,5 +1,6 @@
 const projectsEl = document.getElementById("projects");
 const random = document.getElementById('random');
+const headerEl = document.querySelector('.header');
 
 random.innerText = `Random #: ${Math.floor(Math.random()*10000)}`; // proves reruns script when you return from project
 /*
@@ -138,3 +139,6 @@ projectsEl.addEventListener('click', (e) => {
   }
 })
 
+headerEl.addEventListener('dblclick', () => {
+  sessionStorage.clear();
+})
