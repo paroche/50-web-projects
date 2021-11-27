@@ -1,4 +1,7 @@
 const projectsEl = document.getElementById("projects");
+const random = document.getElementById('random');
+
+random.innerText = `Random #: ${Math.floor(Math.random()*10000)}`;
 
 function app(dir, description, color, show, popup, color2) {
   this.dir = dir;
@@ -115,3 +118,4 @@ projectsEl.addEventListener('click', (e) => {
     }
   }
 })
+
