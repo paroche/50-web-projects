@@ -73,9 +73,7 @@ body {
   width: var(--box-width);
   margin: 14px;
   border: 1px solid black;
-  /* display: inline-block; */
-  /* w/out the above, when using columns won't line up vertically */
-  box-shadow: 3px 2px 5px rgb(40, 3, 109);
+  box-shadow: -3px -2px 5px inset rgb(40, 3, 109);
 }
 
 .project.clicked {
@@ -83,8 +81,9 @@ body {
 }
 
 .project.visited {
-  border: 1px solid blue;
-  /* above works, but only if use target="_blank", otherwise resets */
+  border: 2px solid #fff;
+  box-shadow: none;
+  /* This would reset every time when went to project and back until started using session storage */
 }
 
 .project-inner {

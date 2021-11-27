@@ -1,20 +1,27 @@
 const projectsEl = document.getElementById("projects");
 const random = document.getElementById('random');
 
-random.innerText = `Random #: ${Math.floor(Math.random()*10000)}`;
+random.innerText = `Random #: ${Math.floor(Math.random()*10000)}`; // proves reruns script when you return from project
+/*
+To preserve classes and states of DOM, may have to use local storage. But then would have to check to make sure
+that the app list hasn't changed. Could just store its length, should be enough
+Would have to be part of event listeners to store, project generator to restore.
+*/
+
 
 function app(dir, description, color, show, popup, color2) {
   this.dir = dir;
   this.description = description;
   this.color = color;
   this.show = show;
-  this.color2 = color2;
   this.popup = popup;
+  this.color2 = color2;
 }
 
 let apps = [];
 
-apps.push(new app('3d-boxes-background','3D Boxes Background','#f9ca24',true));
+// apps.push(new app('3d-boxes-background','3D Boxes Background','#f9ca24',true)); // full saturation made box shadow invisible
+apps.push(new app('3d-boxes-background','3D Boxes Background','rgba(234,160,36,.7)',true));
 apps.push(new app('animated-countdown','','',true));
 apps.push(new app('animated-navigation','','',true));
 apps.push(new app('auto-text-effect','','',true));
@@ -24,7 +31,7 @@ apps.push(new app('button-ripple-effect','','',true));
 apps.push(new app('content-placeholder','','',true));
 apps.push(new app('custom-range-slider','','',false));
 apps.push(new app('dad-jokes','','',true));
-apps.push(new app('double-click-heart','','rgb(255,0,0,.8)',true));
+apps.push(new app('double-click-heart','','rgb(255,0,0,.5)',true));
 apps.push(new app('double-vertical-slider','','',true));
 apps.push(new app('drag-n-drop','','',true));
 apps.push(new app('drawing-app','','',true));
@@ -63,15 +70,22 @@ apps.push(new app('theme-clock','','',true));
 apps.push(new app('toast-notification','','',true));
 apps.push(new app('verify-account-ui','Verify Account UI','',true));
 
-
-apps.forEach(app => {
-  ({dir, description, color, show, popup } = app);
+// Project generator
+apps.forEach((app, idx) => {
+  ({dir, description, color, show, popup, color2 } = app);
   if (show) {
     const box = document.createElement('div');
     const innerBox = document.createElement('div');
     const link = document.createElement('A');
+    const idxString = idx.toString();
 
     box.classList.add('project');
+    box.index = idxString;
+
+    const storedClass = sessionStorage.getItem(idxString);
+    if (storedClass) {
+      box.classList.add(storedClass);
+    }
     innerBox.classList.add('project-inner');
     innerBox.style.backgroundColor = color || randomColor();
     link.href = "./"+dir+"/index.html";
@@ -79,12 +93,14 @@ apps.forEach(app => {
     let desc = description || capitalizeWords(dir, '-');
     link.classList.add('link');
     link.innerText = desc;
-
+        
+    // Update DOM
     projectsEl.appendChild(box);
     box.appendChild(innerBox);
     innerBox.appendChild(link);
   }
 })
+
 
 function capitalizeWords(str, sep) {
  const arr = str.split(sep);
@@ -103,6 +119,7 @@ function randomColor() {
   return color;
 }
 
+
 projectsEl.addEventListener('click', (e) => {
   const element = e.target;
   if (element.tagName == 'A') {
@@ -111,6 +128,7 @@ projectsEl.addEventListener('click', (e) => {
     if (project) {
       project.classList.add('clicked', 'visited');
       projectInner.classList.add('clicked', 'visited');
+      sessionStorage.setItem(project.index, "visited");
       setTimeout(()=> {
         project.classList.remove('clicked');
         projectInner.classList.remove('clicked')
