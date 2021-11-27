@@ -109,7 +109,7 @@ body {
 .link {
   font-size: 16px;
   text-decoration: none;
-  color: rgb(94, 29, 146);
+  color: rgb(90, 6, 158);
   /* color: rgb(87, 9, 151) */
 }
 
@@ -122,8 +122,15 @@ body {
   color: black;
 }
 
+.link.visited {
+  color: #33f;
+  /* only if has class 'visited' */
+}
+
 .link:visited {
-  color: rgb(8, 40, 143);
-  color: blue;
+  /* color: rgb(8, 40, 143);
+  color: blue; */
+  /* color: #22A; */
+  /* the link visited thing seems to be in teh browser history, so won't go away when clear session or local storage */
   /* Seems to always be active in Chrome, works in Firefox, but sometimes you have to refresh the screen after coming back from link */
 }

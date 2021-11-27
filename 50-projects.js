@@ -82,10 +82,6 @@ apps.forEach((app, idx) => {
     box.classList.add('project');
     box.index = idxString;
 
-    const storedClass = sessionStorage.getItem(idxString);
-    if (storedClass) {
-      box.classList.add(storedClass);
-    }
     innerBox.classList.add('project-inner');
     innerBox.style.backgroundColor = color || randomColor();
     link.href = "./"+dir+"/index.html";
@@ -93,7 +89,12 @@ apps.forEach((app, idx) => {
     let desc = description || capitalizeWords(dir, '-');
     link.classList.add('link');
     link.innerText = desc;
-        
+    
+    const storedClass = sessionStorage.getItem(idxString);
+    if (storedClass) {
+      box.classList.add(storedClass);
+      link.classList.add(storedClass);
+    }
     // Update DOM
     projectsEl.appendChild(box);
     box.appendChild(innerBox);
