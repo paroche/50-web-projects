@@ -1,10 +1,11 @@
 const projectsEl = document.getElementById("projects");
 
-function app(dir, description, color, show, popup) {
+function app(dir, description, color, show, popup, color2) {
   this.dir = dir;
   this.description = description;
   this.color = color;
   this.show = show;
+  this.color2 = color2;
   this.popup = popup;
 }
 
@@ -60,11 +61,6 @@ apps.push(new app('toast-notification','','',true));
 apps.push(new app('verify-account-ui','Verify Account UI','',true));
 
 
-console.log(apps);
-
-
-
-
 apps.forEach(app => {
   ({dir, description, color, show, popup } = app);
   if (show) {
@@ -75,21 +71,20 @@ apps.forEach(app => {
     box.classList.add('project');
     innerBox.classList.add('project-inner');
     innerBox.style.backgroundColor = color || randomColor();
-    console.log(randomColor());
     link.href = "./"+dir+"/index.html";
+    // link.target = "_blank"; // temp, for testing
     let desc = description || capitalizeWords(dir, '-');
     link.classList.add('link');
     link.innerText = desc;
 
-    innerBox.appendChild(link);
-    box.appendChild(innerBox);
     projectsEl.appendChild(box);
+    box.appendChild(innerBox);
+    innerBox.appendChild(link);
   }
 })
 
 function capitalizeWords(str, sep) {
  const arr = str.split(sep);
- console.log(arr);
  for (let word=0; word<arr.length; word++) {
    arr[word]=arr[word].charAt(0).toUpperCase() + arr[word].slice(1);
  }
@@ -104,3 +99,19 @@ function randomColor() {
   const color = `rgba(${r},${g},${b},${a})`;
   return color;
 }
+
+projectsEl.addEventListener('click', (e) => {
+  const element = e.target;
+  if (element.tagName == 'A') {
+    const project = element.closest('.project');
+    const projectInner = element.closest('.project-inner');
+    if (project) {
+      project.classList.add('clicked', 'visited');
+      projectInner.classList.add('clicked', 'visited');
+      setTimeout(()=> {
+        project.classList.remove('clicked');
+        projectInner.classList.remove('clicked')
+      } , 300);
+    }
+  }
+})

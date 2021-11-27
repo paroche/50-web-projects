@@ -21,6 +21,7 @@ body {
   font-size: 1.2rem;
   display: flex;
   justify-content: center;
+  padding-bottom: 25px;
 }
 
 .title {
@@ -70,6 +71,15 @@ body {
   box-shadow: 3px 2px 5px rgb(40, 3, 109);
 }
 
+.project.clicked {
+  transform: scale(.95);
+}
+
+.project.visited {
+  border: 1px solid blue;
+  /* above works, but only if use target="_blank", otherwise resets */
+}
+
 .project-inner {
   height: 100%;
   width: 100%;
@@ -78,6 +88,15 @@ body {
   align-items: center;
   text-align: center;
   font-weight: bold;
+}
+
+.project-inner.clicked {
+  opacity: 0.8;
+}
+
+.project-inner.visited {
+  background-color: #000;
+  /* above doesn't work for some reason ??? */
 }
 
 .link {

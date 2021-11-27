@@ -8,7 +8,6 @@ ratingsContainer.addEventListener('click',(e)=> {
     removeActive();
     e.target.parentNode.classList.add('active');
     selectedRating = e.target.nextElementSibling.innerText;
-    console.log(selectedRating);
   }
 })
 
