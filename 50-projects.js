@@ -115,7 +115,7 @@ function randomColor() {
   const r = Math.floor(Math.random()*255);
   const g = Math.floor(Math.random()*255);
   const b = Math.floor(Math.random()*255);
-  const a = 0.3;
+  const a = 0.5;
   const color = `rgba(${r},${g},${b},${a})`;
   return color;
 }
