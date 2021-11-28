@@ -13,6 +13,8 @@ body {
   height: 100vh;
   margin: 0;
   background-color: #f6f7fb;
+  /* background-color: #edeef8; */
+  /* a little better like it was -- less likely to clash */
 }
 
 .header {
@@ -27,6 +29,10 @@ body {
   user-select: none;
 }
 
+.header a {
+  text-decoration: none;
+}
+
 .title {
   margin: 20px 0 0;
   padding: 20px 0 0;
@@ -35,7 +41,7 @@ body {
 
 #random {
   display: none;
-  /* was just for testing what happens when come back from project */
+  /*just for testing what happens when come back from project */
 }
 
 #projects-container {
