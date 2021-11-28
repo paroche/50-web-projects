@@ -15,6 +15,8 @@ body {
   background-color: #f6f7fb;
   /* background-color: #edeef8; */
   /* a little better like it was -- less likely to clash */
+  /* background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
+  /* not sure which is better. But lg above isn't covering whole body ???? */
 }
 
 .header {
@@ -25,7 +27,8 @@ body {
   flex-direction: column;
   align-items: center;
   /* justify-content: center; */
-  padding-bottom: 25px;
+  text-align: center;
+  padding: 0 25px 25px 25px;
   user-select: none;
 }
 

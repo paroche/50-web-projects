@@ -9052,3 +9052,219 @@ script.js:
 // Lesson -- Project Intro (#143) (1:26)
 
 
+in HTML5 have an input type of 'range', but can't style it. Have to tell the browser you don't want it to show, then can style the track & the thumb. Is different in every browser so will be using -webkit (Chrome & Safari), -moz (Firefox), -ms(Edge?). 
+
+
+
+// Lesson -- Styling the Range (#144) (12:06)
+// Lesson -- Label Value & Movement (#145) (11:05)
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css">
+		<title>Custom Range Slider</title>
+	</head>
+
+	<body>
+		<h2>Custom Range Slider</h2>
+		<h3>If one wants to change the default behavior of input range sliders, they have to disable the styling in the browser, then implement browser-specific customization, which is what has been done here.</h3>
+		<div class="range-container">
+			<input type="range" id="range" , min="0" max="100">
+			<label for="range">50</label>
+		</div>
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+		font-family: 'Lato', sans-serif;
+		font-size: 16px;
+		/* w/out above, font size was different in Chrome & Firefox ??? */
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	h2 {
+		position: absolute;
+		top: 10px;
+	}
+
+	h3 {
+		position: absolute;
+		top: 70px;
+		width: 90%;
+		color: #3F3F3F;
+	}
+
+	.range-container {
+		position: relative;
+		/* display: flex;
+		flex-direction: column-reverse;
+		justify-content: flex-start;
+		align-items: center; */
+		/* The above worked pretty well, about the same, w/out the label absolute positioned and reduced margin on input/range */
+	}
+
+	input[type='range'] {
+		width: 300px;
+		margin: 18px 0;
+		/* margin: 8px 0; */
+		-webkit-appearance: none;
+	}
+
+	input[type='range']:focus {
+		outline: none;
+	}
+
+	input[type='range']+label {
+		background-color: #fff;
+		position: absolute;
+		top: -25px;
+		left: 110px;
+		width: 80px;
+		padding: 5px 0;
+		text-align: center;
+		border-radius: 4px;
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	}
+
+
+	/* For Chrome and Safari */
+
+	input[type='range']::-webkit-slider-runnable-track {
+		background: purple;
+		border-radius: 4px;
+		width: 100%;
+		height: 10px;
+		cursor: pointer;
+	}
+
+	input[type='range']::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		height: 24px;
+		width: 24px;
+		background: #fff;
+		border-radius: 50%;
+		border: 1px solid purple;
+		margin-top: -7px;
+		cursor: pointer;
+	}
+
+
+	/* For Firefox */
+
+	input[type='range']::-moz-range-track {
+		background: purple;
+		border-radius: 4px;
+		width: 100%;
+		height: 12px;
+		/* w/ 10 px had white around it, this covers it */
+		cursor: pointer;
+	}
+
+	input[type='range']::-moz-range-thumb {
+		-webkit-appearance: none;
+		height: 24px;
+		width: 24px;
+		background: #fff;
+		border-radius: 50%;
+		border: 1px solid purple;
+		margin-top: -7px;
+		cursor: pointer;
+	}
+
+
+	/* Microsoft. (Edge) */
+
+	input[type='range']::-ms-track {
+		background: purple;
+		border-radius: 4px;
+		width: 100%;
+		height: 12px;
+		/* w/ 10 px had white around it, this covers it */
+		cursor: pointer;
+	}
+
+	input[type='range']::-ms-thumb {
+		-webkit-appearance: none;
+		height: 24px;
+		width: 24px;
+		background: #fff;
+		border-radius: 50%;
+		border: 1px solid purple;
+		margin-top: -7px;
+		cursor: pointer;
+	}
+
+
+script.js:
+
+	/** @format */
+
+	const range = document.getElementById('range');
+
+	range.addEventListener('input', (e) => {
+		const value = +e.target.value;
+		const label = e.target.nextElementSibling;
+
+		const range_width = getComputedStyle(e.target).getPropertyValue('width'); // 300px or whatever we set in CSS
+		const label_width = getComputedStyle(label).getPropertyValue('width'); // 300px or whatever we set in CSS
+
+		const num_width = +range_width.substring(0, range_width.length - 2); // to get 'px' off end. Could need some more flexible code, e.g up to 1st non-numeric value, so could use other units
+		const num_label_width = +label_width.substring(0, label_width.length - 2);
+
+		const max = +e.target.max;
+		const min = +e.target.min;
+
+		const thumb_width = 24; // hard coding this
+
+		// const left = value * (num_width / max) - num_label_width / 2; // original. Lines up w/ bar, but doesn't account for thumb width (not at center of thumb).
+		// const left = value * (num_width / max) - num_label_width / 2 + scale(value, min, max, 10, -10); // His solution using the scale function from stackoverflow. Don't know where 10, -10 come from, but it works.
+		const left = (value * (num_width / max) - num_label_width / 2) + ((max/2 - value) * 3*thumb_width/num_width); // I came with this. Works perfectly, but I don't know why
+
+		// console.log(left); // -40 to 260. Label width is 80, slider width is 300
+		label.style.left = left + 'px'; // this works
+		// label.style.left = `${left}px`; // his way. Works too
+		label.innerHTML = value;
+	});
+
+	// https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
+	const scale = (num, in_min, in_max, out_min, out_max) => {
+		return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+	}
+
+
+
+
+******** SECTION 46: Day 45 -- Netflix Navigation ********
+
+
+
+// Lesson -- Project Intro (#146) (1:05)
+
+
+

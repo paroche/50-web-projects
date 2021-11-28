@@ -30,7 +30,7 @@ apps.push(new app('background-slider','','',true));
 apps.push(new app('blury-loading','','',true));
 apps.push(new app('button-ripple-effect','','',true));
 apps.push(new app('content-placeholder','','',true));
-apps.push(new app('custom-range-slider','','',false));
+apps.push(new app('custom-range-slider','','',true,'',''));
 apps.push(new app('dad-jokes','','',true));
 apps.push(new app('double-click-heart','','rgb(255,0,0,.5)',true));
 apps.push(new app('double-vertical-slider','','',true));
