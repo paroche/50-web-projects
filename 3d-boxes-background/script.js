@@ -32,6 +32,11 @@ const gifs = [
 'https://media.giphy.com/media/Mt0IKnQaKdSTu/giphy.gif',
 'https://media.giphy.com/media/xT9Igix0cQtPCKSvV6/giphy.gif',
 'https://media.giphy.com/media/3ohhwoyHMhQPbb23oA/giphy.gif',
+'https://media.giphy.com/media/x5cLbwEvOskX6/giphy.gif',
+'https://media.giphy.com/media/31ltvCocTCYyk/giphy.gif',
+'https://media.giphy.com/media/YBbGqjnpVT7MO13tiH/giphy.gif',
+'https://media.giphy.com/media/6nt03uAGWY9dS/giphy.gif',
+'https://media.giphy.com/media/5QVXLnzWCf9krkOg80/giphy.gif',
 
 
 
