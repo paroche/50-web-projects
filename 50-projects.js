@@ -53,6 +53,7 @@ apps.push(new app('kinetic-loader','','',true));
 apps.push(new app('live-user-filter','','',true));
 apps.push(new app('mobile-tab-navigation','','',true));
 apps.push(new app('movie-app','','',true));
+apps.push(new app('netflix-mobile-navigation','','',true));
 apps.push(new app('notes-app','','',true));
 apps.push(new app('password-generator','','',true));
 apps.push(new app('password-strength-background','','',true));
