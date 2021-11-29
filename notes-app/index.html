@@ -17,9 +17,14 @@
 <body>
   <button class="add" id="add"><i class="fas fa-plus"></i> Add note</button>
 
-  <!-- Both scripts below bring in 'marked' as an object, though they weren't identical when I looked at them on 11/15/2021. But we need to use the method ".parse", not "marked() by itself" -->
+
+  <!-- Late versions of marked (v4) have 'marked' as an object. Apparently in v1 it was a function -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js" referrerpolicy="no-referrer"></script>
+  <!-- Above is what I got from CDN in tutorial. But is v4, and he used v1 (below) -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.2.2/marked.min.js" referrerpolicy="no-referrer"></script> -->
+  <!-- Above is version in Brad's repo 2021-11-28. Brings in 'marked' as a function -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> -->
+  <!-- Above is what if found at marked.com's site, I think -->
   <script src="script.js"></script>
 </body>
 

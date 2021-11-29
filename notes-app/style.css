@@ -24,12 +24,19 @@ body {
   cursor: pointer;
 }
 
+textarea {
+  overflow: hidden;
+  /* I added. Otherwise get 2 scroll bars. Now handled by notes overflow */
+}
+
 .note {
   background-color: #fff;
   box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
   margin: 30px 20px;
   height: 400px;
   width: 400px;
+  overflow: scroll;
+  /* I added above */
 }
 
 .note .tools {

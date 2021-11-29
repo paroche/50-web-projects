@@ -141,4 +141,5 @@ projectsEl.addEventListener('click', (e) => {
 
 headerEl.addEventListener('dblclick', () => {
   sessionStorage.clear();
+  location.reload();
 })

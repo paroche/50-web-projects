@@ -15,11 +15,11 @@ range.addEventListener('input', (e) => {
   const max = +e.target.max;
   const min = +e.target.min;
 
-  const thumb_width = 24; // hard coding this
+  const thumb_width = 24; // hard coding this for my solution. If works, could get from DOM
 
   // const left = value * (num_width / max) - num_label_width / 2; // original. Lines up w/ bar, but doesn't account for thumb width (not at center of thumb).
   // const left = value * (num_width / max) - num_label_width / 2 + scale(value, min, max, 10, -10); // His solution using the scale function from stackoverflow. Don't know where 10, -10 come from, but it works.
-  const left = (value * (num_width / max) - num_label_width / 2) + ((max/2 - value) * 3*thumb_width/num_width); // I came with this. Works perfectly, but I don't know why
+  const left = (value * (num_width / max) - num_label_width / 2) + ((max/2 - value) * 3*thumb_width/num_width); // I came with this. Works perfectly, but I don't know why. Oh -- slider is 300px while max width is "100" may be where the 3 came from. For further reflection ???.
 
   // console.log(left); // -40 to 260. Label width is 80, slider width is 300
   label.style.left = left + 'px'; // this works
