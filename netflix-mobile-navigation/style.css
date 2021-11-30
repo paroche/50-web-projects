@@ -16,6 +16,10 @@ body {
   text-transform: uppercase;
 }
 
+.explanation {
+  width: 50%;
+}
+
 .logo {
   width: 150px;
 }
