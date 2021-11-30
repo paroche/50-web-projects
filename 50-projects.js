@@ -62,6 +62,7 @@ apps.push(new app('password-generator', '', '', true));
 apps.push(new app('password-strength-background', '', '', true));
 apps.push(new app('picture-in-picture', '', '', true));
 apps.push(new app('pokedex', 'Pokédex', 'rgb(222,253,240,.5)', true));
+apps.push(new app('quiz-app', '', '', true));
 apps.push(new app('quote-generator', '', '', true));
 apps.push(new app('quote-generator-fetch-single-quote', '', '', false));
 apps.push(new app('random-choice-picker', '', '', true));

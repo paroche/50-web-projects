@@ -9475,5 +9475,8 @@ A quiz aplication, multiple choice questions. Questions on HTML/CSS/JS.
 
 
 // Lesson -- Quiz UI (#150) (9:44)
+// Lesson -- Quiz Functionality (#151) (11:31)
+
+
 
 
