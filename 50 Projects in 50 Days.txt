@@ -9943,3 +9943,10 @@ script.js:
 // Lesson -- Project Intro (#155) (1:04)
 
 
+Come to a page and it puts in a lot of images for us. Not using api. Using source.unsplash.com/random and a size. W/out size will keep giving same image.
+
+
+
+// Lesson-- Random Image Feed Project (#156) (9:13)
+
+

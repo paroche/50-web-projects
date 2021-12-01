@@ -9,7 +9,55 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   margin: 0;
 }
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: space-between;
+  overflow: scroll;
+  padding: 0 20px 50px;
+}
+
+.title {
+  margin: 10px 0 0;
+  text-align: center;
+}
+
+.image {
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+  transition: opacity 0.5s ease-in;
+}
+
+.image.transparent {
+  /* had to use setTimeout on image change to get this to  to kick in */
+  opacity: 0.5;
+}
+
+
+/* Brad's */
+
+
+/* Brad's. I made a separate div w/ class (rather than id) 'container' */
+
+
+/* .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1000px;
+}
+
+.container img {
+  object-fit: cover;
+  margin: 10px;
+  height: 300px;
+  width: 300px;
+  max-width: 100%;
+} */

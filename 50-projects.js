@@ -122,10 +122,7 @@ function randomColor() {
   let r,g,b;
   getRGB();
   // favoring less white
-  // console.log(r,g,b,r+g+b);
-  // if (r+g+b > 370) console.log(r+g+b);
   while (r+g+b > 370) { 
-    // console.log('in while ',r,g,b);
     getRGB();
   }
   const a = 0.5;
