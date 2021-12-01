@@ -10,25 +10,39 @@ const images = 24;
 
 for (let i = 0; i < images; i++) {
   const imageEl = document.createElement('img');
-  imageEl.src = getRandomImage();
+  imageEl.src = getRandomImage(i);
   imageEl.classList.add('image');
   container.appendChild(imageEl);
   // I added dblclick on image to generate new random image
   imageEl.addEventListener('dblclick', () => {
     imageEl.classList.add('transparent');
     setTimeout( () => {
-      imageEl.src = getRandomImage(); // this seems to happen asynchronously
+      imageEl.src = getRandomImage(randomNum(1000)+images); // this seems to happen asynchronously
       imageEl.classList.remove('transparent');
     },200)
   });
 }
 
-function getRandomImage() {
-  let w = 250 + Math.floor(Math.random() * 100);
-  let h = 250 + Math.floor(Math.random() * 100);
-  const randImage = unsplashURL + w + 'x' + h;
+function getRandomImage(i) {
+  // took out Brand's size params, just use simple index. Seems to be faster
+  // let w = 250 + Math.floor(Math.random() * 100);
+  // let h = 250 + Math.floor(Math.random() * 100);
+  // const randImage = unsplashURL + w + 'x' + h;
+  // const randImage = unsplashURL + "?sig=" + Math.floor(Math.random() * 10000); // this gives a lot of duplicates!
+  const randImage = unsplashURL + "/" + i;
   return randImage;
 }
+
+function randomNum(max) {
+  return Math.floor(Math.random() * max);
+}
+// async function getRandomImageAsync() {
+//   let w = 250 + Math.floor(Math.random() * 100);
+//   let h = 250 + Math.floor(Math.random() * 100);
+//   const randImageRaw = await fetch(unsplashURL + w + 'x' + h);
+//   // const randImage = await randImageRaw.json();
+//   return randImageRaw;
+// }
 
 // Brad's
 // const rows = 10;
