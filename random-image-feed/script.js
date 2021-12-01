@@ -17,7 +17,7 @@ for (let i = 0; i < images; i++) {
   imageEl.addEventListener('dblclick', () => {
     imageEl.classList.add('transparent');
     setTimeout( () => {
-      imageEl.src = getRandomImage(randomNum(1000)+images); // this seems to happen asynchronously
+      imageEl.src = getRandomImage(randomNum(1000)+images); // this seems to happen asynchronously, so transparent ends before new image appears
       imageEl.classList.remove('transparent');
     },200)
   });

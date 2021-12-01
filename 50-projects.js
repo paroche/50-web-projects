@@ -66,6 +66,7 @@ apps.push(new app('quiz-app', '', '', true));
 apps.push(new app('quote-generator', '', '', true));
 apps.push(new app('quote-generator-fetch-single-quote', '', '', false));
 apps.push(new app('random-choice-picker', '', '', true));
+apps.push(new app('random-image-feed', '', '', true));
 apps.push(new app('rotating-nav-animation', '', '', true));
 apps.push(new app('scroll-animation', '', '', true));
 apps.push(new app('sound-board', '', '', true));
