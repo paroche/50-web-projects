@@ -24,12 +24,18 @@ for (let i = 0; i < images; i++) {
 }
 
 function getRandomImage(i) {
-  // took out Brand's size params, just use simple index. Seems to be faster
+  // took out Brand's size params, just use simple index. Seems to be faster. Maybe.
   // let w = 250 + Math.floor(Math.random() * 100);
   // let h = 250 + Math.floor(Math.random() * 100);
   // const randImage = unsplashURL + w + 'x' + h;
   // const randImage = unsplashURL + "?sig=" + Math.floor(Math.random() * 10000); // this gives a lot of duplicates!
   const randImage = unsplashURL + "/" + i;
+  return randImage;
+}
+
+// The below doesn't work
+async function getRandomImageAsync(i) {
+  const randImage = await unsplashURL + "/" + i;
   return randImage;
 }
 

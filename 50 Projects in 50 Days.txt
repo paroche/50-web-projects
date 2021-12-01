@@ -9943,10 +9943,189 @@ script.js:
 // Lesson -- Project Intro (#155) (1:04)
 
 
-Come to a page and it puts in a lot of images for us. Not using api. Using source.unsplash.com/random and a size. W/out size will keep giving same image.
+Come to a page and it puts in a lot of images for us. Not using api. Using source.unsplash.com/random and a size. W/out size will keep giving same image. 300x300 diff from 301x302, etc.
 
 
 
 // Lesson-- Random Image Feed Project (#156) (9:13)
+
+
+
+index.html:
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="style.css">
+		<title>Random Image Feed</title>
+	</head>
+
+	<body>
+		<h1>Random Image Feed</h1>
+		<div id="container">
+
+		</div>
+		<!-- <h1>Alternatively...</h1>
+		<div class="container">
+
+		</div> -->
+		<script src="script.js"></script>
+	</body>
+
+	</html>
+
+
+style.css:
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+		margin: 0;
+	}
+
+	#container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: space-between;
+		overflow: scroll;
+		padding: 0 20px 50px;
+	}
+
+	.title {
+		margin: 10px 0 0;
+		text-align: center;
+	}
+
+	.image {
+		width: 300px;
+		height: 300px;
+		margin: 10px;
+		transition: opacity 0.5s ease-in;
+	}
+
+	.image.transparent {
+		/* had to use setTimeout on image change to get this to  to kick in */
+		opacity: 0.5;
+	}
+
+
+	/* Brad's */
+
+
+	/* Brad's. I made a separate div w/ class (rather than id) 'container' */
+
+
+	/* .container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		max-width: 1000px;
+	}
+
+	.container img {
+		object-fit: cover;
+		margin: 10px;
+		height: 300px;
+		width: 300px;
+		max-width: 100%;
+	} */
+
+
+script.js:
+
+	/** @format */
+
+	const container = document.getElementById('container');
+	const bradContainer = document.querySelector('.container');
+
+	const unsplashURL = 'https://source.unsplash.com/random/';
+
+	// Mine (adjusted to use same common vars as Brad's)
+	const images = 24;
+
+	for (let i = 0; i < images; i++) {
+		const imageEl = document.createElement('img');
+		imageEl.src = getRandomImage(i);
+		imageEl.classList.add('image');
+		container.appendChild(imageEl);
+		// I added dblclick on image to generate new random image
+		imageEl.addEventListener('dblclick', () => {
+			imageEl.classList.add('transparent');
+			setTimeout( () => {
+				imageEl.src = getRandomImage(randomNum(1000)+images); // this seems to happen asynchronously, so transparent ends before new image appears
+				imageEl.classList.remove('transparent');
+			},200)
+		});
+	}
+
+	function getRandomImage(i) {
+		// took out Brand's size params, just use simple index. Seems to be faster
+		// let w = 250 + Math.floor(Math.random() * 100);
+		// let h = 250 + Math.floor(Math.random() * 100);
+		// const randImage = unsplashURL + w + 'x' + h;
+		// const randImage = unsplashURL + "?sig=" + Math.floor(Math.random() * 10000); // this gives a lot of duplicates!
+		const randImage = unsplashURL + "/" + i;
+		return randImage;
+	}
+
+	function randomNum(max) {
+		return Math.floor(Math.random() * max);
+	}
+	// async function getRandomImageAsync() {
+	//   let w = 250 + Math.floor(Math.random() * 100);
+	//   let h = 250 + Math.floor(Math.random() * 100);
+	//   const randImageRaw = await fetch(unsplashURL + w + 'x' + h);
+	//   // const randImage = await randImageRaw.json();
+	//   return randImageRaw;
+	// }
+
+	// Brad's
+	// const rows = 10;
+
+	// for (let i = 0; i< rows * 3; i++) {
+	//   const img = document.createElement('img');
+	//   img.src = `${unsplashURL}${getRandomSize()}`;
+	//   bradContainer.appendChild(img);
+	// }
+
+	// function getRandomSize() {
+	//   return `${getRandomNr()}x${getRandomNr()}`;
+	// }
+
+	// function getRandomNr() {
+	//   return Math.floor(Math.random() * 10 + 300);
+	// }
+
+
+
+
+******** SECTION 50: Day 49 -- Todo List ********
+
+
+
+// Lesson -- Project Intro (#157) (0:53)
+
+Keep adding Todos, add to local storage. Can mark as completed, or delete.
+
+
+// Lesson -- Todo List UI (#158) (8:48)
+// Lesson -- Add, Remove & Mark Complete (#159) (9min)
+// Lesson -- Saving Todos to Local Storage (#160) (8min)
 
 
