@@ -61,7 +61,7 @@ apps.push(new app('notes-app', '', '', true));
 apps.push(new app('password-generator', '', '', true));
 apps.push(new app('password-strength-background', '', '', true));
 apps.push(new app('picture-in-picture', '', '', true));
-apps.push(new app('pokedex', 'Pokédex', 'rgb(222,253,240,.5)', true));
+apps.push(new app('pokedex', 'Pokédex', 'rgb(222,253,240,.5)', true))
 apps.push(new app('quiz-app', '', '', true));
 apps.push(new app('quote-generator', '', '', true));
 apps.push(new app('quote-generator-fetch-single-quote', '', '', false));
@@ -72,6 +72,7 @@ apps.push(new app('sound-board', '', '', true));
 apps.push(new app('split-landing-page', '', '', true));
 apps.push(new app('steps', '', '', true));
 apps.push(new app('sticky-navbar', '', '', true));
+apps.push(new app('testimonial-box-switcher', '', 'rgb(71,108,244,0.5)', true));
 apps.push(new app('theme-clock', '', '', true));
 apps.push(new app('toast-notification', '', '', true));
 apps.push(new app('verify-account-ui', 'Verify Account UI', '', true));
@@ -89,7 +90,7 @@ function generateProjects() {
       box.index = idxString;
 
       innerBox.classList.add('project-inner');
-      innerBox.style.backgroundColor = color || randomColor(150); // anti-pastel bias
+      innerBox.style.backgroundColor = color || randomColor(); 
       link.href = './' + dir + '/index.html';
       // link.target = "_blank"; // temp, for testing
       let desc = description || capitalizeWords(dir, '-');
@@ -117,14 +118,28 @@ function capitalizeWords(str, sep) {
   return arr.join(' ');
 }
 
-function randomColor(bias) {
-  const r = -bias + Math.floor(Math.random() * (255 + bias));
-  const g = -bias + Math.floor(Math.random() * (255 + bias));
-  const b = -bias + Math.floor(Math.random() * (255 + bias));
+function randomColor() {
+  let r,g,b;
+  getRGB();
+  // favoring less white
+  // console.log(r,g,b,r+g+b);
+  // if (r+g+b > 370) console.log(r+g+b);
+  while (r+g+b > 370) { 
+    // console.log('in while ',r,g,b);
+    getRGB();
+  }
   const a = 0.5;
   const color = `rgba(${r},${g},${b},${a})`;
   return color;
+
+  function getRGB() {
+    r = Math.floor(Math.random() * 255);
+    g = Math.floor(Math.random() * 255);
+    b = Math.floor(Math.random() * 255);
+  }
 }
+
+
 
 // Main code!
 generateProjects();

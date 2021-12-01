@@ -2,7 +2,6 @@
 // Brad had assigned a constant that was never used and had the wrong selector name anyway. So I removed it.
 // Also, removed content from HTML, started the index at zero, and did an initial call to the build function so would update from DB from the start.
 const testimonial = document.querySelector('.testimonial');
-// const progressBar = document.querySelector('.progress-bar');
 const userImage = document.querySelector('.user-image');
 const username = document.querySelector('.username');
 const role = document.querySelector('.role');
@@ -70,7 +69,5 @@ function updateTestimonial() {
 // Main
 
 let idx = 0;
-
 updateTestimonial();
-
 setInterval(updateTestimonial, 10000);
