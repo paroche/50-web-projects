@@ -31,11 +31,10 @@ body {
   width: 300px;
   height: 300px;
   margin: 10px;
-  transition: opacity 0.5s ease-in;
+  /* transition: opacity 0.5s ease-in; */
 }
 
 .image.transparent {
-  /* had to use setTimeout on image change to get this to  to kick in */
   opacity: 0.5;
 }
 
