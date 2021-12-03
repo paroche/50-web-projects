@@ -1,30 +1,84 @@
 /** @format */
 
-
 const imageContainer = document.getElementById('image-container');
 const loader = document.getElementById('loader');
 
+const search = document.querySelector('.search');
+const btn = document.querySelector('.btn');
+const input = document.querySelector('.input');
+
+// Init
+let apiUrl;
 let ready = false;
 let domImages = 0;
 let imagesLoaded = 0;
 let imagesRead = 0;
 let photosArray = [];
+// Set up for initial UnSplash API load
+const initialImageCount = 3;
+let imageCount = initialImageCount; // for initial load
+//
+// Search input
+let query = '';
+let prevQuery = '';
+
+btn.addEventListener('click', () => {
+  if (search.classList.contains('active')) { // && query && query !== prevQuery) {
+    doQuery();}
+  
+    search.classList.toggle('active');
+    if (search.classList.contains('active')) {
+      input.type = 'text';
+      input.value = prevQuery;
+      input.placeholder = 'Search...';
+      input.focus();
+    } else {
+      input.placeholder = '';
+      input.value = '';
+    }
+  
+});
+
+input.addEventListener('input', () => {
+  query = input.value;
+});
+
+input.addEventListener('keypress', (e) => {
+  // console.log(e.keyCode);
+  if (e.keyCode == 13) {
+    console.log(query," ",prevQuery);
+    if (query !== prevQuery) {
+      doQuery();
+    }
+  }
+});
+
+function doQuery() {
+  imageContainer.innerHTML = null;
+  prevQuery = query;
+  setApiUrl(initialImageCount);
+  getPhotos();
+
+
+}
+
+setApiUrl(imageCount);
+getPhotos();
+// ** End Search
 
 function setApiUrl(count) {
   const apiKey = 'e2R3VYadBTbPfp-sT10cOFzBKNRLSwX6-mnv0nT-43o';
-  return `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`;
-  // return `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=elephants`; // This works, if I want to have a query input
+  apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`;
+  if (query) apiUrl += `&query=${query}`;
+  return apiUrl;
+  // return `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${query}`; // This works, if I want to have a query input
 }
-
-// Set up for initial UnSplash API load
-let imageCount = 3; // for initial load
-let apiUrl = setApiUrl(imageCount);
 
 // Check if all images were loaded
 function imageLoaded() {
   // console.log('image loaded');
   imagesLoaded++;
-  // console.log(imagesLoaded);
+  console.log(imagesLoaded);
   if (imagesLoaded === imagesRead) {
     ready = true;
     loader.hidden = true;
@@ -44,7 +98,7 @@ function setAttributes(element, attributes) {
 // Create Elements for Links & Photos, Add to DOM
 function displayPhotos() {
   imagesRead = photosArray.length;
-  // console.log('Images Read: ', imagesRead);
+  console.log('Images Read: ', imagesRead);
   imagesLoaded = 0; // Solution to challenge
   // Run function for each object in photosArray
   photosArray.forEach((photo) => {
@@ -98,11 +152,15 @@ function displayPhotos() {
 // Get photos from Unsplash API
 async function getPhotos() {
   try {
+    console.log(apiUrl);
     const response = await fetch(apiUrl);
     photosArray = await response.json();
     // console.log(photosArray);
     displayPhotos();
   } catch (error) {
+    console.log('error in getPhotos()');
+    console.log(error);
+    console.log(apiUrl);
     // Catch Error Here
   }
 }
@@ -112,13 +170,16 @@ window.addEventListener('scroll', () => {
   // console.log('window.pageYOffset: ', window.pageYOffset);
   // console.log('document.body.offsetHeight:', document.body.offsetHeight);
   // if bottom of page (top of page + page height) w/in 1000px of bottom of document
-  if (window.innerHeight + window.pageYOffset >=
+  if (
+    window.innerHeight + window.pageYOffset >=
       document.body.offsetHeight - 1000 &&
-      ready) {
+    ready
+  ) {
     ready = false;
     getPhotos();
   }
 });
 
 // On Load
+setApiUrl(imageCount);
 getPhotos();

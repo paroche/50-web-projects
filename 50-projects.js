@@ -52,6 +52,7 @@ apps.push(new app('hoverboard', '', '', true));
 apps.push(new app('image-carousel', '', '', true));
 apps.push(new app('incrementing-counter', '', '', true));
 apps.push(new app('infinite-scroll', '', '', true));
+apps.push(new app('infinite-scroll-search', 'Infinite Scroll w/ Hidden Search', '', true));
 apps.push(new app('insect-catch-game', '', '', true));
 apps.push(new app('kinetic-loader', '', '', true));
 apps.push(new app('live-user-filter', '', '', true));

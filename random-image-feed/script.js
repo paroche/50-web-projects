@@ -23,7 +23,9 @@ function addImagesToDOM() {
 }
   
 function getRandomImage(i) {
-  const randImage = unsplashURL + '/' + i;
+  let randImage = unsplashURL + '/' + i;
+  // randImage += "&query=elephants"; // doesn't work
+  console.log(randImage);
   return randImage;
 }
 
