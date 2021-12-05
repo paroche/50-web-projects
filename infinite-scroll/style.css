@@ -5,8 +5,9 @@ html {
 
 body {
   margin: 0;
-  /* padding: 0;
-  min-height: 100vh; */
+  /* padding: 0; */
+  min-height: 100vh;
+  /* w/out setting height, will move right then back on load/reload as scroll bar disappears and returns */
   font-family: Bebas Neue, sans-serif;
   background: whitesmoke;
 }

@@ -5,8 +5,9 @@ html {
 
 body {
   margin: 0;
-  /* padding: 0;
-  min-height: 100vh; */
+  /* padding: 0; */
+  min-height: 100vh;
+  /* w/out setting height, will move right then back on load/reload as scroll bar disappears and returns */
   font-family: Bebas Neue, sans-serif;
   background: whitesmoke;
 }
@@ -45,7 +46,10 @@ h1 {
   position: absolute;
   top: 5px;
   right: 5px;
+  right: 10px;
   height: 1.2em;
+  /* display: flex;
+  justify-content: flex-end; */
 }
 
 .search .input {
@@ -74,6 +78,7 @@ h1 {
   transition: transform 0.3s ease;
   background-color: whitesmoke;
   height: 100%;
+  right: 20px;
 }
 
 .brn:focus,

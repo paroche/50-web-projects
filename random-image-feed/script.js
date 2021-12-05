@@ -15,12 +15,15 @@ function addImagesToDOM() {
       imageEl.classList.add('transparent');
       imageEl.src = getRandomImage(randomNum(1000) + images); 
       // Apparently have to wait for DOM to report image is loaded before going on:
-      imageEl.addEventListener('load', () => {
+      imageEl.addEventListener('load', removeActive);
+      function removeActive() {
         imageEl.classList.remove('transparent');
+        imageEl.removeEventListener('load', removeActive); // I guess you should do this. 
+      }
       });
-    });
+    };
   }
-}
+
   
 function getRandomImage(i) {
   let randImage = unsplashURL + '/' + i;
