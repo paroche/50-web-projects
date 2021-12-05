@@ -35,11 +35,11 @@ function imageLoaded() {
 }
 
 // Helper Function to Set Attributes on DOM
-function setAttributes(element, attributes) {
-  for (const key in attributes) {
-    element.setAttribute(key, attributes[key]);
-  }
-}
+// function setAttributes(element, attributes) {
+//   for (const key in attributes) {
+//     element.setAttribute(key, attributes[key]);
+//   }
+// }
 
 // Create Elements for Links & Photos, Add to DOM
 function displayPhotos() {

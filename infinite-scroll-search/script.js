@@ -7,6 +7,11 @@ const search = document.querySelector('.search');
 const btn = document.querySelector('.btn');
 const input = document.querySelector('.input');
 
+// Neither of these worked. But clearing my Chrome cache did.
+// const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+const proxyUrl = 'https://immense-mesa-50556.herokuapp.com/';
+// const proxyUrl = '';
+
 // Init
 let apiUrl;
 let ready = false;
@@ -14,12 +19,14 @@ let domImages = 0;
 let imagesLoaded = 0;
 let imagesRead = 0;
 let photosArray = [];
+loader.hidden = false; // if want to ever see loader. Currently am hiding it as soon as 1 image has loaded.
 
 const initialImageCount = 3; // for initial load
 let imageCount = initialImageCount;
 let query = '';
 let prevQuery = '';
 
+// Event Listeners
 btn.addEventListener('click', () => {
   if (search.classList.contains('active')) {
     // && query && query !== prevQuery) {
@@ -50,117 +57,9 @@ input.addEventListener('keypress', (e) => {
   }
 });
 
-function doQuery() {
-  imageContainer.innerHTML = null;
-  prevQuery = query;
-  setApiUrl(initialImageCount);
-  getPhotos();
-}
-
-setApiUrl(imageCount);
-getPhotos();
-
-
-function setApiUrl(count) {
-  const apiKey = 'e2R3VYadBTbPfp-sT10cOFzBKNRLSwX6-mnv0nT-43o';
-  apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`;
-  if (query) apiUrl += `&query=${query}`;
-  return apiUrl;
-}
-
-// Check if all images were loaded
-function imageLoaded() {
-  // console.log('image loaded');
-  imagesLoaded++;
-  console.log(imagesLoaded);
-  if (imagesLoaded === imagesRead) {
-    ready = true;
-    loader.hidden = true;
-    imageCount = 30; // Once initial load done, bump up # images
-    apiUrl = setApiUrl(imageCount);
-  }
-}
-
-// Helper Function to Set Attributes on DOM
-function setAttributes(element, attributes) {
-  for (const key in attributes) {
-    element.setAttribute(key, attributes[key]);
-  }
-}
-
-// Create Elements for Links & Photos, Add to DOM
-function displayPhotos() {
-  imagesRead = photosArray.length;
-  imagesLoaded = 0; 
-  // Run function for each object in photosArray
-  photosArray.forEach((photo) => {
-    // Create <a> to link to Unsplash
-
-    domImages++;
-    const imageId = 'img-' + domImages;
-    const element = `
-      <a href="${photo.links.html}" target='_blank'>
-        <img id="${imageId}"
-             src="${photo.urls.regular}"
-             alt="${photo.alt_description}"
-             title="${photo.alt_description}"
-             >
-      </a>
-      `;
-    imageContainer.insertAdjacentHTML('beforeend', element);
-    const img = document.getElementById(imageId);
-
-    // First draft Code from lesson:
-    // const item = document.createElement('a');
-    // item.setAttribute('href', photo.links.html);
-    // item.setAttribute('target', '_blank');
-    // // Create <img> for photo
-    // const img = document.createElement('img');
-    // img.setAttribute('src', photo.urls.regular);
-    // img.setAttribute('alt', photo.alt_description);
-    // img.setAttribute('title', photo.alt_description);
-
-    // Code from lesson using helper function:
-    // const item = document.createElement('a');
-    // setAttributes(item, { href: photo.links.html, target: '_blank' });
-    // // Create <img> for photo
-    // const img = document.createElement('img');
-    // setAttributes(img, {
-    //   src: photo.urls.regular,
-    //   alt: photo.alt_description,
-    //   title: photo.alt_description,
-    // });
-
-    // Event Listener, check when each is finished loading
-    img.addEventListener('load', imageLoaded);
-
-    // Put <img> inside <a>, then put both inside imageContainer element
-    // item.appendChild(img);
-    // imageContainer.appendChild(item);
-  });
-}
-
-// Get photos from Unsplash API
-async function getPhotos() {
-  try {
-    console.log(apiUrl);
-    const response = await fetch(apiUrl);
-    photosArray = await response.json();
-    // console.log(photosArray);
-    displayPhotos();
-  } catch (error) {
-    console.log('error in getPhotos()');
-    console.log(error);
-    console.log(apiUrl);
-    // Catch Error Here
-  }
-}
-
 // Check to see if scrolling near bottom of page, Load more photos
 window.addEventListener('scroll', () => {
-  // console.log('window.pageYOffset: ', window.pageYOffset);
-  // console.log('document.body.offsetHeight:', document.body.offsetHeight);
-  // if bottom of page (top of page + page height) w/in 1000px of bottom of document
+  // if bottom of page (top of page + page height) w/in 1000px of bottom of document:
   if (
     window.innerHeight + window.pageYOffset >=
       document.body.offsetHeight - 1000 &&
@@ -170,6 +69,85 @@ window.addEventListener('scroll', () => {
     getPhotos();
   }
 });
+
+// Functions
+
+function setApiUrl(count) {
+  const apiKey = 'e2R3VYadBTbPfp-sT10cOFzBKNRLSwX6-mnv0nT-43o';
+  apiUrl =
+    proxyUrl +
+    `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`;
+  if (query) apiUrl += `&query=${query}`;
+}
+
+function doQuery() {
+  imageContainer.innerHTML = null;
+  prevQuery = query;
+  setApiUrl(initialImageCount);
+  getPhotos();
+}
+
+// Check if all images were loaded
+function imageLoaded() {
+  imagesLoaded++;
+  loader.hidden = true; // Overrides the rest. If even 1 image loads, get rid of loader. Seems better
+  // loader.classList.add('hidden'); // or this?
+  if (imagesLoaded === imagesRead) {
+    ready = true;
+    // loader.hidden = true;
+    loader.classList.add('hidden');
+    imageCount = 30; // Once initial load done, bump up # images
+    setApiUrl(imageCount);
+  } else {
+    if (imagesRead) {
+      const newFilter = `blur(${5 * (imagesLoaded / imagesRead)}px)`;
+      loader.style.filter = newFilter; // make loader fade
+    }
+  }
+}
+
+// Create Elements for Links & Photos, Add to DOM
+function displayPhotos() {
+  imagesRead = photosArray.length;
+  imagesLoaded = 0;
+  photosArray.forEach((photo, idx) => {
+    // setTimeout(addPhotoToDOM, 1000 * idx);
+    addPhotoToDOM();
+    function addPhotoToDOM() {
+      console.log(imagesLoaded);
+      domImages++;
+      const imageId = 'img-' + domImages;
+      const element = `
+        <a href="${photo.links.html}" target='_blank'>
+          <img id="${imageId}"
+               src="${photo.urls.regular}"
+               alt="${photo.alt_description}"
+               title="${photo.alt_description}"
+               >
+        </a>
+        `;
+      imageContainer.insertAdjacentHTML('beforeend', element);
+      const img = document.getElementById(imageId);
+      img.addEventListener('load', imageLoaded);
+    }
+  });
+}
+
+// Get photos from Unsplash API
+async function getPhotos() {
+  try {
+    const response = await fetch(apiUrl);
+    photosArray = await response.json();
+    // console.log(photosArray);
+    displayPhotos();
+  } catch (error) {
+    console.log(apiUrl);
+    console.log('error in getPhotos()');
+    console.log(error);
+    console.log(apiUrl);
+    // Catch Error Here
+  }
+}
 
 // On Load
 setApiUrl(imageCount);
