@@ -84,18 +84,17 @@ function doQuery() {
   imageContainer.innerHTML = null;
   prevQuery = query;
   setApiUrl(initialImageCount);
+  showLoader();
   getPhotos();
 }
 
 // Check if all images were loaded
 function imageLoaded() {
   imagesLoaded++;
-  loader.hidden = true; // Overrides the rest. If even 1 image loads, get rid of loader. Seems better
-  // loader.classList.add('hidden'); // or this?
+  hideLoader(); // Remove loader if even 1 image loads. Seems better. Otherwise is over 1st image while others are loading.
   if (imagesLoaded === imagesRead) {
     ready = true;
-    // loader.hidden = true;
-    loader.classList.add('hidden');
+    // hideLoader(); // If want to wait until all images loaded
     imageCount = 30; // Once initial load done, bump up # images
     setApiUrl(imageCount);
   } else {
@@ -104,6 +103,16 @@ function imageLoaded() {
       loader.style.filter = newFilter; // make loader fade
     }
   }
+}
+
+function showLoader() {
+  loader.classList.remove('hidden'); // in case using this
+  loader.hidden = false;
+}
+
+function hideLoader() {
+  loader.hidden = true; // abupt. Otherwise...
+  // loader.classList.add('hidden'); // w/ this, loader fades out while image is already displayed
 }
 
 // Create Elements for Links & Photos, Add to DOM
