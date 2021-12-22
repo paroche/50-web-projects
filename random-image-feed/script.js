@@ -13,18 +13,16 @@ function addImagesToDOM() {
     // I added dblclick on image to generate new random image
     imageEl.addEventListener('dblclick', () => {
       imageEl.classList.add('transparent');
-      imageEl.src = getRandomImage(randomNum(1000) + images); 
-      // Apparently have to wait for DOM to report image is loaded before going on:
-      imageEl.addEventListener('load', removeActive);
-      function removeActive() {
-        imageEl.classList.remove('transparent');
-        imageEl.removeEventListener('load', removeActive); // I guess you should do this. 
-      }
-      });
-    };
+      imageEl.src = getRandomImage(randomNum(1000) + images);
+      imageEl.addEventListener(
+        'load',
+        () => imageEl.classList.remove('transparent'),
+        { once: true }
+      );
+    });
   }
+}
 
-  
 function getRandomImage(i) {
   let randImage = unsplashURL + '/' + i;
   // randImage += "&query=elephants"; // doesn't work
@@ -40,7 +38,6 @@ function randomNum(max) {
 
 addImagesToDOM();
 
-
 // Brad's
 // const bradContainer = document.querySelector('.container'); // created separate container below 'container' for Brad's method
 
@@ -53,13 +50,13 @@ addImagesToDOM();
 // }
 
 // function getRandomImage(i) {
-  // let w = 250 + Math.floor(Math.random() * 100);
-  // let h = 250 + Math.floor(Math.random() * 100);
-  // const randImage = unsplashURL + w + 'x' + h;
-  // const randImage = unsplashURL + "?sig=" + Math.floor(Math.random() * 10000); // this gives a lot of duplicates!
-  // const randImage = unsplashURL + '/' + i;
-  // console.log('from getRandomImage(): ', randImage);
-  // return randImage;
+// let w = 250 + Math.floor(Math.random() * 100);
+// let h = 250 + Math.floor(Math.random() * 100);
+// const randImage = unsplashURL + w + 'x' + h;
+// const randImage = unsplashURL + "?sig=" + Math.floor(Math.random() * 10000); // this gives a lot of duplicates!
+// const randImage = unsplashURL + '/' + i;
+// console.log('from getRandomImage(): ', randImage);
+// return randImage;
 //}
 // function getRandomSize() {
 //   return `${getRandomNr()}x${getRandomNr()}`;

@@ -7,7 +7,7 @@ const search = document.querySelector('.search');
 const btn = document.querySelector('.btn');
 const input = document.querySelector('.input');
 
-// Neither of these worked. But clearing my Chrome cache did.
+// Neither of these worked. But clearing my Chrome cache did. Then it didn't. Then rebooting modem worked.
 // const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 const proxyUrl = 'https://immense-mesa-50556.herokuapp.com/';
 // const proxyUrl = '';

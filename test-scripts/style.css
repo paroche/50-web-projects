@@ -1,0 +1,20 @@
+header h1,
+header h2 {
+  color: red;
+}
+
+article p {
+  color: blue;
+}
+
+article>p {
+  color: green;
+}
+
+.opacity {
+  opacity: 0.5;
+}
+
+.background-opacity {
+  background-color: rgba(255, 255, 255, 0.2);
+}
