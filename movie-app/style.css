@@ -43,6 +43,8 @@ header {
 main {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  /* not in original */
 }
 
 .movie {

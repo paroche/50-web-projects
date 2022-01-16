@@ -501,6 +501,7 @@ index.html:
 
 	</html>
 
+
 style.css:
 
 	@import url('https://fonts.googleapis.com/css2?family=Muli&sidplay=swap');
@@ -1127,6 +1128,7 @@ script.js:
 ******** SECTION 5: Day 4 -- Hidden Search Widget ********
 
 
+
 // Lesson -- Project Intro (#14) (0:43)
 
 
@@ -1243,6 +1245,7 @@ script.js:
 ******** SECTION 6: Day 5 -- Blurry Loading ********
 
 
+
 // Lesson -- Project Intro (#16) (0:54)
 
 
@@ -1275,6 +1278,7 @@ index.html:
 	</body>
 
 	</html>
+
 
 style.css:
 
@@ -1315,8 +1319,8 @@ style.css:
 	}
 
 
-// Lesson -- Load Blur Effect (#18) (7:41)
 
+// Lesson -- Load Blur Effect (#18) (7:41)
 
 
 script.js:
@@ -1354,9 +1358,12 @@ script.js:
 ********* SECTION 7: Day 6 -- Scroll Animation ********
 
 
+
 // Lesson -- Project Intro (#19) (1:01)
 
+
 Blocks appear from alternating left and right as scroll down, disappear as you scroll back up.
+
 
 
 // Lesson -- Scroll Animation (#20) (13:11)
@@ -4031,6 +4038,7 @@ Alternate versions as of 10/14/2021:
 
 index.html (same, but uses style2.css & script2.css)
 
+
 style2.css:
 
 	@import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap');
@@ -4860,6 +4868,7 @@ index.html:
 
 	</html>
 
+
 style.css:
 
 	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
@@ -5439,6 +5448,7 @@ script.js:
 
 
 
+
 ******** SECTION 26: Day 25 -- Sticky Navbar ********
 
 
@@ -5513,7 +5523,7 @@ index.html:
  
 style.css:
  
-	 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 	* {
 		box-sizing: border-box;
 		margin: 0;
@@ -9753,7 +9763,6 @@ index.html:
 
 
 style.css:
-
 
 	@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 	* {
