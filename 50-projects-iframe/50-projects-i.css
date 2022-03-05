@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --project-width: 400px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  margin: 0;
+  background-color: #f6f7fb;
+}
+
+.header {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 25px 25px 25px;
+  user-select: none;
+  text-shadow: 1px 1px 0px rgb(30, 1, 53);
+}
+
+.header a {
+  text-decoration: none;
+}
+
+.title {
+  margin: 20px 0 0;
+  padding: 20px 0 0;
+  color: rgb(54, 3, 95);
+}
+
+#random {
+  display: none;
+  /*just for testing what happens when come back from project */
+}
+
+#projects-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+#projects {
+  width: 100%;
+  padding: 0 30px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.project {
+  height: var(--project-width);
+  width: var(--project-width);
+  margin: 14px;
+  border: 1px solid black;
+  box-shadow: -3px -2px 5px inset rgb(40, 3, 109);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(177, 162, 189, 0.03);
+  padding: 20px 25px;
+}
+
+.project.clicked {
+  transform: scale(.95);
+}
+
+.project.visited {
+  border: 2px solid #fff;
+  box-shadow: none;
+  /* This would reset every time when went to project and back until started using session storage */
+}
+
+.link {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(90, 6, 158);
+  color: rgb(30, 1, 53);
+  margin-top: 20px;
+  /* color: rgb(87, 9, 151) */
+}
+
+.link:hover {
+  opacity: 0.7;
+}
+
+.link:active {
+  transform: scale(0.95);
+  color: black;
+}
+
+.link.visited {
+  color: #33f;
+  /* only if has class 'visited' */
+}

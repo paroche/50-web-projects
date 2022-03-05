@@ -4,7 +4,7 @@ const directories = "3d-background-boxes,animated-countdown,animated-navigation,
 
 const dirs = directories.split(',');
 
-console.log(dirs);
+// console.log(dirs);
 
 dirs.forEach(dir => {
   const link = document.createElement('A');

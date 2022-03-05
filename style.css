@@ -145,6 +145,6 @@ body {
   /* color: rgb(8, 40, 143);
   color: blue; */
   /* color: #22A; */
-  /* the link visited thing seems to be in teh browser history, so won't go away when clear session or local storage */
+  /* the link visited thing seems to be in the browser history, so won't go away when clear session or local storage */
   /* Seems to always be active in Chrome, works in Firefox, but sometimes you have to refresh the screen after coming back from link */
 }
