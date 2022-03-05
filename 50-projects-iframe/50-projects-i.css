@@ -1,3 +1,11 @@
+/* To do
+Adjust container shadow on left somehow
+Find incrementing counter
+Allow reload on blurry image load
+Have screen-in-screen not fire automatically, at least if in frame
+...
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 * {
@@ -83,7 +91,7 @@ body {
 }
 
 .link {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   text-decoration: none;
   color: rgb(90, 6, 158);
