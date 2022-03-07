@@ -154,6 +154,10 @@ function capitalizeWords(str, sep) {
 
 // Main code!
 generateProjects();
+// None of these are working:
+window.scrollTo(0,0);
+window.scroll();
+document.documentElement.scrollIntoView();
 
 // Event Listeners
 

@@ -1,13 +1,24 @@
 const loadText = document.querySelector('.loading-text');
 const bg = document.querySelector('.bg');
-
+const button = document.querySelector('button');
 let load = 0;
 
 let int = setInterval(blurring, 30);
+
 function blurring() {
   load++
 if(load > 99) {
   clearInterval(int);
+  if (window.frameElement !=null) {
+    setTimeout(()=> {
+      button.classList.remove('hidden');
+      button.addEventListener('click', () => {
+        button.classList.add('hidden');
+        setTimeout(()=>location.reload(), 3000); // allow to reload if in iframe
+      } , 3000)
+
+    }, 3000)
+  }
 }
 loadText.innerText = `${load}%`;
 // loadText.style.opacity = 1 - (load/100); // My simple solution

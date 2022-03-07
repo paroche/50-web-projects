@@ -4,6 +4,12 @@
 const videoElement = document.getElementById('video');
 const button = document.getElementById('button'); // Seem to need to have button for user to click. Picture-in-picture requires user action
 
+// Switch to full screen in iframe
+// const elem = document.documentElement;
+// elem.addEventListener('dblclick', () => {
+//   if (window.frameElement != null) elem.requestFullscreen();
+// }); 
+
 // Prompt to select media stream, pass to video element, then play
 async function selectMediaStream() {
   try {

@@ -33,3 +33,12 @@ body {
   font-size: 50px;
   color: #fff;
 }
+
+button.reload {
+  opacity: 0.5;
+  transition: all 3s;
+}
+
+button.hidden {
+  opacity: 0;
+}
