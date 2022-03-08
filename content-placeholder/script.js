@@ -8,6 +8,7 @@ const date = document.getElementById('date');
 const animated_bgs = document.querySelectorAll('.animated-bg');
 const animated_bg_texts = document.querySelectorAll('animated-gb-text');
 
+const button = document.getElementById('reload-button');
 
 setTimeout(getData, 2500);
 
@@ -20,4 +21,18 @@ function getData() {
   date.innerHTML = 'Oct 08, 2020';
   animated_bgs.forEach(bg => bg.classList.remove('animated-bg'));
   animated_bg_texts.forEach(bgText => bgText.classList.remove('animated-bg-text'));
+  reloadButton();
+}
+
+function reloadButton() {
+  if (window.frameElement !=null) {
+    setTimeout(()=> {
+      button.classList.remove('hidden');
+      button.addEventListener('click', () => {
+        button.classList.add('hidden');
+        setTimeout(()=>location.reload(), 3000); // allow to reload if in iframe
+      } , 3000)
+
+    }, 3000)
+  }
 }

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 * {
   box-sizing: border-box;
+  user-select: none;
 }
 
 body {
@@ -95,4 +96,15 @@ img {
   100% {
     background-position: -150% 0;
   }
+}
+
+button.reload {
+  opacity: 0.5;
+  transition: all 3s;
+  position: relative;
+  top: 20px;
+}
+
+button.hidden {
+  opacity: 0;
 }

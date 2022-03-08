@@ -1,4 +1,5 @@
 /** @format */
+
 // Streamlined
 
 const videoElement = document.getElementById('video');

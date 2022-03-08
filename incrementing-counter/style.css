@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 * {
   box-sizing: border-box;
+  user-select: none;
 }
 
 body {
@@ -32,4 +33,18 @@ body {
   body {
     flex-direction: column;
   }
+}
+
+
+/* Reload for ifram */
+
+button.reload {
+  opacity: 0.5;
+  transition: all 3s;
+  position: relative;
+  top: 20px;
+}
+
+button.hidden {
+  opacity: 0;
 }

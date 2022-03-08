@@ -4,6 +4,7 @@
  to do: trying changing eraser to use ctx.globalCompositeOperation = 'destination out' as per:
  https://dilshankelsen.com/creating-an-eraser-for-html5-canvas/
  */
+
 const canvas = document.getElementById('canvas');
 const increaseBtn = document.getElementById('increase');
 const decreaseBtn = document.getElementById('decrease');

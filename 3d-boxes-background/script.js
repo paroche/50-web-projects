@@ -46,7 +46,10 @@ const gifs = [
 
 ];
 
+// Get Random Gif
 const gifUrl = `url("${gifs[Math.floor(Math.random()*gifs.length)]}")`;
+
+// Main
 
 button.addEventListener('click', ()=> {
   boxes.classList.toggle('big');
@@ -63,7 +66,13 @@ for (let row = 0; row<4; row++) {
   }
 }
 
+// Switch to full screen in iframe
+const elem = document.documentElement;
+elem.addEventListener('dblclick', () => {
+  if (window.frameElement != null) elem.requestFullscreen();
+}); 
 
+//
 
 /*
 <div style="width:480px"><iframe allow="fullscreen" frameBorder="0" height="270" src="https://giphy.com/embed/s1j08YJFobBvQuzPLK/video" width="480"></iframe></div>

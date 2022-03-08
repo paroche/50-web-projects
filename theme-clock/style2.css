@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap');
 * {
   box-sizing: border-box;
+  user-select: none;
 }
 
 :root {
@@ -9,13 +10,15 @@
   --date-color: white;
 }
 
+html {
+  background-color: white;
+  /* seems to be necessary in full screen iframe */
+}
+
 html.dark {
   --primary-color: #fff;
   --secondary-color: #333;
   --date-color: #000;
-}
-
-html.dark {
   background-color: #111;
   color: var(--primary-color);
 }

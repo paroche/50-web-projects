@@ -1,3 +1,4 @@
+
 const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=e297df68c7228d446d8ad566437c314c&page=1';
 
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'

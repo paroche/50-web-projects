@@ -1,4 +1,9 @@
 /** @format */
+// Switch to full screen in iframe
+const elem = document.documentElement;
+elem.addEventListener('dblclick', () => {
+  if (window.frameElement != null) elem.requestFullscreen();
+}); 
 
 const imgs = document.getElementById('imgs');
 const leftBtn = document.getElementById('left');

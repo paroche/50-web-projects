@@ -1,3 +1,9 @@
+// Switch to full screen in iframe
+const elem = document.documentElement;
+elem.addEventListener('dblclick', () => {
+  if (window.frameElement != null) elem.requestFullscreen();
+}); 
+
 const codes = document.querySelectorAll('.code');
 
 codes[0].focus();
