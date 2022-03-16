@@ -1,12 +1,8 @@
 /* To do
-Adjust container shadow on left somehow
-Have screen-in-screen not fire automatically, at least if in frame
-incrementing counter in iframe not scrolling
-make split landing page look better in iframe. It's weird because is responsive. But not if shrinks vertially...
-same problem with 3D Boxes background
-On Image Password Strengh (Password Strength Background) and Form Wave Animation, maybe another, is pulling in email & password from somewhere
-Have this page start at top. Scroll commands below don't seem to be working
-on return from clicking link, return to same place on page
+Simple version -- stays in prev app when exit from full screen.
+On Image Password Strengh (Password Strength Background) and Form Wave Animation, maybe another, is pulling in email & password from browser. Haven't been able to turn it off
+Improve loading message for this page
+check whole page on phone
 ...
 */
 
@@ -75,13 +71,14 @@ body {
   width: var(--project-width);
   margin: 14px;
   border: 1px solid black;
-  box-shadow: -3px -2px 5px inset rgb(40, 3, 109);
+  box-shadow: -3px -2px 5px inset rgb(40, 3, 109), 1px 1px 4px inset rgba(40, 3, 109, 0.8);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   background-color: rgba(177, 162, 189, 0.03);
   padding: 20px 25px;
+  position: relative;
 }
 
 .project.clicked {
@@ -116,4 +113,59 @@ body {
 .link.visited {
   color: #33f;
   /* only if has class 'visited' */
+}
+
+#full-screen-message {
+  position: fixed;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  background: #E0E0E0B0;
+  opacity: 0.8;
+  opacity: 0;
+}
+
+#full-screen-message:hover {
+  opacity: 1
+}
+
+
+/* .project::after:hover {
+  content: "Double-click in box to open app in full screen";
+  width: 30em;
+  height: 5em;
+  position: absolute;
+  bottom: -80px;
+  opacity: 0.2;
+} */
+
+
+/* Loader */
+
+.loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.loader img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#loading-message {
+  font-size: 20px;
+  opacity: 0.8;
+  position: fixed;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
 }

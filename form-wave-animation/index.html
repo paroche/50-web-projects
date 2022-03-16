@@ -14,20 +14,21 @@
 <body>
   <div class="container">
     <h1>Please Login</h1>
-    <form>
+    <!-- autocomplet="off" not working -->
+    <form method="get" autocomplete="off">
       <div class="form-control">
-        <input type="text" required>
-        <label>Email</label>
+        <input type="text" name="email" id="email" autocomplete="off" required>
+        <label for="email">Email</label>
       </div>
 
       <div class="form-control">
-        <input type="password" required>
+        <input type="password" name="password" id="password" autocomplete="off" required>
         <label>Password</label>
       </div>
 
-      <button class="btn">Login</button>
+      <button class="btn" type="submit">Login</button>
 
-      <p class="text">Don't have an account?<a href="#">Register</a></p>
+      <p class="text">Don't have an account?<a id="register" href="#">Register</a></p>
     </form>
   </div>
   <script src="script.js"></script>

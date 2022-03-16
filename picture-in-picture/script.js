@@ -1,9 +1,11 @@
 /** @format */
 
+// Modified to require button press to select source so won't do on load. Much better for iFram menu
 // Streamlined
 
 const videoElement = document.getElementById('video');
-const button = document.getElementById('button'); // Seem to need to have button for user to click. Picture-in-picture requires user action
+const sourceButton = document.getElementById('source-button'); // Original had this selection run on load. Inconvenient for ifram menu
+const startButton = document.getElementById('start-button'); // Seem to need to have button for user to click. Picture-in-picture requires user action
 
 // Switch to full screen in iframe
 // const elem = document.documentElement;
@@ -24,11 +26,13 @@ async function selectMediaStream() {
   }
 }
 
-button.addEventListener('click', async() => {
-  button.disabled = true;
+sourceButton.addEventListener('click', ()=> selectMediaStream());
+
+startButton.addEventListener('click', async() => {
+  startButton.disabled = true;
   await videoElement.requestPictureInPicture();
-  button.disabled = false;
+  startButton.disabled = false;
 });
 
 // On Load
-selectMediaStream();
+// selectMediaStream();

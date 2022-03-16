@@ -1,4 +1,9 @@
 /** @format */
+// document.documentElement.addEventListener('dblclick', () => {
+//   if (window.frameElement != null) {
+//     location.target = "_blank";
+//     location.href="./index.html";
+// }}); 
 
 const projectsEl = document.getElementById('projects');
 const random = document.getElementById('random');
@@ -95,7 +100,7 @@ function generateProjects() {
 
       innerBox.classList.add('project-inner');
       innerBox.style.backgroundColor = color || randomColor(); 
-      link.href = './' + dir + '/index.html';
+      link.href = '../' + dir + '/index.html';
       // link.target = "_blank"; // temp, for testing
       let desc = description || capitalizeWords(dir, '-');
       link.classList.add('link');

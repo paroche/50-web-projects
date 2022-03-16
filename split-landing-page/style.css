@@ -22,6 +22,7 @@ body {
 }
 
 h1 {
+  margin: 0;
   font-size: 4rem;
   color: #fff;
   position: absolute;
@@ -37,7 +38,7 @@ h1 {
   align-items: center;
   justify-content: center;
   left: 50%;
-  top: 40%;
+  top: 45%;
   transform: translateX(-50%);
   text-decoration: none;
   color: #fff;
@@ -134,5 +135,23 @@ h1 {
   .btn {
     padding: 1.2rem;
     width: 12rem;
+  }
+}
+
+@media(max-height: 600px) {
+  h1 {
+    top: 25%;
+  }
+}
+
+@media(max-height: 300px) {
+  h1 {
+    top: 15%;
+  }
+}
+
+@media(max-height: 175px) {
+  h1 {
+    top: 5%;
   }
 }

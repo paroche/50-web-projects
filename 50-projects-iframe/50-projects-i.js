@@ -3,6 +3,7 @@
 const projectsEl = document.getElementById('projects');
 // const random = document.getElementById('random');
 const headerEl = document.querySelector('.header');
+const loader = document.getElementById('loader');
 
 const root = document.documentElement;
 const iframeWidth = '560px';
@@ -68,13 +69,14 @@ apps.push(
 apps.push(new app('insect-catch-game', '', '', true));
 apps.push(new app('kinetic-loader', '', '', true));
 apps.push(new app('live-user-filter', '', '', true));
+apps.push(new app('50-projects', 'Simple Version of This Page<br/>(preferably, use this link)', '', true));
 apps.push(new app('mobile-tab-navigation', '', '', true));
 apps.push(new app('movie-app', '', '', true));
 apps.push(new app('netflix-mobile-navigation', '', '', true));
 apps.push(new app('notes-app', '', '', true));
 apps.push(new app('password-generator', '', '', true));
 apps.push(new app('password-strength-background', '', '', true));
-apps.push(new app('picture-in-picture', '', '', false));
+apps.push(new app('picture-in-picture', '', '', true));
 apps.push(new app('pokedex', 'Pokédex', 'rgb(222,253,240,.5)', true));
 apps.push(new app('quiz-app', '', '', true));
 apps.push(new app('quote-generator', '', '', true));
@@ -114,15 +116,26 @@ function generateProjects() {
 
       const link = document.createElement('a');
       link.href = '../' + dir + '/index.html';
+      link.target = "_blank";
       let desc = description || capitalizeWords(dir, '-');
       link.classList.add('link');
-      link.innerText = desc;
+      link.innerHTML = desc;
 
       iContainer.appendChild(iframe);
       iContainer.appendChild(link);
       docFrag.appendChild(iContainer);
       projectsEl.appendChild(docFrag);
     }
+    if (idx >= apps.length-1) addLoadListener(); // After last frame added, listen for load event to make screen visible
+  });
+}
+
+function addLoadListener() {
+  window.addEventListener('load', ()=> {
+    projectsEl.style.visibility='visible';
+    // ready = true;
+    loader.hidden = true;
+    window.scrollTo(0,0)
   });
 }
 
@@ -154,7 +167,7 @@ function capitalizeWords(str, sep) {
 
 // Main code!
 generateProjects();
-window.addEventListener('load', ()=> window.scrollTo(0,0));
+
 // window.scroll();
 // document.documentElement.scrollIntoView();
 

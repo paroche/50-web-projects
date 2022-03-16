@@ -38,39 +38,48 @@ const gifs = [
 'https://media.giphy.com/media/6nt03uAGWY9dS/giphy.gif',
 'https://media.giphy.com/media/5QVXLnzWCf9krkOg80/giphy.gif',
 
-
-
-
-
-
-
 ];
 
 // Get Random Gif
-const gifUrl = `url("${gifs[Math.floor(Math.random()*gifs.length)]}")`;
+let gifUrl = `url("${gifs[Math.floor(Math.random()*gifs.length)]}")`;
 
 // Main
+
+createBoxes();
 
 button.addEventListener('click', ()=> {
   boxes.classList.toggle('big');
 })
 
-// my guess is he will make this a function
-for (let row = 0; row<4; row++) {
-  for (let column=0; column<4; column++) {
-    const box = document.createElement('div');
-    box.classList.add('box');
-    box.style.backgroundPosition = `${-125*column}px ${-125*row}px`;
-    box.style.backgroundImage = gifUrl;
-    boxes.appendChild(box);
+boxes.addEventListener('dblclick', changeBoxesUrl);
+
+//
+
+function createBoxes() {
+  for (let row = 0; row<4; row++) {
+    for (let column=0; column<4; column++) {
+      const box = document.createElement('div');
+      box.classList.add('box');
+      box.style.backgroundPosition = `${-125*column}px ${-125*row}px`;
+      box.style.backgroundImage = gifUrl;
+      boxes.appendChild(box);
+    }
   }
 }
 
-// Switch to full screen in iframe
-const elem = document.documentElement;
-elem.addEventListener('dblclick', () => {
-  if (window.frameElement != null) elem.requestFullscreen();
-}); 
+function changeBoxesUrl() {
+  // if (window.frameElement != null) return; // don't do if in iFrame
+  gifUrl = `url("${gifs[Math.floor(Math.random()*gifs.length)]}")`;
+  const boxes = document.querySelectorAll('.box');
+  boxes.forEach(box => box.style.backgroundImage = gifUrl);
+}
+
+
+// // Switch to full screen in iframe
+// const elem = document.documentElement;
+// elem.addEventListener('dblclick', () => {
+//   if (window.frameElement != null) elem.requestFullscreen();
+// }); 
 
 //
 

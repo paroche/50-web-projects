@@ -98,3 +98,7 @@ body {
   color: lightblue;
   transform: translateY(-30px);
 }
+
+#register {
+  margin-left: 1em;
+}
