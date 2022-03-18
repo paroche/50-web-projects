@@ -6,6 +6,8 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  /* to get consistent sizing across browsers */
   margin: 0;
   height: 100vh;
   overflow: hidden;
@@ -14,10 +16,18 @@ body {
   /* was going black on iframe fullscreen */
 }
 
+h1 {
+  font-size: 2em;
+}
+
 h4 {
   font-size: 20px;
   margin: 5px;
   text-transform: uppercase;
+}
+
+button {
+  font-size: 0.9em;
 }
 
 .counter {

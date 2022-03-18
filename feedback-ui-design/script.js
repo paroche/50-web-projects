@@ -12,6 +12,7 @@ ratingsContainer.addEventListener('click',(e)=> {
 })
 
 sendBtn.addEventListener('click', (e) => {
+  const restore = panel.innerHTML;
   panel.innerHTML = `
     <i class="fas fa-heart"></i>
     <strong>Thank You!</strong>
@@ -19,6 +20,7 @@ sendBtn.addEventListener('click', (e) => {
     <strong>Feedback: ${selectedRating}</strong>
     <p>We'll use your feedback to improve our custmoer support</p>
   `
+  setTimeout(()=> panel.innerHTML = restore, 8000); // for iframe -- refresh after a while
 })
 
 // using regular for loop just for variety

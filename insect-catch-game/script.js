@@ -54,7 +54,7 @@ function createInsect() {
   const insect = document.createElement('div');
   insect.classList.add('insect');
   const { x, y } = getRandomLocation();
-  console.log(selected_insect.src);
+  // console.log(selected_insect.src);
   // insect.style.top = y + 'px'; // works
   // insect.style.left = x + 'px'; // works
   insect.style.top = `${y}px`;

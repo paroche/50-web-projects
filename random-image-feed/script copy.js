@@ -45,7 +45,7 @@ function getRandomImage(i) {
   // const randImage = unsplashURL + w + 'x' + h;
   // const randImage = unsplashURL + "?sig=" + Math.floor(Math.random() * 10000); // this gives a lot of duplicates!
   const randImage = unsplashURL + '/' + i;
-  console.log('from getRandomImage(): ', randImage);
+  // console.log('from getRandomImage(): ', randImage);
   return randImage;
 }
 

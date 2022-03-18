@@ -50,7 +50,7 @@ input.addEventListener('input', () => {
 
 input.addEventListener('keypress', (e) => {
   if (e.keyCode == 13) {
-    console.log(query, ' ', prevQuery);
+    // console.log(query, ' ', prevQuery);
     if (query !== prevQuery) {
       doQuery();
     }
@@ -123,7 +123,7 @@ function displayPhotos() {
     // setTimeout(addPhotoToDOM, 1000 * idx);
     addPhotoToDOM();
     function addPhotoToDOM() {
-      console.log(imagesLoaded);
+      // console.log(imagesLoaded);
       domImages++;
       const imageId = 'img-' + domImages;
       const element = `
