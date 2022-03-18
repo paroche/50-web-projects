@@ -11,7 +11,7 @@ let ranAnimation = false;
 // window.addEventListener('load', runAnimation); // having it on load is unnecessary, was an attempt to make it work more consistently in ifram
 runAnimation();
 body.addEventListener('click', (e)=> refresh(e));
-replay.addEventListener('click', restart);
+// replay.addEventListener('click', restart);
 
 
 function resetDOM() {
@@ -50,5 +50,6 @@ function restart() {
 }
 
 function refresh(e) {
-  if (e.target != replay) showButton;
+  if (e.target != replay) showButton();
+  else restart();
 }
