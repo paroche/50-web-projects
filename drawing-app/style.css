@@ -27,6 +27,15 @@ canvas {
   padding: 1rem;
 }
 
+@media(max-width: 810px) {
+  canvas {
+    width: 95%;
+  }
+  .toolbox {
+    width: 95%;
+  }
+}
+
 .toolbox>* {
   background-color: #fff;
   border: none;
@@ -42,6 +51,13 @@ canvas {
   cursor: pointer;
 }
 
+@media(max-width: 400px) {
+  .toolbox>* {
+    width: 13%;
+    height: 50px;
+  }
+}
+
 .toolbox>*:last-child {
   margin-left: auto;
 }
@@ -54,6 +70,13 @@ canvas {
 .tool-with-slider-container {
   position: relative;
   height: 75px;
+}
+
+@media(max-width: 400px) {
+  .tool-with-slider-container {
+    width: 13%;
+    height: 50px;
+  }
 }
 
 .tool {

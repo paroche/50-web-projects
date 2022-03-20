@@ -27,13 +27,18 @@ body {
 .instructions {
   position: absolute;
   top: 32%;
+  top: 25%;
   left: 57%;
+  text-align: center;
 }
 
 @media(max-width: 670px) {
   .instructions {
     top: 25%;
+    top: 15%;
     left: 40%;
+    left: 35%;
+    padding-right: 1em;
   }
 }
 
