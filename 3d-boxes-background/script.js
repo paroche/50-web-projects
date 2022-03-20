@@ -1,6 +1,7 @@
 // My code before watching video
 const button = document.getElementById('btn');
 const boxes = document.getElementById('boxes');
+let smallBoxPx = 125;
 
 const gifs = [
 'https://media.giphy.com/media/EZqwsBSPlvSda/giphy.gif',
@@ -60,7 +61,7 @@ function createBoxes() {
     for (let column=0; column<4; column++) {
       const box = document.createElement('div');
       box.classList.add('box');
-      box.style.backgroundPosition = `${-125*column}px ${-125*row}px`;
+      box.style.backgroundPosition = `${-smallBoxPx*column}px ${-smallBoxPx*row}px`;
       box.style.backgroundImage = gifUrl;
       boxes.appendChild(box);
     }

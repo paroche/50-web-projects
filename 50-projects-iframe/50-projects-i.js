@@ -110,8 +110,8 @@ function generateProjects() {
       const iframe = document.createElement('iframe');
       iframe.src = '../' + dir + '/index.html';
       iframe.frameborder = '1';
-      iframe.width = iframeWidth;
-      iframe.height = iframeWidth;
+      // iframe.width = iframeWidth;
+      // iframe.height = iframeWidth;
       iframe.allowfullscreen = true;
 
       const link = document.createElement('a');

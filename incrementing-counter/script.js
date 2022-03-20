@@ -1,32 +1,28 @@
 const counters = document.querySelectorAll('.counter');
 const button = document.getElementById('reload-button');
 
-counters.forEach(counter => {
-  counter.innerText = '0';
-  const updateCounter = () => {
-    const target = +counter.getAttribute('data-target');
-  const c = +counter.innerText;
-  const increment = target / 200;
+// Main
+runCount();
 
-  // His version
-  // if(c < target) {
-  //   counter.innerText = `${Math.ceil(c + increment)}`;
-  //   setTimeout(updateCounter, 1);
-  // } else {
-  //   counter.innerText = target;
-  // }
 
-  // My version
-  if (c < target ) {
-    counter.innerText = `${Math.min(Math.ceil(c+increment),target)}`;
-    setTimeout(updateCounter, 1);
-  }
-  }
+function runCount() {
+  counters.forEach((counter, idx) => {
+    counter.innerText = '0';
+    const updateCounter = () => {
+      const target = +counter.getAttribute('data-target');
+    const c = +counter.innerText;
+    const increment = target / 200;
+  
+    if (c < target ) {
+      counter.innerText = `${Math.min(Math.ceil(c+increment),target)}`;
+      setTimeout(updateCounter, 10 * (c / target));
+    }
+    }
+    updateCounter();
+  })
+  setTimeout(reloadButton, 3000);
+}
 
-  updateCounter();
-})
-
-setTimeout(reloadButton, 3000);
 
 function reloadButton() {
   if (window.frameElement !=null) {
@@ -34,9 +30,17 @@ function reloadButton() {
       button.classList.remove('hidden');
       button.addEventListener('click', () => {
         button.classList.add('hidden');
-        setTimeout(()=>location.reload(), 2000); // allow to reload if in iframe
+        setTimeout(()=> {
+          resetCounters();
+          setTimeout(runCount, 500);
+        }, 2000); // allow to reload if in iframe
       } , 2000)
-
     }, 2000)
   }
+}
+
+function resetCounters() {
+  counters.forEach(counter => {
+    counter.innerText = '0';
+  })
 }

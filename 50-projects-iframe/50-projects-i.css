@@ -1,10 +1,29 @@
 /* To do
 Simple version -- stays in prev app when exit from full screen. Have added a recommendation to use link
-Animated countdown -- incosistenly actually runs in iframe, even though routine is running. A browser problem? Seems to work better in Firefox. 1st 5x I tried, anyway. Though message & button were smaller until I manually set body to 16px and them to 2rem & 0.9 rem respectively...
+
+(fixed by adding reset on click to body?) Animated countdown -- incosistenly actually runs in iframe, even though routine is running. A browser problem? Seems to work better     in Firefox. 1st 5x I tried, anyway. Though message & button were smaller until I manually set body to 16px and them to 2rem & 0.9 rem respectively...
+
 On Image Password Strengh (Password Strength Background) and Form Wave Animation, maybe another, is pulling in email & password from browser. Haven't been able to turn it off
-Incrementing counter -- restart button not showing in Firefox
+
 Improve loading message for this page
+
 check whole page on phone
+
+iframe width and height were just set in js. Now setting here and adjusting both project width and iframe width w/ media queries below. WIP
+
+Need responsive adjustments:
+ Drawing app
+ Kinetic loader not centering when small
+ Form-wave animation
+ Good Cheap Fast header not centering when small
+ Screen-in-Screen buttons could adjust size on smaller screen
+ Random choice picker
+ Split landing page when smaller
+ Steps
+ Theme clock not too good small (under 414px)
+ Toast notification -- make toasts smaller on smaller screen
+ ToDo list (top cut off)
+ Verify Account UI (top cut off)
 ...
 */
 
@@ -15,8 +34,24 @@ check whole page on phone
 }
 
 :root {
-  --project-width: 400px;
+  --project-width: 600px;
+  --iframe-width: 560px;
 }
+
+@media(max-width: 600px) {
+   :root {
+    --project-width: 98%;
+    --iframe-width: 98%;
+  }
+}
+
+
+/* @media(max-width: 320px) {
+   :root {
+    --project-width: 250px;
+    --iframe-width: 210px;
+  }
+} */
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -91,6 +126,11 @@ body {
   border: 2px solid #fff;
   box-shadow: none;
   /* This would reset every time when went to project and back until started using session storage */
+}
+
+iframe {
+  width: var(--iframe-width);
+  height: var(--iframe-width);
 }
 
 .link {

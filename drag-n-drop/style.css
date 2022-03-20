@@ -12,10 +12,11 @@ body {
   height: 100vh;
   overflow: hidden;
   margin: 0;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
   /* justify-content: space-around; */
+  /* I don't know why above was there -- body only has one element in it */
 }
 
 #container {
@@ -29,6 +30,7 @@ body {
 .header {
   color: #111;
   margin-bottom: 80px;
+  text-align: center;
 }
 
 #box-container {
@@ -67,6 +69,17 @@ body {
 
 @media(max-width: 800px) {
   body {
+    height: max(100vh, 1000px);
+    overflow: auto;
+  }
+  #container {
+    justify-content: start;
+    margin-top: 40px;
+  }
+  .header {
+    margin-bottom: 55px;
+  }
+  #box-container {
     flex-direction: column;
   }
 }
