@@ -1,4 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+:root {
+  font-size: 16px;
+}
+
+@media(max-width: 400px) {
+   :root {
+    font-size: 12px;
+  }
+}
+
 * {
   box-sizing: border-box;
   user-select: none;
@@ -21,6 +31,7 @@ body {
   color: rebeccapurple;
   font-family: inherit;
   font-weight: bold;
+  /* font-size: 1rem; */
   padding: 1rem;
   border-radius: 5px;
   border: none;
@@ -50,6 +61,7 @@ body {
   border-radius: 5px;
   padding: 1rem 2rem;
   margin: 0.5rem;
+  font-size: 1rem;
 }
 
 .toast.info {

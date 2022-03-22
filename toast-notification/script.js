@@ -11,7 +11,7 @@ function createNotification(message, type) {
   // My first try. Works, but only for one message, and doesn't give us a handy element to remove afte timeout:
   // const toast = `<div class="toast">${messages[Math.floor(Math.random()*4)]}</div>`;
   // toasts.innerHTML = toast;
-  const notif = document.createElement('dir');
+  const notif = document.createElement('div');
   notif.classList.add('toast');
   notif.classList.add(type ? type : getRandomType());
   notif.innerText = message ? message : getRandomMessage();
