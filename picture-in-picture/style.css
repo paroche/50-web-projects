@@ -9,21 +9,20 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   background: rgb(37, 37, 37);
 }
 
 h1 {
   color: #E0E0E0;
-  margin: 10% 5% 18% 5%;
+  margin: 10% 0% 18% 0%;
   text-align: center;
 }
 
 #buttons-container {
   display: flex;
   justify-content: space-between;
-  width: 350px;
+  width: min(350px, 95%);
   height: 100px;
 }
 
