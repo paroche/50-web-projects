@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
 * {
   box-sizing: border-box;
+  user-select: none;
 }
 
 body {
@@ -10,6 +11,12 @@ body {
   text-align: center;
   overflow: hidden;
   margin: 0;
+  background: white;
+}
+
+h1 {
+  background: white;
+  /* Don't know if this fixes it, but sometimes would have black background coming from iFrame */
 }
 
 h3 {
