@@ -11,11 +11,20 @@
   font-size: 16px;
 }
 
+@media(max-width: 340px) {
+   :root {
+    font-size: 14px;
+  }
+}
+
 @media(max-width: 270px) {
    :root {
     font-size: 12px;
   }
 }
+
+
+/* Actually, don't know any devices that narrow (270px) */
 
 html {
   background-color: white;
