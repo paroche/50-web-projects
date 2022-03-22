@@ -11,6 +11,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100vw;
+  /* somehow body was ending up smaller than its contents */
   height: 100vh;
   overflow: hidden;
   margin: 0;
@@ -23,7 +25,7 @@ h3 {
 }
 
 .container {
-  width: 500px;
+  width: min(500px, 90%);
 }
 
 textarea {
