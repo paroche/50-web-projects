@@ -9,8 +9,6 @@ Improve loading message for this page
 
 check whole page on phone
 
-iframe width and height were just set in js. Now setting here and adjusting both project width and iframe width w/ media queries below. WIP
-
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');

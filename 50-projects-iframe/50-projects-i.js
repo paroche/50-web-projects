@@ -4,12 +4,18 @@ const projectsEl = document.getElementById('projects');
 // const random = document.getElementById('random');
 const headerEl = document.querySelector('.header');
 const loader = document.getElementById('loader');
+// const loadingRemaining = document.getElementById('loading-remaining');
 const fullScreenMessage = document.getElementById('full-screen-message');
 
 const root = document.documentElement;
 const projectWidth = '600px';
 const iframeWidth = '560px';
 root.style.setProperty("--project-width", projectWidth);
+
+// window.addEventListener('load', ()=> {
+//   console.log("in load listener"); // only happens once
+// });
+// let controller; // for aborting load event listeners
 
 // random.innerText = `Random #: ${Math.floor(Math.random() * 10000)}`; // Was used to show clearly when screen refreshes
 
@@ -97,7 +103,8 @@ apps.push(new app('todo-list', '', '', true));
 apps.push(new app('verify-account-ui', 'Verify Account UI', '', true));
 
 function generateProjects() {
-  apps.forEach((app, idx) => {
+
+  apps.forEach(async (app, idx) => { // async unnecessary -- was for tryihng to show intermediate load results for each project
     ({ dir, description, color, show, popup, color2 } = app);
     if (show) {
       // Build iframe Box
@@ -127,11 +134,25 @@ function generateProjects() {
       docFrag.appendChild(iContainer);
       projectsEl.appendChild(docFrag);
     }
-    if (idx >= apps.length-1) addLoadListener(); // After last frame added, listen for load event to make screen visible
+
+    // await addRemoveProjectLoadListener(); // doesn't work
+    if (idx >= apps.length-1) addAllLoadedListener(); // After last frame added, listen for load event to make screen visible
+    
+    // async function addRemoveProjectLoadListener() {
+    //   console.log("**********  in addRemoveProjectLoadListener, idx = ",idx);
+    //   if (controller) controller.abort;
+    //   controller = new AbortController();
+    //   window.addEventListener('load', ()=> {
+    //     const projectsRemainingToLoad = apps.length-1-idx;
+    //     loadingRemaining.content = projectsRemainingToLoad;
+    //     console.log("*** Remaining to Load: ",projectsRemainingToLoad);
+    // }, {signal: controller.signal,})
+    // }
   });
 }
 
-function addLoadListener() {
+function addAllLoadedListener() {
+  // if (controller) controller.abort;
   window.addEventListener('load', ()=> {
     projectsEl.style.visibility='visible';
     // ready = true;

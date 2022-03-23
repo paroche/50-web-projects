@@ -19,11 +19,17 @@ img {
   max-width: 100%;
 }
 
+#container {
+  max-width: 100%;
+  /* Necessary to make responsive for small screens */
+}
+
 .card {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   overflow: hidden;
   width: 350px;
+  max-width: 100%;
 }
 
 .card-header {
