@@ -47,6 +47,21 @@ body {
   opacity: 0;
 }
 
+@media(max-width: 310px) {
+  .panel h3 {
+    left: 10px;
+  }
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
 .panel.active {
   flex: 5;
 }
