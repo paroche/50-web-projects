@@ -4,10 +4,11 @@ const projectsEl = document.getElementById('projects');
 // const random = document.getElementById('random');
 const headerEl = document.querySelector('.header');
 const loader = document.getElementById('loader');
+const fullScreenMessage = document.getElementById('full-screen-message');
 
 const root = document.documentElement;
-const iframeWidth = '560px';
 const projectWidth = '600px';
+const iframeWidth = '560px';
 root.style.setProperty("--project-width", projectWidth);
 
 // random.innerText = `Random #: ${Math.floor(Math.random() * 10000)}`; // Was used to show clearly when screen refreshes
@@ -167,6 +168,13 @@ function capitalizeWords(str, sep) {
 
 // Main code!
 generateProjects();
+
+// This isn't working
+fullScreenMessage.addEventListener('hover', hideFullScreenMessage);
+
+function hideFullScreenMessage() {
+  setTimeout(() => {fullScreenMessage.style.opacity="0"}, 1000);
+}
 
 // window.scroll();
 // document.documentElement.scrollIntoView();

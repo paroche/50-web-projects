@@ -6,6 +6,13 @@
 
 :root {
   --box-width: 120px;
+  font-size: 16px;
+}
+
+@media(max-width: 320px) {
+   :root {
+    font-size: 12px;
+  }
 }
 
 body {

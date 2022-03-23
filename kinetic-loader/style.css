@@ -30,6 +30,8 @@ body {
   top: 25%;
   left: 52%;
   text-align: center;
+  opacity: 0.9;
+  z-index: 1;
 }
 
 @media(max-width: 670px) {
