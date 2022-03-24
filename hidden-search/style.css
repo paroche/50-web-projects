@@ -13,6 +13,7 @@ body {
   height: 100vh;
   overflow: hidden;
   margin: 0;
+  padding-right: 2em;
 }
 
 .search {
@@ -51,7 +52,15 @@ body {
 
 .search.active .input {
   width: 200px;
+  /* margin-right: 1rem; */
 }
+
+
+/* @media(max-width:300px) {
+  .search.active .input {
+    width: 180px;
+  }
+} */
 
 .search.active .btn {
   transform: translateX(198px);
