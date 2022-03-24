@@ -52,7 +52,7 @@
     position: absolute;
     top: 5px;
     right: 5px;
-    right: 10px;
+    /* right: 10px; */
     height: 1.2em;
     /* display: flex;
     justify-content: flex-end; */
@@ -79,12 +79,14 @@
     position: absolute;
     top: 0;
     left: 0;
+    left: 2%;
     height: 50px;
     width: 50px;
     transition: transform 0.3s ease;
     background-color: whitesmoke;
     height: 100%;
-    right: 20px;
+    /* right: 20px;
+    right: 5%; */
     opacity: 0.2;
   }
   
@@ -93,17 +95,15 @@
     outline: none;
   }
   
-  .search.active .btn {
-    opacity: 0.85;
-  }
-  
   .search.active .input {
     background: white;
     width: 200px;
   }
   
   .search.active .btn {
-    transform: translateX(198px);
+    /* transform: translateX(198px); */
+    transform: translateX(180px);
+    opacity: 0.7;
   }
   /* Image Container */
   
