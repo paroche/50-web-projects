@@ -17,6 +17,15 @@ body {
   margin: 0 auto;
 }
 
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  padding-bottom: 0.5em;
+}
+
 .nav {
   position: fixed;
   background-color: #222;
@@ -32,6 +41,10 @@ body {
   align-items: center;
   padding: 20px 0;
   transition: all 0.3s ease-in-out;
+}
+
+.nav h1 {
+  padding-left: 1em;
 }
 
 .nav ul {
