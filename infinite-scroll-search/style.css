@@ -14,7 +14,7 @@
   
   h1 {
     text-align: center;
-    margin-top: 25px;
+    margin-top: 30px;
     margin-bottom: 15px;
     font-size: 40px;
     letter-spacing: 4px;
@@ -114,9 +114,15 @@
   
   @media screen and (max-width: 600px) {
     h1 {
-      font-size: 20px
+      font-size: 30px
     }
     .image-container {
       margin: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 450px) {
+    h1 {
+      font-size: 24px
     }
   }
