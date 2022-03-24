@@ -85,11 +85,16 @@
     background-color: whitesmoke;
     height: 100%;
     right: 20px;
+    opacity: 0.2;
   }
   
-  .brn:focus,
+  .btn:focus,
   .input:focus {
     outline: none;
+  }
+  
+  .search.active .btn {
+    opacity: 0.85;
   }
   
   .search.active .input {
