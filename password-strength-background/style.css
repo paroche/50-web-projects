@@ -24,3 +24,13 @@ body {
   z-index: -1;
   filter: blur(20px);
 }
+
+#container {
+  max-width: 92%;
+}
+
+@media(max-width: 490px) {
+  #container {
+    opacity: 0.9;
+  }
+}
