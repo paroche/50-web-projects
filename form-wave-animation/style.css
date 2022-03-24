@@ -24,7 +24,7 @@ body {
   padding: 20px 40px;
   border-radius: 5px;
   font-size: max(2%, 16px);
-  border: 2px solid rgb(117, 19, 19);
+  border: 2px solid rgba(19, 34, 117, 0.4);
   width: min(500px, 80%);
 }
 
