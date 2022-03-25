@@ -19,6 +19,8 @@ function resetDOM() {
   finalMessage.classList.remove('show');
   nums.forEach((num) => {
     num.classList.value = '';
+    num.classList.remove('in'); // sometimes in iframe doesn't reset properly
+    num.classList.remove('out'); // ""
   });
   nums[0].classList.add('in');
 }
@@ -46,6 +48,7 @@ function showButton() {
 
 function restart() {
   resetDOM();
+  location.reload(); // below not working consistently in iframe
   runAnimation();
 }
 
