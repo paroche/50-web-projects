@@ -7,10 +7,10 @@ const loader = document.getElementById('loader');
 // const loadingRemaining = document.getElementById('loading-remaining');
 const fullScreenMessage = document.getElementById('full-screen-message');
 
-const root = document.documentElement;
-const projectWidth = '600px';
-const iframeWidth = '560px';
-root.style.setProperty("--project-width", projectWidth);
+// const root = document.documentElement;
+// const projectWidth = '600px';
+// const iframeWidth = '560px';
+// root.style.setProperty("--project-width", projectWidth);
 
 // window.addEventListener('load', ()=> {
 //   console.log("in load listener"); // only happens once
