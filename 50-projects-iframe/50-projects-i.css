@@ -1,4 +1,10 @@
 /* To do
+
+Fix that header for this page goes away during load then comes back when load finishes (in Chrome only? Doesn't happen in Firefox).
+Format loading screen better.
+
+Animated countdown -- in Firefox, hiccups on restart. Change to always have go button, not to start on load. Then no reload of page.
+
 Simple version -- stays in prev app when exit from full screen. Have added a recommendation to use link
 
 (fixed by adding reset on click to body?) Animated countdown -- incosistenly actually runs in iframe, even though routine is running. A browser problem? Seems to work better     in Firefox. 1st 5x I tried, anyway. Though message & button were smaller until I manually set body to 16px and them to 2rem & 0.9 rem respectively...
@@ -97,7 +103,7 @@ body {
   justify-content: space-around;
   flex-wrap: wrap;
   opacity: 0;
-  transition: opacity 3s;
+  transition: opacity 2s ease-in;
 }
 
 .project {
@@ -204,7 +210,7 @@ iframe {
 
 #loader {
   opacity: 1;
-  transition: opacity 1s;
+  transition: opacity 2s;
 }
 
 .loading-message {
