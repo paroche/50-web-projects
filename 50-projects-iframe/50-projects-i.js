@@ -6,6 +6,7 @@ const headerEl = document.querySelector('.header');
 const loader = document.getElementById('loader');
 // const loadingRemaining = document.getElementById('loading-remaining');
 const fullScreenMessage = document.getElementById('full-screen-message');
+const startTime = Date(0);
 
 // const root = document.documentElement;
 // const projectWidth = '600px';
@@ -154,10 +155,12 @@ function generateProjects() {
 function addAllLoadedListener() {
   // if (controller) controller.abort;
   window.addEventListener('load', ()=> {
-    projectsEl.style.visibility='visible';
-    // ready = true;
-    loader.hidden = true;
-    window.scrollTo(0,0)
+    loader.style.opacity='0';
+    setTimeout(()=> {
+      projectsEl.style.visibility='visible';
+      projectsEl.style.opacity='1';
+      window.scrollTo(0,0)
+    }, 1000);
   });
 }
 

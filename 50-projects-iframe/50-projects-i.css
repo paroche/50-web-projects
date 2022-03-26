@@ -96,6 +96,8 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  opacity: 0;
+  transition: opacity 3s;
 }
 
 .project {
@@ -199,6 +201,11 @@ iframe {
   left: 50%;
   transform: translate(-50%, -50%);
 } */
+
+#loader {
+  opacity: 1;
+  transition: opacity 1s;
+}
 
 .loading-message {
   position: fixed;
