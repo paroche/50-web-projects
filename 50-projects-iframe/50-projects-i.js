@@ -157,6 +157,8 @@ function addAllLoadedListener() {
   window.addEventListener('load', ()=> {
     loader.style.opacity='0';
     setTimeout(()=> {
+      headerEl.style.visibility = 'visible';
+      headerEl.style.opacity='1';
       projectsEl.style.visibility='visible';
       projectsEl.style.opacity='1';
       window.scrollTo(0,0)

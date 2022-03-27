@@ -70,6 +70,8 @@ body {
   padding: 0 25px 25px 25px;
   user-select: none;
   text-shadow: 1px 1px 0px rgb(30, 1, 53);
+  opacity: 0;
+  transition: opacity 2s ease-in;
 }
 
 .header a {
