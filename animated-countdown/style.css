@@ -26,8 +26,16 @@ h4 {
   text-transform: uppercase;
 }
 
-button {
-  font-size: 0.9em;
+#num-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1
+}
+
+#num-container.hide {
+  opacity: 0;
 }
 
 .counter {
@@ -52,41 +60,69 @@ button {
   }
 }
 
-.final {
-  position: fixed;
+#go {
+  position: absolute;
   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 1;
+}
+
+#go.hide {
+  opacity: 0;
+}
+
+#play {
+  position: fixed;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   text-align: center;
+  opacity: 0;
+  transition: translate 0.7s scale 0.7s opacity 2s;
 }
 
-.final.show {
+#play.show {
   transform: translate(-50%, -50%) scale(1);
-  animation: show .2s ease-out;
+  opacity: 1;
+  animation: show 1.2s ease-out;
+}
+
+button {
+  font-size: 0.9em;
+  background: rgba(92, 94, 207, 0.2);
+  padding: 0.35em;
+  box-shadow: 1px 1px 2px rgba(90, 120, 210, 0.5);
 }
 
 @keyframes show {
   0% {
     transform: translate(-50%, -50%) scale(0);
   }
-  30% {
-    transform: translate(-50%, -50%) scale(1.4);
+  20% {
+    transform: translate(-50%, -50%) scale(1.2);
   }
   100% {
     transform: translate(-50%, -50%) scale(1);
   }
 }
 
-.nums {
+#nums {
   color: #3498db;
   font-size: 50px;
   position: relative;
   overflow: hidden;
   width: 250px;
   height: 50px;
+  opacity: 1;
 }
 
-.nums span {
+#nums.hidden {
+  opacity: 0;
+}
+
+#nums span {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -94,12 +130,12 @@ button {
   transform-origin: bottom center;
 }
 
-.nums span.in {
+#nums span.in {
   transform: translate(-50%, -50%) rotate(0deg);
   animation: goIn 0.5s ease-in-out;
 }
 
-.nums span.out {
+#nums span.out {
   animation: goOut 0.5s ease-in-out;
 }
 
