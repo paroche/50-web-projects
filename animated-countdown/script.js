@@ -22,7 +22,7 @@ body.addEventListener('click', (e)=> refresh(e));
 function resetDOM() {
   counter.classList.add('hide');
   goMessage.classList.add('hide');
-  play.classList.add('show');
+  playContainer.classList.add('show');
   numSpans.forEach((num) => {
     num.classList.value = '';
     num.classList.remove('in'); // sometimes in iframe doesn't reset properly
@@ -44,7 +44,7 @@ function runAnimation() {
         num.classList.add('out');
       } else if (e.animationName == 'goOut' && num.nextElementSibling) {
         num.nextElementSibling.classList.add('in');
-      } else {showGo(); setTimeout(showButton, 1000)}
+      } else {showGo(); setTimeout(showButton, 2500)}
     });
   });
   ranAnimation=true;
@@ -57,11 +57,12 @@ function showGo() {
 }
 
 function hideButton() {
-  play.classList.remove('show');
+  playContainer.classList.remove('show');
 }
+
 function showButton() {
   // numContainer.classList.add('hide');
-  play.classList.add('show');
+  playContainer.classList.add('show');
 }
 
 function restart() {
