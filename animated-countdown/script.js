@@ -17,7 +17,7 @@ let restarts = 0;
 resetDOM();
 runAnimation();
 body.addEventListener('click', (e)=> refresh(e));
-playButton.addEventListener('click', restart); // This is redundant, refresh() will run restart if click is on button
+// playButton.addEventListener('click', restart); // This is redundant, refresh() will run restart if click is on button
 
 
 function resetDOM() {
@@ -67,14 +67,17 @@ function showButton() {
 }
 
 function restart() {
-  restarts++;
+  restarts++; // no longer used
   resetDOM();
   // location.reload(); // below not working consistently in iframe. But in Firefox this was causing a hiccup
-  if (window.frameElement != null && restarts % 3 == 0) location.reload(); // force restart on 3rd click of button in iframe
+  // if ((window.frameElement != null) && (restarts % 3 == 0)) location.reload(); // force restart on 3rd click of button in iframe
   runAnimation();
 }
 
-function refresh(e) {
-  if (e.target != playButton) showButton();
-  else restart();
-}
+function refresh(e) { 
+  if (e.target === playButton) {
+    restart();
+  } else {
+    if (window.frameElement != null) location.reload(); // For iFrame, reload whole pag
+    else showButton();
+ }}
