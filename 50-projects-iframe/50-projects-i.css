@@ -215,6 +215,23 @@ iframe {
   transition: opacity 2s;
 }
 
+#loading-wallpaper {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 150px;
+  text-align: center;
+  color: magenta;
+  opacity: 0.025;
+  z-index: 0;
+  /* background-color: rgba(250, 250, 210, 1) */
+  background-color: yellow;
+  /* doesn't seem to show */
+}
+
 .loading-message {
   position: fixed;
   width: max(30%, 300px);
@@ -224,6 +241,7 @@ iframe {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  font-size: 24px;
 }
 
 #loading-message {

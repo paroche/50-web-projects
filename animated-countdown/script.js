@@ -11,12 +11,13 @@ const goMessage = document.getElementById('go');
 const playContainer = document.getElementById('play');
 const playButton = document.querySelector('#play button');
 let ranAnimation = false;
+let restarts = 0;
 
 // window.addEventListener('load', runAnimation); // having it on load is unnecessary, was an attempt to make it work more consistently in ifram
 resetDOM();
 runAnimation();
 body.addEventListener('click', (e)=> refresh(e));
-// playButton.addEventListener('click', restart);
+playButton.addEventListener('click', restart); // This is redundant, refresh() will run restart if click is on button
 
 
 function resetDOM() {
@@ -66,8 +67,10 @@ function showButton() {
 }
 
 function restart() {
+  restarts++;
   resetDOM();
   // location.reload(); // below not working consistently in iframe. But in Firefox this was causing a hiccup
+  if (window.frameElement != null && restarts % 3 == 0) location.reload(); // force restart on 3rd click of button in iframe
   runAnimation();
 }
 
