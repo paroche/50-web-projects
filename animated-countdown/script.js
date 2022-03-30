@@ -78,6 +78,6 @@ function refresh(e) {
   if (e.target === playButton) {
     restart();
   } else {
-    if (window.frameElement != null) location.reload(); // For iFrame, reload whole pag
+    if (window.frameElement != null) setTimeout(()=> location.reload(), 700); // For iFrame, reload whole page. Delay so won't execute single click event until after doubleclick processed
     else showButton();
  }}
