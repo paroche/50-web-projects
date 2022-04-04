@@ -123,6 +123,15 @@ body {
   position: relative;
 }
 
+@media(max-width: 1871px) {
+  .projects {
+    padding: 0 5rem;
+  }
+  .project {
+    margin-bottom: 2.5rem;
+  }
+}
+
 .project.clicked {
   transform: scale(.95);
 }

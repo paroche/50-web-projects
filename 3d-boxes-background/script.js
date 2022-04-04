@@ -52,7 +52,7 @@ button.addEventListener('click', ()=> {
   boxes.classList.toggle('big');
 })
 
-boxes.addEventListener('dblclick', changeBoxesUrl);
+boxes.addEventListener('click', changeBoxesUrl);
 
 //
 
