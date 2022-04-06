@@ -30,7 +30,7 @@ function reloadButton() {
       button.classList.remove('hidden');
       button.addEventListener('click', () => {
         button.classList.add('hidden');
-        setTimeout(()=>location.reload(), 3000); // allow to reload if in iframe
+        setTimeout(()=>location.reload(), 1500); // allow to reload if in iframe
       } , 3000)
 
     }, 3000)
