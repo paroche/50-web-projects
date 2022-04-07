@@ -33,9 +33,9 @@ function reloadButton() {
         setTimeout(()=> {
           resetCounters();
           setTimeout(runCount, 500);
-        }, 2000); // allow to reload if in iframe
-      } , 2000)
-    }, 2000)
+        }, 1500); // allow to reload if in iframe
+      } , 1500)
+    }, 1500)
   }
 }
 

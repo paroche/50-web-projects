@@ -167,9 +167,11 @@ function addAllLoadedListener() {
 }
 
 function capitalizeWords(str, sep) {
+  // Just used here for converting directory names into titles, if isn't a title given
   const arr = str.split(sep);
   for (let word = 0; word < arr.length; word++) {
-    arr[word] = arr[word].charAt(0).toUpperCase() + arr[word].slice(1);
+    // arr[word] = arr[word].charAt(0).toUpperCase() + arr[word].slice(1);
+    arr[word] = arr[word][0].toUpperCase() + arr[word].slice(1);
   }
   return arr.join(' ');
 }
