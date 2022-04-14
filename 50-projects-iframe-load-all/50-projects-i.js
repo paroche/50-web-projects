@@ -77,14 +77,7 @@ apps.push(
 apps.push(new app('insect-catch-game', '', '', true));
 apps.push(new app('kinetic-loader', '', '', true));
 apps.push(new app('live-user-filter', '', '', true));
-apps.push(
-  new app(
-    '50-projects',
-    'Simple Version of This Page<br/>(preferably, use this link)',
-    '',
-    true
-  )
-);
+apps.push(new app('50-projects', 'Simple Version of This Page<br/>(preferably, use this link)', '', true));
 apps.push(new app('mobile-tab-navigation', '', '', true));
 apps.push(new app('movie-app', '', '', true));
 apps.push(new app('netflix-mobile-navigation', '', '', true));
@@ -95,7 +88,7 @@ apps.push(new app('picture-in-picture', '', '', true));
 apps.push(new app('pokedex', 'Pokédex', 'rgb(222,253,240,.5)', true));
 apps.push(new app('quiz-app', '', '', true));
 apps.push(new app('quote-generator', '', '', true));
-// apps.push(new app('quote-generator-fetch-single-quote', '', '', false));
+apps.push(new app('quote-generator-fetch-single-quote', '', '', false));
 apps.push(new app('random-choice-picker', '', '', true));
 apps.push(new app('random-image-feed', '', '', true));
 apps.push(new app('rotating-nav-animation', '', '', true));
@@ -110,92 +103,67 @@ apps.push(new app('toast-notification', '', '', true));
 apps.push(new app('todo-list', '', '', true));
 apps.push(new app('verify-account-ui', 'Verify Account UI', '', true));
 
-function generateProjectContainers() {
-  // WIP: Separate iContainer builds from iframe builds. Build all containers first, then attach iframes in rounds
-  apps.forEach((app, idx) => {
-    // async unnecessary -- was for tryihng to show intermediate load results for each project
+function generateProjects() {
+
+  apps.forEach(async (app, idx) => { // async unnecessary -- was for tryihng to show intermediate load results for each project
     ({ dir, description, color, show, popup, color2 } = app);
     if (show) {
+      // Build iframe Box
       const docFrag = document.createDocumentFragment();
 
       const iContainer = document.createElement('dir');
-      iContainer.id = 'i-container-' + idx;
       iContainer.classList.add('i-container');
       iContainer.classList.add('project');
       iContainer.index = idx.toString;
-      containerIds[idx] = iContainer.id;
 
-      const iFrameInnerContainer = document.createElement('div');
-      iFrameInnerContainer.classList.add(
-        'iframe-box',
-        'iframe-inner-container'
-      );
-
-      const iFrameFiller = document.createElement('div');
-      iFrameFiller.textContent = 'Waiting to Load...';
-      iFrameFiller.classList.add('animated-bg', 'iframe-filler');
+      const iframe = document.createElement('iframe');
+      iframe.src = '../' + dir + '/index.html';
+      iframe.frameborder = '1';
+      // iframe.width = iframeWidth;
+      // iframe.height = iframeWidth;
+      iframe.allowfullscreen = true;
 
       const link = document.createElement('a');
       link.href = '../' + dir + '/index.html';
-      link.target = '_blank';
+      link.target = "_blank";
       let desc = description || capitalizeWords(dir, '-');
       link.classList.add('link');
       link.innerHTML = desc;
 
-      iFrameInnerContainer.appendChild(iFrameFiller);
-      iContainer.appendChild(iFrameInnerContainer);
+      iContainer.appendChild(iframe);
       iContainer.appendChild(link);
       docFrag.appendChild(iContainer);
       projectsEl.appendChild(docFrag);
-
-      containers++;
     }
+
+    // await addRemoveProjectLoadListener(); // doesn't work
+    if (idx >= apps.length-1) addAllLoadedListener(); // After last frame added, listen for load event to make screen visible
+    
+    // async function addRemoveProjectLoadListener() {
+    //   console.log("**********  in addRemoveProjectLoadListener, idx = ",idx);
+    //   if (controller) controller.abort;
+    //   controller = new AbortController();
+    //   window.addEventListener('load', ()=> {
+    //     const projectsRemainingToLoad = apps.length-1-idx;
+    //     loadingRemaining.content = projectsRemainingToLoad;
+    //     console.log("*** Remaining to Load: ",projectsRemainingToLoad);
+    // }, {signal: controller.signal,})
+    // }
   });
 }
 
-function generateiFrames(start, end) {
-  let iFramesLoadedThisRound = 0;
-  for (let idx = start; idx <= end; idx++) {
-    const app = apps[idx];
-    ({ dir, description, color, show, popup, color2 } = app);
-    if (show) {
-      // console.log('generating iFrame: ' + idx + ' ' + dir); // T
-      generateiFrame(idx, dir, description);
-    }
-  }
-
-  function generateiFrame(idx, dir, description) {
-    // Build iframe Box
-    const iframe = document.createElement('iframe');
-    iframe.src = '../' + dir + '/index.html';
-    iframe.frameborder = '1';
-    iframe.style.visiblity = 'hidden';
-    iframe.allowfullscreen = true;
-    iframe.classList.add('iframe-box', 'muted');
-
-    const iContainer = document.getElementById(containerIds[idx]);
-
-    const innerContainer = iContainer.querySelector('.iframe-inner-container');
-    const filler = iContainer.querySelector('.iframe-filler');
-    // console.log('filler: ' + filler);
-    innerContainer.replaceChild(iframe, filler);
-
-    iframe.addEventListener('load', (e) => {
-      const iFrame = e.target;
-      iFrame.classList.remove('muted');
-      iFramesLoadedThisRound++;
-      iFramesLoaded++;
-      iFrameLoaded[idx] = true;
-      iFrame.style.visibility = 'visible';
-      //window.scrollTo(0,0);
-      // console.log(
-      //   'project ' + idx + ' loaded. Projects loaded: ' + iFramesLoaded
-      // );
-      // console.log('iFramesLoadedThisRound: '+iFramesLoadedThisRound);
-      if (iFramesLoaded === containers) return; // Done
-      if (iFramesLoadedThisRound === iFramesPerRound) nextRound(); // When all projects in this round loaded, call next round
-    });
-  }
+function addAllLoadedListener() {
+  // if (controller) controller.abort;
+  window.addEventListener('load', ()=> {
+    loader.style.opacity='0';
+    setTimeout(()=> {
+      headerEl.style.visibility = 'visible';
+      headerEl.style.opacity='1';
+      projectsEl.style.visibility='visible';
+      projectsEl.style.opacity='1';
+      window.scrollTo(0,0)
+    }, 1000);
+  });
 }
 
 function capitalizeWords(str, sep) {
@@ -208,40 +176,58 @@ function capitalizeWords(str, sep) {
   return arr.join(' ');
 }
 
+// function randomColor() {
+//   let r,g,b;
+//   getRGB();
+//   // favoring less white
+//   while (r+g+b > 370) {
+//     getRGB();
+//   }
+//   const a = 0.5;
+//   const color = `rgba(${r},${g},${b},${a})`;
+//   return color;
+
+//   function getRGB() {
+//     r = Math.floor(Math.random() * 255);
+//     g = Math.floor(Math.random() * 255);
+//     b = Math.floor(Math.random() * 255);
+//   }
+// }
+
 // Main code!
-
-// Generate All Containers
-const containerIds = new Array(apps.length - 1);
-let containers = 0;
-generateProjectContainers();
-
-// Add iframes in rounds
-let iFramesLoaded = 0;
-const iFrameLoaded = new Array(apps.length - 1);
-const projects = apps.length;
-const iFramesPerRound = 6;
-const rounds =
-  Math.floor(projects / iFramesPerRound) + (projects % iFramesPerRound != 0);
-let round = 0;
-nextRound(); // all other calls will be recursive from generateIFrames() when all iframes have loaded for round
-
-function nextRound() {
-  round++;
-  if (round > rounds) return;
-  const from = (round-1) * iFramesPerRound;
-  const thru = Math.min(round * iFramesPerRound -1, projects);
-  // console.log("from: "+from+" thru: "+thru);
-  generateiFrames(
-    (round - 1) * iFramesPerRound,
-    Math.min(round * iFramesPerRound - 1, projects)
-  );
-}
+generateProjects();
 
 // This isn't working
 fullScreenMessage.addEventListener('hover', hideFullScreenMessage);
 
 function hideFullScreenMessage() {
-  setTimeout(() => {
-    fullScreenMessage.style.opacity = '0';
-  }, 1000);
+  setTimeout(() => {fullScreenMessage.style.opacity="0"}, 1000);
 }
+
+// window.scroll();
+// document.documentElement.scrollIntoView();
+
+// Event Listeners
+
+// projectsEl.addEventListener('click', (e) => {
+//   const element = e.target;
+//   if (element.tagName == 'A') {
+//     const project = element.closest('.project');
+//     const projectInner = element.closest('.project-inner');
+//     if (project) {
+//       project.classList.add('clicked', 'visited');
+//       projectInner.classList.add('clicked', 'visited');
+//       sessionStorage.setItem(project.index, 'visited');
+//       setTimeout(() => {
+//         project.classList.remove('clicked');
+//         projectInner.classList.remove('clicked');
+//       }, 300);
+//     }
+//   }
+// });
+
+// headerEl.addEventListener('dblclick', () => {
+//   sessionStorage.clear();
+//   location.reload();
+// });
+
