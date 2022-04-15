@@ -2,7 +2,7 @@
 
 const projectsEl = document.getElementById('projects');
 // const random = document.getElementById('random');
-const headerEl = document.querySelector('.header');
+// const headerEl = document.querySelector('.header');
 const loader = document.getElementById('loader');
 // const loadingRemaining = document.getElementById('loading-remaining');
 const fullScreenMessage = document.getElementById('full-screen-message');
@@ -159,13 +159,13 @@ function generateiFrames(start, end) {
     const app = apps[idx];
     ({ dir, description, color, show, popup, color2 } = app);
     if (show) {
-      // console.log('generating iFrame: ' + idx + ' ' + dir); // T
+      // console.log('****** generating iFrame: ' + idx + ' ' + dir); // T
       generateiFrame(idx, dir, description);
     }
   }
 
   function generateiFrame(idx, dir, description) {
-    // Build iframe Box
+    // Build iframe Box, Replace loading filler, add Event Listener for load
     const iframe = document.createElement('iframe');
     iframe.src = '../' + dir + '/index.html';
     iframe.frameborder = '1';
@@ -174,10 +174,9 @@ function generateiFrames(start, end) {
     iframe.classList.add('iframe-box', 'muted');
 
     const iContainer = document.getElementById(containerIds[idx]);
-
     const innerContainer = iContainer.querySelector('.iframe-inner-container');
     const filler = iContainer.querySelector('.iframe-filler');
-    // console.log('filler: ' + filler);
+
     innerContainer.replaceChild(iframe, filler);
 
     iframe.addEventListener('load', (e) => {
@@ -186,12 +185,6 @@ function generateiFrames(start, end) {
       iFramesLoadedThisRound++;
       iFramesLoaded++;
       iFrameLoaded[idx] = true;
-      iFrame.style.visibility = 'visible';
-      //window.scrollTo(0,0);
-      // console.log(
-      //   'project ' + idx + ' loaded. Projects loaded: ' + iFramesLoaded
-      // );
-      // console.log('iFramesLoadedThisRound: '+iFramesLoadedThisRound);
       if (iFramesLoaded === containers) return; // Done
       if (iFramesLoadedThisRound === iFramesPerRound) nextRound(); // When all projects in this round loaded, call next round
     });
@@ -219,7 +212,13 @@ generateProjectContainers();
 let iFramesLoaded = 0;
 const iFrameLoaded = new Array(apps.length - 1);
 const projects = apps.length;
-const iFramesPerRound = 6;
+// Assign iFrames per Round based on screen width (at least at start of loading), how many projects per row
+const screenWidth = window.screen.width; // in px
+let iFramesPerRound = 6; // 3/row
+if (screenWidth < 1884) iFramesPerRound = 4; // 2/row
+if (screenWidth < 1275) iFramesPerRound = 2; // 1/row
+console.log("***** screenWidth: "+screenWidth+"  IFramesPerRound: "+iFramesPerRound);
+
 const rounds =
   Math.floor(projects / iFramesPerRound) + (projects % iFramesPerRound != 0);
 let round = 0;
