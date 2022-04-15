@@ -35,7 +35,13 @@ Responsiveness:
   --project-width: min(580px, 100%);
   --project-height: 600px;
   --iframe-width: min(545px, 97%);
-  font-size: 16px;
+  font-size: 18px;
+}
+
+@media(max-width: 1327px) {
+   :root {
+    font-size: 16px;
+  }
 }
 
 @media(max-width: 600px) {
@@ -46,14 +52,6 @@ Responsiveness:
   }
 }
 
-
-/* @media(max-width: 320px) {
-   :root {
-    --project-width: 250px;
-    --iframe-width: 210px;
-  }
-} */
-
 body {
   font-family: 'Roboto', sans-serif;
   height: 100vh;
@@ -63,6 +61,7 @@ body {
 
 .header {
   font-size: 1.2rem;
+  /* bizzarely, seemed to need this both here and for h1, then only here???? */
   font-weight: bold;
   display: flex;
   flex-direction: column;
@@ -113,6 +112,7 @@ body {
   height: var(--project-height);
   width: var(--project-width);
   margin: 1rem;
+  /* margin-bottom: calc(1rem + 5px); */
   border: 1px solid black;
   box-shadow: -3px -2px 5px inset rgb(40, 3, 109), 1px 1px 4px inset rgba(40, 3, 109, 0.8);
   display: flex;
@@ -121,17 +121,8 @@ body {
   align-items: center;
   background-color: rgba(177, 162, 189, 0.03);
   padding: 20px 25px;
+  padding: 2em 1.8em 1.5em;
   position: relative;
-}
-
-.iframe-filler {
-  width: 100%;
-  height: 100%;
-  font-size: 1.5em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.6;
 }
 
 @media(max-width: 1871px) {
@@ -153,9 +144,23 @@ body {
   /* This would reset every time when went to project and back until started using session storage */
 }
 
+.iframe-inner-container {
+  /* border: 1px inset #ddd; */
+}
+
 .iframe-box {
   width: var(--iframe-width);
   height: var(--iframe-width);
+}
+
+.iframe-filler {
+  width: 100%;
+  height: 100%;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.6;
 }
 
 .link {

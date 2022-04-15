@@ -7,6 +7,7 @@ const loader = document.getElementById('loader');
 // const loadingRemaining = document.getElementById('loading-remaining');
 const fullScreenMessage = document.getElementById('full-screen-message');
 const startTime = Date(0);
+let disableScroll = false;
 
 // const root = document.documentElement;
 // const projectWidth = '600px';
@@ -151,6 +152,7 @@ function generateProjectContainers() {
       containers++;
     }
   });
+
 }
 
 function generateiFrames(start, end) {
@@ -177,7 +179,9 @@ function generateiFrames(start, end) {
     const innerContainer = iContainer.querySelector('.iframe-inner-container');
     const filler = iContainer.querySelector('.iframe-filler');
 
+    // disableScroll = true;
     innerContainer.replaceChild(iframe, filler);
+    // disableScroll = false;
 
     iframe.addEventListener('load', (e) => {
       const iFrame = e.target;
@@ -186,7 +190,7 @@ function generateiFrames(start, end) {
       iFramesLoaded++;
       iFrameLoaded[idx] = true;
       if (iFramesLoaded === containers) return; // Done
-      if (iFramesLoadedThisRound === iFramesPerRound) nextRound(); // When all projects in this round loaded, call next round
+      if (iFramesLoadedThisRound === iFramesPerRound) nextRound(); // When all projects in this round loaded, call next round. Since nextRound calls this function is basicslly a recurrsion callback, I guess
     });
   }
 }
@@ -201,23 +205,32 @@ function capitalizeWords(str, sep) {
   return arr.join(' ');
 }
 
-// Main code!
+
+// ******** Main code! ********
+
+// Attempt to keep from scrolling on load...
+// projectsEl.addEventListener('scroll', ()=> {
+//   if (disableScroll) return
+  // then what?
+// })
+
 
 // Generate All Containers
 const containerIds = new Array(apps.length - 1);
 let containers = 0;
 generateProjectContainers();
+window.scrollTo(0,0);
 
 // Add iframes in rounds
 let iFramesLoaded = 0;
 const iFrameLoaded = new Array(apps.length - 1);
 const projects = apps.length;
 // Assign iFrames per Round based on screen width (at least at start of loading), how many projects per row
-const screenWidth = window.screen.width; // in px
+const screenWidth = window.screen.availWidth; // in px
 let iFramesPerRound = 6; // 3/row
 if (screenWidth < 1884) iFramesPerRound = 4; // 2/row
 if (screenWidth < 1275) iFramesPerRound = 2; // 1/row
-console.log("***** screenWidth: "+screenWidth+"  IFramesPerRound: "+iFramesPerRound);
+// console.log("***** screenWidth: "+screenWidth+"  IFramesPerRound: "+iFramesPerRound);
 
 const rounds =
   Math.floor(projects / iFramesPerRound) + (projects % iFramesPerRound != 0);
