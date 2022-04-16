@@ -10,7 +10,8 @@ const loadingMessage = document.getElementById('loading-message')
 const fullScreenMessage = document.getElementById('full-screen-message');
 const startTime = Date(0);
 let disableScroll = false;
-const loadAllFirst = true;
+let loadAllFirst = sessionStorage.getItem('load-all-first');
+if (loadAllFirst === null) loadAllFirst = false;
 if (loadAllFirst) hideProjectsShowLoader(); else hideLoaderShowProjects();
 
 
@@ -185,10 +186,9 @@ function generateiFrames(start, end) {
       iFramesLoaded++;
       iFrameLoaded[idx] = true;
       const progress = ' '+iFramesLoaded + ' of '+projects;
-      console.log("progress: " + progress);
-      // root.style.setProperty('--progress', progress );
+      // root.style.setProperty('--progress', progress ); // this didn't seem to work
       loadingMessage.textContent = "Loading... " + progress;
-      console.log(loadingMessage);
+
       if (iFramesLoaded === containers) {
         hideLoaderShowProjects();
       } else if (iFramesLoadedThisRound === iFramesPerRound) nextRound(); // When all projects in this round loaded, call next round. Since nextRound calls this function is basically a recurrsion callback, I guess
