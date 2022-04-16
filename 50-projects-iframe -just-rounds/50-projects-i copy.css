@@ -35,11 +35,16 @@ Responsiveness:
   --project-width: min(580px, 100%);
   --project-height: 600px;
   --iframe-width: min(545px, 97%);
-  --progress: "Progressing...";
-  font-size: 18px;
+  font-size: 16px;
 }
 
-@media(max-width: 1327px) {
+@media(max-width: 780px) {
+   :root {
+    font-size: 16px;
+  }
+}
+
+@media(max-width: 688px) {
    :root {
     font-size: 16px;
   }
@@ -49,9 +54,17 @@ Responsiveness:
    :root {
     --project-width: 98%;
     --iframe-width: 98%;
-    font-size: 12px;
+    font-size: 14px;
   }
 }
+
+
+/* @media(max-width: 320px) {
+   :root {
+    --project-width: 250px;
+    --iframe-width: 210px;
+  }
+} */
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -61,28 +74,23 @@ body {
 }
 
 .header {
-  font-size: 1.2rem;
-  /* bizzarely, seemed to need this both here and for h1, then only here???? */
-  font-weight: bold;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding: 0 25px 25px 25px;
-  user-select: none;
-  text-shadow: 1px 1px 0px rgb(30, 1, 53);
+  /* user-select: none; */
+  /* font-size: 1.2rem; */
   /* opacity: 0; */
   /* transition: opacity 2s ease-in; */
-}
-
-.header a {
-  text-decoration: none;
 }
 
 .title {
   margin: 20px 0 0;
   padding: 20px 0 0;
   color: rgb(54, 3, 95);
+  font-size: 2rem;
+  text-shadow: 1px 1px 0px rgb(30, 1, 53);
 }
 
 #random {
@@ -113,7 +121,6 @@ body {
   height: var(--project-height);
   width: var(--project-width);
   margin: 1rem;
-  /* margin-bottom: calc(1rem + 5px); */
   border: 1px solid black;
   box-shadow: -3px -2px 5px inset rgb(40, 3, 109), 1px 1px 4px inset rgba(40, 3, 109, 0.8);
   display: flex;
@@ -122,8 +129,17 @@ body {
   align-items: center;
   background-color: rgba(177, 162, 189, 0.03);
   padding: 20px 25px;
-  padding: 2em 1.8em 1.5em;
   position: relative;
+}
+
+.iframe-filler {
+  width: 100%;
+  height: 100%;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.6;
 }
 
 @media(max-width: 1871px) {
@@ -145,23 +161,9 @@ body {
   /* This would reset every time when went to project and back until started using session storage */
 }
 
-.iframe-inner-container {
-  /* border: 1px inset #ddd; */
-}
-
 .iframe-box {
   width: var(--iframe-width);
   height: var(--iframe-width);
-}
-
-.iframe-filler {
-  width: 100%;
-  height: 100%;
-  font-size: 1.5em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.6;
 }
 
 .link {
@@ -232,17 +234,27 @@ body {
   /* background-color: #e0e0e0; */
 }
 
-#loading-message-container {
+.loading-message {
   position: fixed;
   width: max(30%, 300px);
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
   font-size: 24px;
   opacity: 0.7;
+}
+
+#loading-message {
+  font-size: 20px;
+  font-weight: bold;
+  opacity: 0.8;
+  /* position: fixed;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%); */
 }
 
 #loading-instructions {
@@ -263,34 +275,24 @@ body {
   padding: 2em;
 }
 
-.animated-bg {
+.animated-bg-text {
   display: inline-flex;
   height: 40px;
   width: 300px;
   max-width: 90%;
   margin: 8px 0 0 20px;
-  padding: 1.5em 2em;
-  justify-content: flex-start;
+  /* padding: 11px 0 0 40px; */
+  justify-content: center;
   align-items: center;
   color: rgba(50, 50, 50, .5);
+}
+
+.animated-bg {
   background-image: linear-gradient(to right, #d1d3d6 0%, #e8edee 10%, #d3d5d8 30%, #d4d8db 50%, #d3d5d8 80%, #d1d3d6 100%);
   background-size: 200% 100%;
   animation: bgPos 3s linear infinite;
   border-radius: 5px;
   box-shadow: 2px 2px 10px #d1d3d6;
-}
-
-#loading-message {
-  font-size: 1em;
-  font-weight: bold;
-  opacity: 0.8;
-  margin-left: 1.5em;
-  margin-left: 0;
-  color: purple;
-  /* position: fixed;
-  top: 50%;
-  left: 35%;
-  transform: translate(-50%, -50%); */
 }
 
 @keyframes bgPos {

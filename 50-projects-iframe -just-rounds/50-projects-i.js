@@ -1,18 +1,25 @@
 /** @format */
 
-const root = document.documentElement;
 const projectsEl = document.getElementById('projects');
 // const random = document.getElementById('random');
-const headerEl = document.querySelector('.header');
+// const headerEl = document.querySelector('.header');
 const loader = document.getElementById('loader');
-const loadingMessage = document.getElementById('loading-message')
-// const loadingProgress = document.getElementById('loading-message');
+// const loadingRemaining = document.getElementById('loading-remaining');
 const fullScreenMessage = document.getElementById('full-screen-message');
 const startTime = Date(0);
 let disableScroll = false;
-const loadAllFirst = true;
-if (loadAllFirst) hideProjectsShowLoader(); else hideLoaderShowProjects();
 
+// const root = document.documentElement;
+// const projectWidth = '600px';
+// const iframeWidth = '560px';
+// root.style.setProperty("--project-width", projectWidth);
+
+// window.addEventListener('load', ()=> {
+//   console.log("in load listener"); // only happens once
+// });
+// let controller; // for aborting load event listeners
+
+// random.innerText = `Random #: ${Math.floor(Math.random() * 10000)}`; // Was used to show clearly when screen refreshes
 
 function app(dir, description, color, show, popup, color2) {
   this.dir = dir;
@@ -104,7 +111,6 @@ apps.push(new app('toast-notification', '', '', true));
 apps.push(new app('todo-list', '', '', true));
 apps.push(new app('verify-account-ui', 'Verify Account UI', '', true));
 
-
 function generateProjectContainers() {
   // WIP: Separate iContainer builds from iframe builds. Build all containers first, then attach iframes in rounds
   apps.forEach((app, idx) => {
@@ -149,7 +155,6 @@ function generateProjectContainers() {
 
 }
 
-
 function generateiFrames(start, end) {
   let iFramesLoadedThisRound = 0;
   for (let idx = start; idx <= end; idx++) {
@@ -184,29 +189,10 @@ function generateiFrames(start, end) {
       iFramesLoadedThisRound++;
       iFramesLoaded++;
       iFrameLoaded[idx] = true;
-      const progress = ' '+iFramesLoaded + ' of '+projects;
-      console.log("progress: " + progress);
-      // root.style.setProperty('--progress', progress );
-      loadingMessage.textContent = "Loading... " + progress;
-      console.log(loadingMessage);
-      if (iFramesLoaded === containers) {
-        hideLoaderShowProjects();
-      } else if (iFramesLoadedThisRound === iFramesPerRound) nextRound(); // When all projects in this round loaded, call next round. Since nextRound calls this function is basically a recurrsion callback, I guess
+      if (iFramesLoaded === containers) return; // Done
+      if (iFramesLoadedThisRound === iFramesPerRound) nextRound(); // When all projects in this round loaded, call next round. Since nextRound calls this function is basicslly a recurrsion callback, I guess
     });
   }
-}
-
-function hideProjectsShowLoader() {
-  loader.style.opacity='1';
-  loader.style.visibility = 'visible'
-  setTimeout(()=> {
-    // all this shouldn't be necessary if is hidden in HTML
-    headerEl.style.visibility = 'hidden';
-    headerEl.style.opacity='0';
-    projectsEl.style.visibility='hidden';
-    projectsEl.style.opacity='0';
-    window.scrollTo(0,0)
-  }, 1000);
 }
 
 function hideLoaderShowProjects() {
@@ -255,8 +241,6 @@ const screenWidth = window.screen.availWidth; // in px
 let iFramesPerRound = 6; // 3/row
 if (screenWidth < 1884) iFramesPerRound = 4; // 2/row
 if (screenWidth < 1275) iFramesPerRound = 2; // 1/row
-if (loadAllFirst) iFramesPerRound = projects;
-
 // console.log("***** screenWidth: "+screenWidth+"  IFramesPerRound: "+iFramesPerRound);
 
 const rounds =
