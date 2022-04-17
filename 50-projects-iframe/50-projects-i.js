@@ -2,16 +2,16 @@
 
 const root = document.documentElement;
 const projectsEl = document.getElementById('projects');
-// const random = document.getElementById('random');
 const headerEl = document.querySelector('.header');
 const loader = document.getElementById('loader');
 const loadingMessage = document.getElementById('loading-message')
-// const loadingProgress = document.getElementById('loading-message');
+const loaderCloseButton = document.getElementById('loader-close-button');
 const fullScreenMessage = document.getElementById('full-screen-message');
 const startTime = Date(0);
 let disableScroll = false;
 let loadAllFirst = sessionStorage.getItem('load-all-first');
 if (loadAllFirst === null) loadAllFirst = false;
+// loadAllFirst = true; // for testing only
 if (loadAllFirst) hideProjectsShowLoader(); else hideLoaderShowProjects();
 
 
@@ -185,13 +185,18 @@ function generateiFrames(start, end) {
       iFramesLoadedThisRound++;
       iFramesLoaded++;
       iFrameLoaded[idx] = true;
-      const progress = ' '+iFramesLoaded + ' of '+projects;
-      // root.style.setProperty('--progress', progress ); // this didn't seem to work
-      loadingMessage.textContent = "Loading... " + progress;
-
+      
       if (iFramesLoaded === containers) {
         hideLoaderShowProjects();
-      } else if (iFramesLoadedThisRound === iFramesPerRound) nextRound(); // When all projects in this round loaded, call next round. Since nextRound calls this function is basically a recurrsion callback, I guess
+        return;
+      } else {
+        const progress = ' '+(iFramesLoaded + 1) + ' of '+containers;
+        // root.style.setProperty('--progress', progress ); // this didn't seem to work
+        loadingMessage.textContent = "Loading... " + progress;
+        if (iFramesLoadedThisRound === iFramesPerRound) {
+          nextRound(); // When all projects in this round loaded, call next round. Since nextRound calls this function is basically a recurrsion callback, I guess
+        }
+      }
     });
   }
 }
@@ -241,6 +246,9 @@ function capitalizeWords(str, sep) {
 
 
 // Generate All Containers
+
+loaderCloseButton.addEventListener('click', hideLoaderShowProjects);
+
 const containerIds = new Array(apps.length - 1);
 let containers = 0;
 generateProjectContainers();
@@ -258,10 +266,10 @@ if (screenWidth < 1275) iFramesPerRound = 2; // 1/row
 if (loadAllFirst) iFramesPerRound = projects;
 
 // console.log("***** screenWidth: "+screenWidth+"  IFramesPerRound: "+iFramesPerRound);
-
 const rounds =
-  Math.floor(projects / iFramesPerRound) + (projects % iFramesPerRound != 0);
+Math.floor(projects / iFramesPerRound) + (projects % iFramesPerRound != 0);
 let round = 0;
+loadingMessage.textContent = "Loading... 1 of " + projects;
 nextRound(); // all other calls will be recursive from generateIFrames() when all iframes have loaded for round
 
 function nextRound() {
