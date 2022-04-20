@@ -252,7 +252,6 @@ body {
   width: 100%;
   max-width: 90%;
   margin: 8px 0 0 20px;
-  padding: 1.5em 3em;
   justify-content: flex-start;
   align-items: center;
   color: rgba(50, 50, 50, .5);
@@ -265,6 +264,7 @@ body {
 
 #loading-message {
   font-size: 1em;
+  padding: 1.5em 10%;
   font-weight: bold;
   opacity: 0.8;
   margin-left: 1.5em;
