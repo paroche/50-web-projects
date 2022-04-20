@@ -10,6 +10,7 @@ const fullScreenMessage = document.getElementById('full-screen-message');
 const startTime = Date(0);
 let disableScroll = false;
 let loadAllFirst = sessionStorage.getItem('load-all-first');
+sessionStorage.removeItem('load-all-first');
 if (loadAllFirst === null) loadAllFirst = false;
 // loadAllFirst = true; // for testing only
 if (loadAllFirst) hideProjectsShowLoader(); else hideLoaderShowProjects();
