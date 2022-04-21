@@ -11,7 +11,7 @@ const startTime = Date(0);
 let disableScroll = false;
 let loadAllFirst = sessionStorage.getItem('load-all-first');
 // sessionStorage.removeItem('load-all-first'); // Means that if you refresh page, will resort to default
-if (loadAllFirst === null) loadAllFirst = false;
+if (loadAllFirst == null) loadAllFirst = false;
 // loadAllFirst = true; // for testing only
 if (loadAllFirst) hideProjectsShowLoader(); else hideLoaderShowProjects();
 
