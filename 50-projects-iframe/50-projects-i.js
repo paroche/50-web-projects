@@ -9,9 +9,9 @@ const loaderCloseButton = document.getElementById('loader-close-button');
 const fullScreenMessage = document.getElementById('full-screen-message');
 const startTime = Date(0);
 let disableScroll = false;
-let loadAllFirst = sessionStorage.getItem('load-all-first');
+let loadAllFirst = false;
+if (sessionStorage.getItem('load-all-first') == 'true') loadAllFirst = true;
 // sessionStorage.removeItem('load-all-first'); // Means that if you refresh page, will resort to default
-if (loadAllFirst == null) loadAllFirst = false;
 // loadAllFirst = true; // for testing only
 if (loadAllFirst) hideProjectsShowLoader(); else hideLoaderShowProjects();
 
