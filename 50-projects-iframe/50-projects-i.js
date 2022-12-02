@@ -104,6 +104,7 @@ apps.push(new app('testimonial-box-switcher', '', 'rgb(71,108,244,0.5)', true));
 apps.push(new app('theme-clock', '', '', true));
 apps.push(new app('toast-notification', '', '', true));
 apps.push(new app('todo-list', '', '', true));
+apps.push(new app('tv-search', '', '', true));
 apps.push(new app('verify-account-ui', 'Verify Account UI', '', true));
 
 
