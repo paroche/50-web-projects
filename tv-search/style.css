@@ -43,7 +43,7 @@ header {
   padding: .5rem 1rem;
   color: #fff;
   width: fit-content;
-  width: 30em;
+  width: 20em;
 }
 
 .search::placeholder {

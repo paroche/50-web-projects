@@ -1,5 +1,5 @@
 
-const TV_API_URL = `http://api.tvmaze.com/search/shows`
+const TV_API_URL = `https://api.tvmaze.com/search/shows`
 const form = document.querySelector('#searchForm')
 const query = document.querySelector('#query');
 const submitButton = document.querySelector('#submit')
