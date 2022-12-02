@@ -12,13 +12,13 @@ form.addEventListener('submit', async function (e) {
 
   // Using Axios
   const config = { params: {q: searchTerm}} // this is standard Axios for parameters instead of '?' after url. Can also have headers: {} as another entry in object (e.g. 'config' above
-  // const res = await axios.get(TV_API_URL, config)
-  // displayShows(res.data);
+  const res = await axios.get(TV_API_URL, config)
+  displayShows(res.data);
 
-  // Using fetch instead of Axios (which didn't work on Netlify?):
-  const res = await fetch(TV_API_URL+"?q="+searchTerm);
-  const data = await res.json();
-  displayShows(data)
+  // Using fetch instead of Axios:
+  // const res = await fetch(TV_API_URL+"?q="+searchTerm);
+  // const data = await res.json();
+  // displayShows(data)
   
   // form.elements.query.value = ''
 })
