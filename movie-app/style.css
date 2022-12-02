@@ -41,6 +41,10 @@ header {
   background-color: var(--primary-color);
 }
 
+#submit {
+  margin-left: 5em;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
