@@ -1,4 +1,5 @@
-
+// To Do: Handle missing image, esp for small screen
+// (e.g. when get error on line 16, though it looks like most of data gets thru. But make better substitute for image )
 const TV_API_URL = `https://api.tvmaze.com/search/shows`
 const form = document.querySelector('#searchForm')
 const query = document.querySelector('#query');
@@ -34,11 +35,21 @@ form.addEventListener('submit', async function (e) {
 const displayShows = (shows) => {
   for (let result of shows) {
     const {averageRunTime, genres, image, name, network, premiered, ended, rating, runtime, schedule, status, summary, webChannel} = result.show;
-    const mediumImage = image? image.medium : makeImage(name)
+
+    const mediumImage = image? image.medium : null
+
+
     const strippedSummary=stripped(summary)
     const showEl = document.createElement('DIV')
     showEl.classList.add('show')
-    let showHTML = `<img src="${mediumImage}" alt="${name}">
+    let imgHTML = `<img src="${mediumImage}" alt="${name}">`
+    if (mediumImage === null) {
+      imgHTML = `<div class="missing-image">
+                    <div class="missing-image-name">${name}</div>
+                    <div class="missing-image-chan">${webChannel.name}</div>
+                  </div>`
+    }
+    let showHTML = imgHTML + `
       <div class="summary">
         <div class="">
           <h3>${name}</h3>
@@ -70,7 +81,7 @@ const displayShows = (shows) => {
 }
 
 function noNull(string) {
-  if (string==null) return "" 
+  if (string===null) return "" 
   return string
 }
 
