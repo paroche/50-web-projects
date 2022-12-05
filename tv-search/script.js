@@ -14,6 +14,7 @@ form.addEventListener('submit', async function (e) {
   // Using Axios
   const config = { params: {q: searchTerm}} // this is standard Axios for parameters instead of '?' after url. Can also have headers: {} as another entry in object (e.g. 'config' above
   const res = await axios.get(TV_API_URL, config)
+  clearShows();
   displayShows(res.data);
 
   // Using fetch instead of Axios:
@@ -74,7 +75,7 @@ const displayShows = (shows) => {
         `;
     for (let genre of genres) {
       showHTML += ` ${genre}, `
-      // console.log(genre)
+
     }
     showHTML = showHTML.slice(0, -2)
     showHTML += `</span></h3>`
@@ -85,9 +86,8 @@ const displayShows = (shows) => {
         showHTML += `<h3><span class="heading">Web Channel:</span><span class="content"> ${noNull(webChannel.name)} </span></h3>`
       }}
     showHTML += `</div>`
-    console.log(showHTML)
     showEl.innerHTML = showHTML
-    showEl.addEventListener('click', () => showShow(result.show))
+    // showEl.addEventListener('click', () => showShow(result.show))
     showsContainer.appendChild(showEl);
   }
 }
@@ -101,28 +101,32 @@ function makeImage(name) {
   return name
 }
 
-function showShow(show) {
+function clearShows() {
   showsContainer.innerHTML = ''
-  return null
-  console.log(show)
-  console.log(" ",show.name)
-  console.log("Genre(s):")
-  for (let genre of show.genres) {
-    console.log(" ",genre)
-  }
-  console.log(stripped(show.summary))
-  showIfNotNull("Premiered: ",show.premiered)
-  showIfNotNull("Ended:     ",show.ended)
-  if (show.webChannel) showIfNotNull("Web Channel: ",show.webChannel.name)
-  showIfNotNull("Average Run Time: ", show.averageRuntime)
-  showIfNotNull("Average Rating: ", show.rating.average)
 }
 
+// function showShow(show) {
+//   showsContainer.innerHTML = ''
+//   return null
+//   console.log(show)
+//   console.log(" ",show.name)
+//   console.log("Genre(s):")
+//   for (let genre of show.genres) {
+//     console.log(" ",genre)
+//   }
+//   console.log(stripped(show.summary))
+//   showIfNotNull("Premiered: ",show.premiered)
+//   showIfNotNull("Ended:     ",show.ended)
+//   if (show.webChannel) showIfNotNull("Web Channel: ",show.webChannel.name)
+//   showIfNotNull("Average Run Time: ", show.averageRuntime)
+//   showIfNotNull("Average Rating: ", show.rating.average)
+// }
 
 
-function showIfNotNull(label, val) {
-  if (val) console.log(label, val)
-}
+
+// function showIfNotNull(label, val) {
+//   if (val) console.log(label, val)
+// }
 
 function stripped(htmlString) {
   let newString = htmlString.replace(/(<([^>]+)>)/gi, "").replace('&amp;', '&');
