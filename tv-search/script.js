@@ -1,5 +1,5 @@
-// To Do: Handle missing image, esp for small screen
-// (e.g. when get error on line 16, though it looks like most of data gets thru. But make better substitute for image )
+// Next - sort by name? Seems to be by popularity or rating or something.
+
 const TV_API_URL = `https://api.tvmaze.com/search/shows`
 const form = document.querySelector('#searchForm')
 const query = document.querySelector('#query');
@@ -35,24 +35,36 @@ form.addEventListener('submit', async function (e) {
 const displayShows = (shows) => {
   for (let result of shows) {
     const {averageRunTime, genres, image, name, network, premiered, ended, rating, runtime, schedule, status, summary, webChannel} = result.show;
-
-    const mediumImage = image? image.medium : null
-
+    
+    let mediumImage = image ? image.medium : null
+    const missingImage = (mediumImage === null)
+    if (!mediumImage) {
+      const canvas = document.createElement('canvas')
+      const width = 300
+      const height = 421
+      canvas.width = width
+      canvas.height = height
+      const ctx = canvas.getContext('2d')
+      ctx.fillStyle = 'rgba(0, 0, 0, 0)'
+      ctx.fillRect(0,0, width, height)
+      mediumImage = canvas.toDataURL()
+    }
 
     const strippedSummary=stripped(summary)
     const showEl = document.createElement('DIV')
     showEl.classList.add('show')
+
     let imgHTML = `<img src="${mediumImage}" alt="${name}">`
-    if (mediumImage === null) {
-      imgHTML = `<div class="missing-image">
-                    <div class="missing-image-name">${name}</div>
-                    <div class="missing-image-chan">${webChannel.name}</div>
+    if (missingImage) {
+      imgHTML += `<div class="missing-image">
+                    <h3 class="missing-image-name">${name}</h3>
+                    <h4 class="missing-image-chan">${webChannel.name}</h4>
                   </div>`
     }
     let showHTML = imgHTML + `
       <div class="summary">
         <div class="">
-          <h3>${name}</h3>
+          <h2>${name}</h2>
         </div>
         <div>
           <h3>Summary</h3>

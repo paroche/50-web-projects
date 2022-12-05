@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 :root {
-  /* --primary-color: #22254b;
-  --secondary-color: #373b69; */
   --primary-color: #610606;
   --secondary-color: #1c0202;
 }
@@ -9,6 +7,8 @@
 * {
   box-sizing: border-box;
   user-select: none;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -29,6 +29,14 @@ header {
   padding-right: .4em;
 }
 
+h2 {
+  margin-bottom: .4em;
+}
+
+h3 {
+  margin-top: .3em;
+}
+
 .content {
   /* font-size: 1em; */
   font-weight: normal;
@@ -41,6 +49,7 @@ header {
   font-family: inherit;
   font-size: 1rem;
   padding: .5rem 1rem;
+  margin: .5rem 0 0 1rem;
   color: #fff;
   width: fit-content;
   width: 20em;
@@ -83,10 +92,11 @@ main {
 }
 
 .missing-image {
-  width: 300px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
   width: 100%;
-  height: 421px;
-  /* above height not responsive */
   color: white;
   display: flex;
   flex-direction: column;
@@ -96,6 +106,7 @@ main {
 }
 
 .missing-image-name {
+  /* width: fit-content; */
   text-align: center;
   font-size: 1.2em;
 }
