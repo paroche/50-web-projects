@@ -123,6 +123,8 @@ main {
   justify-content: space-between;
   padding: 0.5rem 1rem 1rem;
   letter-spacing: 0.5px;
+  height: 80%;
+  /* testing */
 }
 
 .show-info h3 {
@@ -149,6 +151,8 @@ main {
 }
 
 .summary {
+  /* margin-top: 20%; */
+  /* testing. Didn't change anything? */
   background-color: #fff;
   padding: 2rem;
   position: absolute;
@@ -157,11 +161,11 @@ main {
   right: 0;
   max-height: 100%;
   transform: translateY(101%);
-  transition: transform 0.3s ease-in;
-  /* Mine. Fixed problem w/ long summarys */
+  transition: transform .55s ease-in;
   overflow-y: auto;
 }
 
 .show:hover .summary {
-  transform: translateY(0);
+  transform: translateY(0%);
+  opacity: 0.96;
 }

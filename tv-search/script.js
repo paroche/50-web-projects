@@ -1,4 +1,6 @@
 // Next - sort by name? Seems to be by popularity or rating or something.
+// Get cast? Show # seems to be in _links.self at end after last '/'
+// Then http2://api.tvmaze.com/shows/(showid)/cast
 
 const TV_API_URL = `https://api.tvmaze.com/search/shows`
 const form = document.querySelector('#searchForm')
@@ -8,20 +10,18 @@ const showsContainer = document.querySelector('#shows')
 
 form.addEventListener('submit', async function (e) {
   e.preventDefault();
-  // console.dir(this)
   const searchTerm = form.elements.query.value
+  clearShows();
 
   // Using Axios
-  const config = { params: {q: searchTerm}} // this is standard Axios for parameters instead of '?' after url. Can also have headers: {} as another entry in object (e.g. 'config' above
+  const config = { params: {q: searchTerm}} // this is standard Axios for parameters instead of '?' after url. Can also have headers: {} as another entry in object (e.g. 'config' aboveTV
   const res = await axios.get(TV_API_URL, config)
-  clearShows();
   displayShows(res.data);
-
+  
   // Using fetch instead of Axios:
   // const res = await fetch(TV_API_URL+"?q="+searchTerm);
   // const data = await res.json();
   // displayShows(data)
-  
   // form.elements.query.value = ''
 })
 
@@ -33,10 +33,30 @@ form.addEventListener('submit', async function (e) {
 //   }
 // })
 
-const displayShows = (shows) => {
+const displayShows = async (shows) => {
   for (let result of shows) {
-    const {averageRunTime, genres, image, name, network, premiered, ended, rating, runtime, schedule, status, summary, webChannel} = result.show;
-    
+    const {averageRunTime, genres, image, name, network, premiered, ended, rating, runtime, schedule, status, summary, webChannel, _links} = result.show;
+    // Get Show Number
+    const self = _links.self.href
+    const showId = self.slice(self.lastIndexOf('/')+1)
+
+    // Get Cast
+    const cast_API_URL = `https://api.tvmaze.com/shows/${showId}/cast`
+    const castRes = await axios.get(cast_API_URL)
+    const cast = castRes.data
+    let castList = ''
+
+    for (let i = 0; Math.max(4, cast.length); i++ ) {
+      if (cast[i]) {
+        // console.log("cast[i]: ",cast[i])
+        // console.log('cast[i].person: ',cast[i].person)
+        // console.log('cast[i].person.name: ',cast[i].person.name)
+        castList += cast[i].person.name + " "
+      }
+    }
+    console.log("cast: ",cast)
+    console.log("castList: ",castList);
+
     let mediumImage = image ? image.medium : null
     const missingImage = (mediumImage === null)
     if (!mediumImage) {
