@@ -78,11 +78,11 @@ const displayShows = async (shows) => {
                   </div>`
     }
     let showHTML = imgHTML + `
-      <div class="summary">
+      <div class="show-info">
         <div class="">
           <h2>${name}</h2>
         </div>
-        <div>
+        <div class="summary">
           <h3>Summary</h3>
             ${strippedSummary}
         </div>
@@ -90,7 +90,6 @@ const displayShows = async (shows) => {
         `
     for (let genre of genres) {
       showHTML += ` ${genre}, `
-
     }
     showHTML = showHTML.slice(0, -2)
     showHTML += `</span></h3>`
@@ -103,18 +102,13 @@ const displayShows = async (shows) => {
       }}
     showHTML += `</div>`
     showEl.innerHTML = showHTML
-    // showEl.addEventListener('click', () => showShow(result.show))
     showsContainer.appendChild(showEl)
   }
 }
 
 function noNull(string) {
-  if (string===null) return "" 
+  if (string === null) return "" 
   return string
-}
-
-function makeImage(name) {
-  return name
 }
 
 function clearShows() {
@@ -136,12 +130,6 @@ function clearShows() {
 //   if (show.webChannel) showIfNotNull("Web Channel: ",show.webChannel.name)
 //   showIfNotNull("Average Run Time: ", show.averageRuntime)
 //   showIfNotNull("Average Rating: ", show.rating.average)
-// }
-
-
-
-// function showIfNotNull(label, val) {
-//   if (val) console.log(label, val)
 // }
 
 function stripped(htmlString) {
