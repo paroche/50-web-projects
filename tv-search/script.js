@@ -2,27 +2,26 @@
 // Get cast? Show # seems to be in _links.self at end after last '/'
 // Then http2://api.tvmaze.com/shows/(showid)/cast
 
-const TV_API_URL = `https://api.tvmaze.com/search/shows`
 const form = document.querySelector('#searchForm')
-const query = document.querySelector('#query');
+const query = document.querySelector('#query')
 const submitButton = document.querySelector('#submit')
 const showsContainer = document.querySelector('#shows')
+const TV_API_URL = `https://api.tvmaze.com/search/shows`
 
 form.addEventListener('submit', async function (e) {
-  e.preventDefault();
+  e.preventDefault()
   const searchTerm = form.elements.query.value
-  clearShows();
+  clearShows()
 
   // Using Axios
-  const config = { params: {q: searchTerm}} // this is standard Axios for parameters instead of '?' after url. Can also have headers: {} as another entry in object (e.g. 'config' aboveTV
+  const config = { params: {q: searchTerm}} // this is standard Axios for parameters instead of '?' after url. Can also have headers: {} as another entry in object (e.g. 'config' above)
   const res = await axios.get(TV_API_URL, config)
-  displayShows(res.data);
+  displayShows(res.data)
   
   // Using fetch instead of Axios:
   // const res = await fetch(TV_API_URL+"?q="+searchTerm);
   // const data = await res.json();
   // displayShows(data)
-  // form.elements.query.value = ''
 })
 
 // If press enter on query field, submit
@@ -35,7 +34,7 @@ form.addEventListener('submit', async function (e) {
 
 const displayShows = async (shows) => {
   for (let result of shows) {
-    const {averageRunTime, genres, image, name, network, premiered, ended, rating, runtime, schedule, status, summary, webChannel, _links} = result.show;
+    const {averageRunTime, genres, image, name, network, premiered, ended, rating, runtime, schedule, status, summary, webChannel, _links} = result.show
     // Get Show Number
     const self = _links.self.href
     const showId = self.slice(self.lastIndexOf('/')+1)
@@ -45,17 +44,13 @@ const displayShows = async (shows) => {
     const castRes = await axios.get(cast_API_URL)
     const cast = castRes.data
     let castList = ''
-
-    for (let i = 0; Math.max(4, cast.length); i++ ) {
+    let maxCast = Math.min(4, cast.length-1)
+    for (let i = 0; i <= maxCast; i++ ) {
       if (cast[i]) {
-        // console.log("cast[i]: ",cast[i])
-        // console.log('cast[i].person: ',cast[i].person)
-        // console.log('cast[i].person.name: ',cast[i].person.name)
-        castList += cast[i].person.name + " "
+        castList += cast[i].person.name
+        if (i < maxCast) castList += ", "
       }
-    }
-    console.log("cast: ",cast)
-    console.log("castList: ",castList);
+    } 
 
     let mediumImage = image ? image.medium : null
     const missingImage = (mediumImage === null)
@@ -92,13 +87,14 @@ const displayShows = async (shows) => {
             ${strippedSummary}
         </div>
         <h3><span class="heading">Genres:</span><span class="content">
-        `;
+        `
     for (let genre of genres) {
       showHTML += ` ${genre}, `
 
     }
     showHTML = showHTML.slice(0, -2)
     showHTML += `</span></h3>`
+    if (castList) showHTML += `<h3><span class="heading">Cast:</span><span class="content"> ${castList}</span></h3>`
     showHTML += `<h3><span class="heading">Premiered:</span><span class="content"> ${noNull(premiered)}</span></h3>`
     if (ended) showHTML += `<h3><span class="heading">Ended:</span><span class="content"> ${noNull(ended)}</span></h3>`
     if (webChannel) {
@@ -108,7 +104,7 @@ const displayShows = async (shows) => {
     showHTML += `</div>`
     showEl.innerHTML = showHTML
     // showEl.addEventListener('click', () => showShow(result.show))
-    showsContainer.appendChild(showEl);
+    showsContainer.appendChild(showEl)
   }
 }
 
@@ -149,6 +145,6 @@ function clearShows() {
 // }
 
 function stripped(htmlString) {
-  let newString = htmlString.replace(/(<([^>]+)>)/gi, "").replace('&amp;', '&');
+  let newString = htmlString.replace(/(<([^>]+)>)/gi, "").replace('&amp;', '&')
   return newString
 }
