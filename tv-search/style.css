@@ -34,7 +34,9 @@ h2 {
 }
 
 h3 {
+  font-size: 1rem;
   margin-top: .3em;
+  /* trigger change for git */
 }
 
 .content {
