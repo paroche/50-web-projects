@@ -10,6 +10,7 @@ const fullScreenMessage = document.getElementById('full-screen-message');
 const startTime = Date(0);
 let disableScroll = false;
 let loadAllFirst = false;
+loadAllFirst = true; // until fix scrolling problem
 if (sessionStorage.getItem('load-all-first') == 'true') loadAllFirst = true;
 // sessionStorage.removeItem('load-all-first'); // Means that if you refresh page, will resort to default
 // loadAllFirst = true; // for testing only
