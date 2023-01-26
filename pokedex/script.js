@@ -58,9 +58,12 @@ const createPokemonCard = (pokemon) => {
   }
 
   pokemonEl.style.background = background;
+  // <img src="https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png" alt=""> // doesn't work any more
+  // <img src="https://pokeres.bastionbot.org/images/pokeman/${pokemon.id}.png" alt=""> // now in video, but doesn't work
+  let id = ("00" + pokemon.id).slice(-3);
   const pokemonInnerHTML = `
       <div class="img-container">
-        <img src="https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png" alt="">
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id}.png" alt="">
       </div>
       <div class="info">
         <span class="number">#${poke_id}</span>

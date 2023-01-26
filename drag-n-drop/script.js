@@ -1,6 +1,7 @@
 const fill = document.querySelector('.fill');
 const empties= document.querySelectorAll('.empty');
 
+// So far not working with touch devices
 fill.addEventListener('dragstart', dragStart);
 fill.addEventListener('touchstart', dragStart);
 fill.addEventListener('touchmove', dragStart);
@@ -28,7 +29,6 @@ function dragEnd() {
 }
 function dragOver(e) {
   e.preventDefault(); /* Default action:	Reset the current drag operation to "none".*/
-
 }
 function dragEnter(e) {
   e.preventDefault(); /* Default action:	Reject immediate user selection as potential target element. */
