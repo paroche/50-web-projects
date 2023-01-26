@@ -36,7 +36,6 @@ h2 {
 h3 {
   font-size: 1rem;
   margin-top: .3em;
-  /* trigger change for git */
 }
 
 .content {
@@ -117,40 +116,6 @@ main {
   text-align: center;
   font-size: .9em;
 }
-
-
-/* Old code */
-
-
-/* 
-.show-info {
-  color: #eee;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1rem 1rem;
-  letter-spacing: 0.5px;
-  height: 80%;
-}
-.show-info h3 {
-  margin-top: 0;
-}
-.show-info span {
-  background-color: var(--primary-color);
-  padding: .25rem .5rem;
-  border-radius: 3px;
-  font-weight: bold;
-}
-.show-info span.green {
-  color: lightgreen;
-}
-.show-info span.orange {
-  color: orange;
-}
-.show-info span.red {
-  color: red;
-}
-*/
 
 .show-info {
   background-color: #fff;

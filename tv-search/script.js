@@ -54,7 +54,7 @@ const displayShows = async (shows) => {
 
     let mediumImage = image ? image.medium : null
     const missingImage = (mediumImage === null)
-    if (!mediumImage) {
+    if (missingImage) {
       const canvas = document.createElement('canvas')
       const width = 300
       const height = 421
@@ -71,7 +71,7 @@ const displayShows = async (shows) => {
     showEl.classList.add('show')
 
     let imgHTML = `<img src="${mediumImage}" alt="${name}">`
-    if (missingImage) {
+    if (missingImage) { // overlay for blank mising image
       imgHTML += `<div class="missing-image">
                     <h3 class="missing-image-name">${name}</h3>
                     <h4 class="missing-image-chan">${webChannel.name}</h4>
