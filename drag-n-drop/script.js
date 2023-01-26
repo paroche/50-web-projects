@@ -3,6 +3,7 @@ const empties= document.querySelectorAll('.empty');
 
 fill.addEventListener('dragstart', dragStart);
 fill.addEventListener('touchstart', dragStart);
+fill.addEventListener('touchmove', dragStart);
 fill.addEventListener('dragend', dragEnd);
 fill.addEventListener('touchend', dragEnd);
 
