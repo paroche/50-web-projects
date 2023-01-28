@@ -1,30 +1,3 @@
-/*
-To do:
-
-Scrolling issue on buffered loading
-
-"Drag image from Box to Box" -- doesn't work on phone - holding makes image disappear.
-
-Drawing App -- not working on phone
-
-Hoverboard - can't drag, only ta (on phone)
-
-Unsplash API - Not loading?
-
-Notepad -- add note doesn't clear current note?
-
-Image password strength - on phone, very little of image visable, not enough transparancy of input screen.
-
-Rotating nav animation - not enough shows on smaller screens or frames
-
-Done:
-
-"Custom Range Slider" -- Done - changed from using flexbox justify-content center to regular padding. Stopped positioning title & header absolute - wasn't very responsive that way. Seems to work better.
-
-Pokedex -- images not showing. Fixed. Had to change where was getting image.
-*/
-
-
 /** @format */
 
 const projectsEl = document.getElementById('projects');

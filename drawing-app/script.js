@@ -34,13 +34,20 @@ updateColorPickers();
 // In Firefox, slider knob won't automatically reset, so:
 updateEraserSlider();
 
-canvas.addEventListener('mousedown', (e) => {
+canvas.addEventListener('mousedown', (e) => pressed(e));
+canvas.addEventListener('touchstart', (e) => pressed(e));
+
+function pressed(e) {
   isPressed = true;
   x = e.offsetX;
   y = e.offsetY;
-});
+}
 
-canvas.addEventListener('mousemove', (e) => {
+
+canvas.addEventListener('mousemove', (e) => move(e))
+canvas.addEventListener('touchmove', (e) => move(e))
+
+function move(e) {
   if (isPressed) {
     const x2 = e.offsetX;
     const y2 = e.offsetY;
@@ -53,7 +60,7 @@ canvas.addEventListener('mousemove', (e) => {
       ctx.clearRect(x2, y2, eraserSize, eraserSize);
     }
   }
-});
+};
 
 canvas.addEventListener('mouseup', (e) => {
   isPressed = false;
