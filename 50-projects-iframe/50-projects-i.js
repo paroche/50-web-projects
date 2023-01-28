@@ -9,13 +9,14 @@ Scrolling issue on buffered loading
 
 Hoverboard - can't drag, only ta (on phone)
 
-Unsplash API - Not loading?
+
 
 Notepad -- add note doesn't clear current note?
 
 Image password strength - on phone, very little of image visable, not enough transparancy of input screen.
 
 Rotating nav animation - not enough shows on smaller screens or frames
+
 
 Semi-Done:
 
@@ -28,7 +29,11 @@ Done:
 "Custom Range Slider" -- Done - changed from using flexbox justify-content center to regular padding. Stopped positioning title & header absolute - wasn't very responsive that way. Seems to work better.
 
 Pokedex -- images not showing. Fixed. Had to change where was getting image.
+
+Unsplash API w/ Hidden Search -- Not loading - removed proxy & it worked
+
 */
+
 
 
 /** @format */
