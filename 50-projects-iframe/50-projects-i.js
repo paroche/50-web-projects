@@ -5,17 +5,19 @@ Scrolling issue on buffered loading
 
 
 
-
-
 Hoverboard - can't drag, only ta (on phone)
 
-
+Liver User Filter - More description, top cut off in iFrame and, to a lesser degree, on phone
 
 Notepad -- add note doesn't clear current note?
 
 Image password strength - on phone, very little of image visable, not enough transparancy of input screen.
 
 Rotating nav animation - not enough shows on smaller screens or frames
+
+Split Landing Page - more adaptive for phone
+
+Theme Clock - Move Dark Mode button up a tad on iframe and phone
 
 
 Semi-Done:
