@@ -10,9 +10,13 @@ fill.addEventListener('touchend', dragEnd);
 
 for(const empty of empties) {
   empty.addEventListener('dragover', dragOver);
+
   empty.addEventListener('dragenter', dragEnter);
+  // enpty.addEventListener('touchenter', dragEnter); // w/ this, won't show image in new box or drop
   empty.addEventListener('dragleave', dragLeave);
+  empty.addEventListener('touchleave', dragLeave);
   empty.addEventListener('drop', dragDrop);
+
 }
 
 function dragStart() {
