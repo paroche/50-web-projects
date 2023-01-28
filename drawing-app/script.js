@@ -34,6 +34,8 @@ updateColorPickers();
 // In Firefox, slider knob won't automatically reset, so:
 updateEraserSlider();
 
+// Have some pointelist functionality w/ touch, but not really drawing
+
 canvas.addEventListener('mousedown', (e) => pressed(e));
 canvas.addEventListener('touchstart', (e) => pressed(e));
 
@@ -46,6 +48,7 @@ function pressed(e) {
 
 canvas.addEventListener('mousemove', (e) => move(e))
 canvas.addEventListener('touchmove', (e) => move(e))
+canvas.addEventListener('touchend, (e) => move(e)')
 
 function move(e) {
   if (isPressed) {

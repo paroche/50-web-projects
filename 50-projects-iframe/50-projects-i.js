@@ -5,7 +5,7 @@ Scrolling issue on buffered loading
 
 
 
-Drawing App -- not working on phone
+Drawing App -- not working on touch device -- made some change, now just puts a point
 
 Hoverboard - can't drag, only ta (on phone)
 
