@@ -5,7 +5,7 @@ Scrolling issue on buffered loading
 
 
 
-Drawing App -- not working on touch device -- made some change, now just puts a point. Even with mouse, is off target drawing in iframe.
+
 
 Hoverboard - can't drag, only ta (on phone)
 
@@ -20,6 +20,8 @@ Rotating nav animation - not enough shows on smaller screens or frames
 Semi-Done:
 
 "Drag image from Box to Box" -- doesn't work on phone - holding makes image disappear. - Resolved by saying if for mouse devices only.
+Drawing App -- not working on touch device -- made some change, now just puts a point. Even with mouse, is off target drawing in iframe. Put in message that it works best w/ mouse in fullscreen
+
 
 Done:
 
